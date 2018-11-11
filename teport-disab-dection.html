@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <title>报障详情</title>
+</head>
+
+<body>
+    <div class="">
+        <h3 class="warp-tit-h3">报障详情</h3>
+        <div class="warp-btns">
+
+            <span class="dy-btn go-back">
+                &lt;&lt; 返回</span>
+            <span class="dy-btn msgedit">打印</span>
+           
+        </div>
+        <!-- 这是一条华丽的分割线 hr  -->
+        <hr style=" margin: 20px auto;width: 98%;color:#ccc; ">
+
+        <!--  列表详细内容展示区域 -->
+        <p class="decion-tit">报障信息</p>
+        <ul class="clearfix decion-box" style="width:50%">
+            <li class="fl">
+                <span>业主/房客:</span> 兰州高新区</li>
+            <li class="fl">
+                <span>楼宇名称:</span>里二狗</li>
+            <li class="fl">
+                <span>房间号:</span>41321654894610</li>
+            <li class="fl">
+                <span>故障设施:</span> 企业</li>
+            <li class="fl">
+                <span>故障描述:</span> 765416+497</li>
+            <li class="fl tdimg">
+                <span>图片:</span>
+                <img src="images/1.jpg" alt="" width="30px;" height="20px;">
+                <img src="images/2.jpg" alt="" width="30px;" height="20px;">
+                <img src="images/3.jpg" alt="" width="30px;" height="20px;">
+            </li>
+            <li class="fl">
+                <span>维修时间:</span> 2018-18-78</li>
+            <li class="fl">
+                <span>联系电话:</span> 765416+497</li>
+            <li class="fl">
+                <span>派工状态:</span> 已派工</li>
+            <li class="fl">
+                <span>处理结果:</span> 一处理+497</li>
+            <li class="fl">
+                <span>处理时间:</span> 201-78989</li>
+            <li class="fl">
+                <span>维修费用:</span> 1000元+497</li>
+            <li class="fl">
+                <span>材料费用:</span> 1000元+497</li>
+            <li class="fl">
+                <span>支付方式:</span> 支付宝</li>
+            <li class="fl">
+                <span>支付金额:</span> 1000元+497</li>
+
+        </ul>
+        <p class="decion-tit">派工记录</p>
+        <ul class="clearfix decion-box" style="width:50%">
+            <li class="fl">
+                <span>工单编号:</span> 5461321</li>
+            <li class="fl">
+                <span>报修编号:</span> 184131986541</li>
+            <li class="fl">
+                <span>维修人:</span> 8513541684846</li>
+            <li class="fl">
+                <span>状态:</span> 566456168</li>
+            <li class="fl">
+                <span>现场描述:</span> 兰州市城关区</li>
+            <li class="fl tdimg">
+                <span>图片:</span>
+                <img src="images/1.jpg" alt="" width="30px;" height="20px;">
+            </li>
+            <li class="fl">
+                <span>维修时间:</span> 2018-18-78</li>
+            <li class="fl">
+                <span>维修费用:</span> 1000元+497</li>
+            <li class="fl">
+                <span>材料费用:</span> 1000元+497</li>
+            <li class="fl">
+                <span>合计费用:</span> 1000元+497</li>
+            <li class="fl">
+                <span>客户确认:</span> 1000元+497</li>
+            <li class="fl">
+                <span>反馈意见:</span> 一处理</li>
+        </ul>
+
+        <div class="warp-show-list">
+            <table class="layui-table" lay-skin="line" table id="tb_1" cellspacing="0" cellpadding="2" width="100%" border="1" style="width:50%">
+
+                <thead>
+                    <tr>
+                        <th>材料名称</th>
+                        <th>材料提供方 </th>
+                        <th>单价</th>
+                        <th>金额</th>
+                        <th>备注</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>高新A座</td>
+                        <td>20</td>
+                        <td>1008</td>
+                        <td>20</td>
+                        <td>aa</td>
+
+                    </tr>
+                    <tr>
+                        <td>高新A座</td>
+                        <td>20</td>
+                        <td>1008</td>
+                        <td>20</td>
+                        <td>aa</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+
+<!-- 图片放大显示 -->
+<div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:99;width:100%;height:100%;display:none;">
+    <div id="innerdiv" style="position:absolute;">
+        <img id="bigimg" src="" />
+    </div>
+</div>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+
+<!-- 封装图片放大函数 -->
+<script type="text/javascript" src="js/imgbig.js"></script>
+
+<script type="text/javascript">
+    // $(".warpbox").height($("body,html").height() - 150);
+
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+
+    //  点击编辑按钮
+    $(".msgedit").each(function () {
+        $(this).click(function () {
+            top.layer.open({
+                type: 2,
+                closeBtn: 0,
+                anim: -1, //  不需要平滑动画
+                title: false,
+                shadeClose: false, //点击遮罩关闭层
+                area: ['100%', '100%'],
+                content: 'project-edit.html',
+                // end: function () {
+                // 	location.reload(); //点击后刷新父页面
+                // },
+                // btn: ['提交', '取消'],
+                // no: function (index, layero) {
+
+                // },
+                // yes: function (index, layero) {
+
+                // }
+
+            });
+        })
+    })
+    /*获取弹出窗口索引*/
+    var index = parent.layer.getFrameIndex(window.name);
+    /*取消*/
+    $(".go-back").click(function () {
+        parent.layer.close(index);
+    })
+
+    // 点击图片放大
+    $(".tdimg img").each(function () {
+        $(this).click(function () {
+            var _this = $(this);//将当前的img元素作为_this传入函数  
+            imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);
+
+        })
+    })
+</script>
+
+
+
+</html>

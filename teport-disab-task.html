@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+
+    <title>派工</title>
+    <style>
+        .d-worpbox {
+            padding: 10px 20px;
+        }
+
+        .left-laytree {
+            width: 46%;
+
+
+        }
+
+        .dep-title {
+            line-height: 50px;
+
+        }
+
+        .smai-tree {
+            margin-top: 0;
+            border: 1px solid #ccc;
+            padding: 10px 0;
+            height: 280px;
+            max-height: 280px;
+            overflow-y: auto;
+        }
+
+        .right-showbox {
+            width: 50%;
+            margin-left: 3%;
+        }
+
+
+        .layui-input-block {
+            margin-left: 90px;
+        }
+
+        .layui-form-label {
+            float: left;
+            display: block;
+            padding: 9px 15px;
+            width: 60px;
+            font-weight: 400;
+            line-height: 18px;
+            text-align: left;
+        }
+
+        .layui-form-label {
+            float: left;
+            display: block;
+            padding: 9px 10px;
+            width: 60px;
+            font-weight: 400;
+            line-height: 18px;
+            text-align: right;
+        }
+
+        .formbox {
+            border: 1px solid #ccc;
+            padding: 20px 0;
+            height: 260px;
+        }
+
+        .list-li {
+            margin-top: 18px;
+            cursor: pointer;
+            font: 14px/30px "myfont";
+            color: #333;
+
+        }
+
+        .r-list {
+            margin: 0 auto;
+            padding: 6px 0 0 0;
+            /* width: 290px; */
+            height: 294px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+
+        }
+
+        .r-list li {
+            padding: 0px 20px;
+            height: 30px;
+        }
+
+        .list-li li:hover {
+            background: #EFEEF0;
+        }
+
+        .l-list li p,
+        .r-list li p {
+            float: left;
+            max-width: 220px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clearfix  d-worpbox">
+        <div class="fl  left-laytree">
+            <h3 class="dep-title">人员列表</h3>
+
+            <ul id="demo" class="layui-form  smai-tree"></ul>
+
+        </div>
+        <div class="fl right-showbox">
+            <h3 class="dep-title">选中人员</h3>
+            <ul class="r-list list-li">
+                <!-- <li>高新大厦管理处  <i class="fr layui-icon layui-icon-close li-delte"></i></li>
+                     -->
+                <li class="1" duigou="1">
+                    <p>高新大厦 1</p>
+                    <i class="fr layui-icon layui-icon-close li-delte"></i>
+                </li>
+                <li class="2" duigou="2">
+                    <p>高新大厦 2</p>
+                    <i class="fr layui-icon layui-icon-close li-delte"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+<!-- <script src="js/laytree.js"></script> -->
+
+
+<script type="text/javascript">
+
+    layui.use(['form', 'laydate', 'tree'], function () {
+        var form = layui.form, laydate = layui.laydate, tree = layui.tree;
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#data1', //指定元素
+            theme: '#1890ff',
+        });
+
+        layui.tree({
+            elem: '#demo' //传入元素选择器
+            ,
+            nodes: [{
+                isEndNode: false,
+                name: '兰州树茂物业',
+                children: [{
+                    isEndNode: false,
+                    name: '财务部',
+                    children: [{
+                        isEndNode:true,
+                        name: '你大爷 ',
+
+                    }]
+                }]
+            },
+            {
+                isEndNode: false,
+                name: '兰州树茂物业 ',
+                children: [{
+                    isEndNode: false,
+                    name: '财务部',
+                    children: [{
+                        isEndNode:true,
+                        name: '二大爷',
+                    }]
+                }]
+                
+            }]
+            , click: function (obj) {
+                if(obj.isEndNode){
+                    console.log(obj);
+                    obj.name = "二大爷 &#10004;";
+                    //js树节点加载完毕,向html标签中添加对勾
+                    //......
+
+                }
+            }
+        });
+
+    });
+
+   
+
+</script>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="lib/layui/css/layui.css" />
+    <link rel="stylesheet" href="css/public.css" />
+    <link rel="stylesheet" href="css/houseView.css" />
+    <title>房子租金账单</title>
+</head>
+
+<body>
+
+    <ul class="myUl_y">
+        <li>
+            <div class="tableTop">
+                <p>待处理账单(600元) &nbsp; 账单金额(600元) &nbsp; 滞纳金(600元) </p>
+               
+                <span>提醒</span>
+                <span>批量收款</span>
+            </div>
+            <div class="pBox_y">
+                <!-- 表格 -->
+            <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
+            </div>
+        </li>
+        <li>
+            <div class="tableTop">
+                <p>缴费记录(600元) </p>
+                 <span class="dection">测试 表单详情</span>
+            </div>
+            <div class="pBox_y">
+                    <table class="layui-hide" id="LAY_table_user2" lay-filter="user"></table>
+            </div>
+        </li>
+       
+    </ul>
+
+</body>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+<script>
+
+     //一般直接写在一个js文件中
+     layui.use(['layer', 'form', 'laypage', 'table'], function () {
+        var layer = layui.layer,
+            form = layui.form;
+        var form = layui.form;
+        var table = layui.table;
+
+        //方法级渲染
+        table.render({
+            elem: '#LAY_table_user'
+            , url: '/demo/table/user/'
+            , cols: [[
+                { checkbox: true, fixed: true }
+                , { field: 'id', title: '计费周期', sort: true, fixed: true }
+               
+                , { field: 'sex', title: '账单状态', sort: true }
+                , { field: 'city', title: '账单金额', }
+                , { field: 'sign', title: '滞纳金' }
+                , { field: 'sign', title: '未收金额' }              
+                , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
+            ]]
+            , id: 'testReload'
+            , page: true
+            , height: 315
+        });
+
+        var $ = layui.$, active = {
+            reload: function () {
+                var demoReload = $('#demoReload');
+
+                //执行重载
+                table.reload('testReload', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        key: {
+                            id: demoReload.val()
+                        }
+                    }
+                });
+            }
+        };
+
+        //  第二个表格
+
+
+         //方法级渲染
+         table.render({
+            elem: '#LAY_table_user2'
+            , url: '/demo/table/user/'
+            , cols: [[
+                { checkbox: true, fixed: true }
+                , { field: 'id', title: '账单总额', sort: true, fixed: true }
+                , { field: 'username', title: '滞纳金总额', }
+                , { field: 'sex', title: '应收金额', sort: true }
+                , { field: 'city', title: '实收金额', }
+                , { field: 'sign', title: '缴费方式' }
+                , { field: 'sign', title: '缴费日期' }
+                , { field: 'sign', title: '线上支付' }
+                , { field: 'sign', title: '开票状态' }
+                
+                        
+                , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
+            ]]
+            , id: 'testReload'
+            , page: true
+            , height: 315
+        });
+
+        var $ = layui.$, active = {
+            reload: function () {
+                var demoReload = $('#demoReload');
+
+                //执行重载
+                table.reload('testReload', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        key: {
+                            id: demoReload.val()
+                        }
+                    }
+                });
+            }
+        };
+
+        
+    });
+$(".dection").click(function(){
+    alert()
+
+});
+
+
+</script>
+
+</html>

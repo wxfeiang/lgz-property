@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="lib/eleTree/eleTree.css" media="all">
+
+
+    <style>
+        html,
+        body {
+            /* width: 100%;
+            height: 100%; */
+            background-color: #fff;
+        }
+
+        /* Track */
+
+        ::-webkit-scrollbar {
+            /*滚动条整体样式*/
+            width: 8px;
+            /*高宽分别对应横竖滚动条的尺寸*/
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            /*滚动条里面小方块*/
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            background: #ccc;
+        }
+
+        ::-webkit-scrollbar-track {
+            /*滚动条里面轨道*/
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            background: #EDEDED;
+        }
+
+        .eleTree-checkbox-checked i {
+            border-color: #1890ff;
+            background-color: #03A9F4;
+            color: #fff;
+        }
+
+        .eleteree-box {
+            width: 500px;
+            height: 310px;
+            margin: 0 auto;
+            /* overflow-y: auto; */
+        }
+
+        .eleTree {
+            width: 350px;
+            height: auto !important;
+            margin: 20px auto ;
+          
+            border: 1px solid #ccc;
+           
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="eleteree-box">
+        <div class="eleTree ele1" lay-filter="data1"></div>
+
+    </div>
+
+
+
+    <script src="lib/layui/layui.js"></script>
+    <script>
+
+        layui.config({
+            base: "lib/layui/lay/mymodules/"
+        }).use(['jquery', 'eleTree'], function () {
+            var $ = layui.jquery;
+            var eleTree = layui.eleTree;
+
+            var data = [
+                {
+                    "label": "甘肃省",
+                    "spread": true,
+                    "children": [
+                        {
+                            "label": "兰州市",
+                            "spread": true,
+                            "disabled": true,  //如果想要选中则把这行删除
+                            "children": [
+                                {
+                                    "label": "城关区",
+                                    "children": [
+                                        {
+                                            "label": "高新区",
+                                            "checked": true
+                                        },
+                                        {
+                                            "label": "bbbb1"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "bbb1",
+                                    "spread": true,
+                                    "children": [
+                                        {
+                                            "label": "aaaa1",
+                                            "checked": true
+                                        }
+                                    ]
+                                },
+                                {
+                                    "label": "ccc1"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "bb1",
+                            "children": [
+                                {
+                                    "label": "aaaa1",
+                                    "checked": true
+                                }
+                            ]
+                        },
+                        {
+                            "label": "cc1"
+                        }
+                    ]
+                },
+                {
+                    "label": "c",
+                    "children": [
+                        {
+                            "label": "aa1",
+                          
+                            "checked": true
+                        },
+                        {
+                            "label": "bb1",
+                            "checked": true
+                        }
+                    ]
+                }
+
+            ]
+
+            eleTree.render({
+                elem: '.ele1',
+                // url: "/tree",
+                // type: "post",
+                data: data,
+                showCheckbox: true,
+                contextmenuList: ["copy", "add", "edit", "remove"],
+                drag: true,
+                accordion: true
+            });
+
+
+            eleTree.on("add(data1)", function (data) {
+                console.log(data);
+                // 若后台修改，则重新获取后台数据，然后重载
+                // eleTree.reload(".ele1", {where: {data: JSON.stringify(data.data)}})
+            })
+            eleTree.on("edit(data1)", function (data) {
+                console.log(data);
+            })
+            eleTree.on("remove(data1)", function (data) {
+                console.log(data);
+            })
+            eleTree.on("toggleSlide(data1)", function (data) {
+                console.log(data);
+            })
+            eleTree.on("checkbox(data1)", function (data) {
+                console.log(data);
+            })
+
+
+            // $(".layui-btn").on("click",function() {
+            //     console.log(eleTree.checkedData(".ele2"));
+            // })
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/rest.css">
+
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <title>选择房间</title>
+    <style>
+        .dy-albox {
+            /* padding: 50px 0 0 0; */
+            margin: 20px 30px;
+        }
+
+        .slect-box {
+            margin-bottom: 12px;
+            padding: 10px 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+
+
+        }
+
+        .select-warp-box {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .select-warp-box i {
+            position: absolute;
+            right: 0;
+            top: 8px;
+            font-size: 18px;
+            cursor: pointer;
+
+        }
+
+        .slect-box .seect-imgbox {
+            margin-right: 10px;
+            background: #ccc;
+        }
+
+        .block-input {
+            text-align: center;
+        }
+
+        .route-right {
+            transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            /* IE 9 */
+            -moz-transform: rotate(-90deg);
+            /* Firefox */
+            -webkit-transform: rotate(-90deg);
+            /* Safari 和 Chrome */
+            -o-transform: rotate(-90deg);
+
+        }
+
+        .select-table {
+            height: auto;
+            display: none;
+        }
+
+        .font-fist {
+            font-size: 16px;
+
+        }
+
+        .font-two {
+            font-size: 12px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dy-albox">
+
+
+        <!--  每一个块 -->
+        <div class=" slect-box">
+            <div class="clearfix select-warp-box">
+                <div class="fl seect-imgbox">
+                    <img src="images/1.jpg" alt="" width="70px; " height="40px" />
+
+                </div>
+                <ul class="fl">
+                    <li class="font-fist">高新大厦A座</li>
+                    <li class="font-two">兰州市高新大厦A座</li>
+                </ul>
+                <i class="layui-icon layui-icon-right select-right"></i>
+            </div>
+
+            <form class="layui-form select-table" action="">
+
+                <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="搜索房间" class="layui-input block-input">
+                <table class="layui-table " lay-skin="line" table="" id="tb_2" cellspacing="0" cellpadding="2" width="100%" border="1" style="margin: 10px 0 20px;">
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose"> 1层
+                            </td>
+                            <td>101</td>
+                            <td>111 ㎡</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose"> 1层
+                            </td>
+                            <td>101</td>
+                            <td>111 ㎡</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose"> 1层
+                            </td>
+                            <td>101</td>
+                            <td>111 ㎡</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <!--  每一个块 -->
+        <div class=" slect-box">
+            <div class="clearfix select-warp-box">
+                <div class="fl seect-imgbox">
+                    <img src="images/1.jpg" alt="" width="70px; " height="40px" />
+
+                </div>
+                <ul class="fl">
+                    <li class="font-fist">高新大厦A座</li>
+                    <li class="font-two">兰州市高新大厦A座</li>
+                </ul>
+                <i class="layui-icon layui-icon-right select-right"></i>
+            </div>
+
+            <form class="layui-form select-table" action="">
+
+                <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="搜索房间" class="layui-input block-input">
+                <table class="layui-table " lay-skin="line" table="" id="tb_1" cellspacing="0" cellpadding="2" width="100%" border="1" style="margin: 10px 0 20px;">
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose"> 1层
+                            </td>
+                            <td>101</td>
+                            <td>111 ㎡</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose"> 1层
+                            </td>
+                            <td>101</td>
+                            <td>111 ㎡</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose"> 1层
+                            </td>
+                            <td>101</td>
+                            <td>111 ㎡</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+<script>
+    layui.use(['layer', 'form', 'laypage', 'laydate'], function () {
+        var layer = layui.layer,
+            form = layui.form;
+        var form = layui.form;
+
+        //top.layer.msg('Hi, man', {shade: 0.3})
+
+
+
+    });
+
+    //选中事件
+    //  layui.use(['form', 'layer'], function () { //独立版的layer无需执行这一句
+    //         var $ = layui.jquery,
+    //             layer = layui.layer,
+    //             form = layui.form; //独立版的layer无需执行这一句
+    //         form.on('checkbox(allChoose)', function (data) {
+    //             var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+    //             child.each(function (index, item) {
+    //                 item.checked = data.elem.checked;
+    //             });
+    //             form.render('checkbox');
+    //         });
+    //     });
+
+    //  右边箭头事件
+
+    $(".select-right").each(function () {
+        var onOff = true;
+        $(this).click(function () {
+           // $(".select-table").slideToggle("slow")
+            if (onOff) { 
+
+              $(this).addClass("route-right"); 
+              $(this).parent().siblings(".select-table").slideToggle("slow")
+                onOff = false;
+            } else {
+
+                $(this).removeClass("route-right");
+                //$(".select-table").slideToggle("slow");
+                $(this).parent().siblings(".select-table").slideToggle("slow")
+               onOff = true;
+            }
+
+        })
+    })
+
+</script>
+
+</html>

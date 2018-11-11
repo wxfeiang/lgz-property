@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/rest.css">
+
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <title>添加材料</title>
+</head>
+
+<body>
+    <!--  -->
+    <div class="dy-albox">
+
+        <form class="layui-form" action="">
+
+
+            <div class="demoTable">
+                <span>业主/房客</span>
+                <div class="layui-inline my-inline-block">
+                    <input class="layui-input" name="bloc_name" id="bloc_name" autocomplete="off">
+                </div>
+                <button class="dy-btn" lay-event="sousuo" data-type="reload">搜索</button>
+                <table class="layui-table" lay-skin="line" table="" id="tb_1" cellspacing="0" cellpadding="2" width="100%" border="1" style="margin: 10px 0 20px;">
+                    <thead>
+                        <tr>
+
+                            <th>
+                                <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose">
+                            </th>
+                            <th>材料名称</th>
+                            <th>材料提供方</th>
+                            <th>数量</th>
+                            <th>单价</th>
+                            <th>金额</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose">
+                            </td>
+                            <td>小气球
+                            </td>
+                            <td>兰州高新区</td>
+                            <td>10</td>
+                            <td>10</td>
+                            <td>10</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose">
+                            </td>
+                            <td>小气球
+                            </td>
+                            <td>兰州高新区</td>
+                            <td>10</td>
+                            <td>10</td>
+                            <td>10</td>
+
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</body>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+
+<script type="text/javascript">
+    //选中事件
+    layui.use(['form', 'layer'], function () { //独立版的layer无需执行这一句
+        var $ = layui.jquery,
+            layer = layui.layer,
+            form = layui.form; //独立版的layer无需执行这一句
+        form.on('checkbox(allChoose)', function (data) {
+            var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+            child.each(function (index, item) {
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+        });
+    });
+
+
+</script>
+
+</html>

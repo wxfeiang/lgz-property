@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/rest.css">
+    <title>并列多个大框</title>
+    <style>
+        .warp{
+            width: 70%;
+            margin: 50px auto;
+            overflow: hidden;
+
+        }
+        .box{
+            width: 100%;
+            background:aquamarine;
+        }
+        li{
+            float: left;
+            background: #ccc;
+            margin-bottom:20px;
+        
+            width: 45%;
+            height: 40px;
+        }
+        li:nth-child(odd){
+            float: right;
+        }
+    </style>
+</head>
+<body>
+ <div class="warp">
+
+ 
+    <ul class="clearfix  box">
+        <li class=""></li>
+        <li class=""></li>
+        <li class=""></li>
+        <li class=""></li>
+    </ul>
+</div>
+</body>
+</html>

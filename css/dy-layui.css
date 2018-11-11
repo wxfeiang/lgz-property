@@ -1,0 +1,16 @@
+.layui-form-item .layui-input-block {
+    margin: 0;
+    width: 200px;
+    min-block-size: 30px;
+}
+
+.layui-form-item {
+    margin-bottom: 0px;
+    clear: both;
+}
+
+.layui-form-label {
+    width: auto;
+
+    text-align: left;
+}

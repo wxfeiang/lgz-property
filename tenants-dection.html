@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <title>房客详情</title>
+</head>
+
+<body>
+    <div class="">
+        <h3 class="warp-tit-h3">房客详情</h3>
+        <div class="warp-btns">
+
+            <span class="dy-btn go-back">
+                << 返回</span>
+                    <span class="dy-btn msgedit">编辑</span>
+                    <span class="dy-btn delete">删除</span>
+        </div>
+        <!-- 这是一条华丽的分割线 hr  -->
+        <hr style=" margin: 20px auto;width: 98%;color:#ccc; ">
+
+        <!--  列表详细内容展示区域 -->
+        <p class="decion-tit" >房客信息</p>
+        <ul class="clearfix decion-box" style="width:50%">
+            <li class="fl"><span>房客名称:</span> 兰州高新区</li>
+            <li class="fl"><span>联系人:</span>里二狗</li>
+            <li class="fl"><span>联系电话:</span>41321654894610</li>
+            <li class="fl"><span>房客类型:</span> 企业</li>
+            <li class="fl"><span>信用代码:</span> 765416+497</li>   
+        </ul>
+        <p class="decion-tit" >开票信息</p>
+        <ul class="clearfix decion-box" style="width:50%">
+            <li class="fl"><span>开户银行:</span> 中国建设银行</li>
+            <li class="fl"><span>账号:</span> 184131986541</li>
+            <li class="fl"><span>联系电话:</span> 8513541684846</li>
+            <li class="fl"><span>纳税人识别号:</span> 566456168</li>   
+            <li class="fl"><span>开票地址:</span> 兰州市城关区</li>   
+        </ul>
+        
+        <div class="warp-show-list">
+            <table class="layui-table" lay-skin="line" table id="tb_1" cellspacing="0" cellpadding="2" width="100%" border="1" style="width:50%">
+
+                <thead>
+                    <tr>
+                        <th>楼宇名称</th>
+                        <th>层数</th>
+                        <th>房间号</th>
+                        <th>面积㎡</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>高新A座</td>
+                        <td>20</td>
+                        <td>1008</td>
+                        <td>20</td>
+
+                    </tr>
+                    <tr>
+                        <td>高新A座</td>
+                        <td>20</td>
+                        <td>1008</td>
+                        <td>20</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<!-- 删除信息提示 -->
+<div id="del" style="padding: 30px; display:none;">
+    项目删除后将无法恢复，是否确认删除？
+</div>
+
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+
+
+
+<script type="text/javascript">
+    // $(".warpbox").height($("body,html").height() - 150);
+
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+
+    //  点击编辑按钮
+    $(".msgedit").each(function () {
+        $(this).click(function () {
+            top.layer.open({
+                type: 2,
+                closeBtn: 0,
+                anim: -1, //  不需要平滑动画
+                title: false,
+                shadeClose: false, //点击遮罩关闭层
+                area: ['100%', '100%'],
+                content: 'project-edit.html',
+                // end: function () {
+                // 	location.reload(); //点击后刷新父页面
+                // },
+                // btn: ['提交', '取消'],
+                // no: function (index, layero) {
+
+                // },
+                // yes: function (index, layero) {
+
+                // }
+
+            });
+        })
+    })
+ //  点击删除
+
+    $(".delete").click(function () {
+      
+            layer.confirm('业主删除后无法恢复,是否确认删除？', {
+                title : '提示信息',
+                area: '520px',
+                btn: ['确认删除','取消'] ,
+                
+            });
+
+     
+
+    })
+
+    /*获取弹出窗口索引*/
+    var index = parent.layer.getFrameIndex(window.name);
+    /*取消*/
+    $(".go-back").click(function () {
+        parent.layer.close(index);
+    })
+
+    // 点击图片放大
+    $(".tdimg img").each(function () {
+        $(this).click(function () {
+            var _this = $(this);//将当前的img元素作为_this传入函数  
+            imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);
+
+        })
+    })
+</script>
+
+
+
+</html>

@@ -1,0 +1,115 @@
+.g-top-msg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #fff;
+  padding: 30px  20px 20px;
+  z-index: 99
+}
+
+.g-top-msg .msg-left-box {
+  width: 410px;
+  margin-right: 5%;
+}
+
+.g-top-msg .msg-left-box .msg-left-imgbox {
+  width: 160px;
+  height: 100px;
+  margin-right: 24px;
+  background: #ccc;
+}
+
+.g-top-msg .msg-left-box .msg-left-dicon {
+  max-width: 230px;
+}
+
+.g-top-msg .msg-left-box h3 {
+  font: 30px/50px "myfont";
+  margin-bottom: 10px;
+}
+
+.g-top-msg .msg-left-box p {
+  font: 16px/40px "myfont";
+}
+
+.g-top-msg .msg-left-box p span {
+  font-size: 14px;
+  color: #1890ff;
+  cursor: pointer;
+}
+
+.g-top-msg .msg-right-box li {
+  position: relative;
+  min-width: 150px;
+  padding: 10px  30px 0;
+}
+
+.g-top-msg .msg-right-box li .msg-hose-title {
+  font: 16px/34px "myfont";
+  color: #666;
+}
+
+.g-top-msg .msg-right-box li .msg-hose-number {
+  font: 16px/34px "myfont";
+  color: #000;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.g-top-msg .msg-right-box li::before {
+  position: absolute;
+  top: 36%;
+  right: 0;
+  display: block;
+  content: '';
+  height: 40px;
+  border-left: 1px solid #ccc;
+}
+
+.g-top-msg .msg-right-box li:last-child::before {
+  position: absolute;
+  top: 36%;
+  right: 0;
+  display: block;
+  content: '';
+  height: 40px;
+  border-left: none;
+}
+
+@media screen and (max-width: 1366px) {
+  .g-top-msg .msg-left-box {
+    width: 410px;
+    margin-right: 5%;
+  }
+  .g-top-msg .msg-left-box .msg-left-imgbox {
+    width: 160px;
+    height: 100px;
+    margin-right: 24px;
+    background: #ccc;
+  }
+  .g-top-msg .msg-left-box .msg-left-dicon {
+    max-width: 230px;
+  }
+  .g-top-msg .msg-left-box h3 {
+    font: 30px/50px "myfont";
+    margin-bottom: 10px;
+  }
+  .g-top-msg .msg-left-box p {
+    font: 16px/40px "myfont";
+  }
+  .g-top-msg .msg-left-box p span {
+    font-size: 14px;
+    color: #1890ff;
+    cursor: pointer;
+  }
+  .g-top-msg .msg-right-box li {
+    position: relative;
+    max-width: 200px;
+    min-width: 50px;
+    padding: 10px  30px 0;
+  }
+}

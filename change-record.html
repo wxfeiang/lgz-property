@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>右侧划出房间页面</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="lib/layui/css/layui.css" />
+    <link rel="stylesheet" href="css/public.css" />
+    <link rel="stylesheet" href="css/houseView.css" />
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="lib/layui/layui.js"></script>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .layui-table,
+        .layui-table-view {
+            margin: 0;
+        }
+
+        .record-box {
+            margin: 0 20px;
+            padding: 20px 0 0 0;
+        }
+
+        .sm-record {
+            margin-bottom: 20px;
+            border: 1px solid #e4e4e4;
+            border-bottom-color: transparent;
+        }
+
+        .record-tit {
+            padding-left: 10px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="record-box">
+        <!-- 每一块 -->
+        <div class="sm-record">
+            <h3 class="record-tit">
+                变更记录
+            </h3>
+            <table class="layui-table" lay-skin="line" table="" id="tb_1" cellspacing="0" cellpadding="2" width="100%" border="1">
+                <thead>
+                    <tr>
+                        <th>变更前</th>
+                        <th>变更后</th>
+                        <th>变更原因</th>
+                        <th>变更时间</th>
+                        <th>操作人</th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="record-dection">
+                                州高新技术公司
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                州高新技术公司
+                            </span>
+                        </td>
+                        <td>业主变更</td>
+                        <td>20122--8</td>
+                        <td>你大爷</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <!-- 每一块 -->
+        <div class="sm-record">
+            <h3 class="record-tit">
+                历史合同
+            </h3>
+            <table class="layui-table" lay-skin="line" table="" id="t" cellspacing="0" cellpadding="2" width="100%" border="1">
+                <thead>
+                    <tr>
+                        <th>合同编号</th>
+                        <th>房客名称</th>
+                        <th>时间</th>
+                        <th>状态</th>
+                        <th>操作人</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="record-lease">
+                                101
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                101
+                            </span>
+                        </td>
+                        <td>2018-18</td>
+                        <td>房间修改</td>
+                        <td>里三蛋</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+    </div>
+
+</body>
+<script>
+
+    layui.use(['form', 'element'],
+        function () {
+            layer = layui.layer;
+            element = layui.element;
+        });
+
+    //  点击变更前记录的详情
+    $(".record-dection").each(function () {
+        $(this).click(function () {
+            parent.layer.open({
+                type: 2,
+                title: ['业主详情', 'text-align: center;font-size:18px;'],
+               
+                shadeClose: false, //点击遮罩关闭层
+                area: ['100%', '100%'],
+                content: 'change-record-dection.html',
+            });
+        })
+    })
+    
+    //  点击变更后记录的详情 页面一样按需区分
+    
+     //  点击历史合同
+     $(".record-lease").each(function () {
+        $(this).click(function () {
+            parent.layer.open({
+                type: 2,
+                title: ['房间详情', 'text-align: center;font-size:18px;'],
+               
+                shadeClose: false, //点击遮罩关闭层
+                area: ['100%', '100%'],
+                content: 'change-record-lease.html',
+            });
+        })
+    })
+
+</script>
+
+</html>

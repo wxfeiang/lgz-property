@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/rest.css">
+
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <title>合并房间</title>
+    <style>
+        .label-long {
+            width: 100px;
+            margin-left: -32px;
+        }
+
+        .layui-input-block {
+            margin-left: 100px;
+        }
+
+        .layui-form-item .layui-input-block {
+            width: 475px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dy-albox">
+
+
+        <form class=" layui-form form-inline " action="">
+            <p>当前房间 &nbsp; &nbsp; &nbsp; 11层1001室 &nbsp; &nbsp; &nbsp; 110㎡
+            </p>
+
+
+            <p>关联房间 &nbsp; &nbsp; &nbsp;
+                <span class="my189 addselt">+选择</span>
+            </p>
+
+            <table class="layui-table" lay-skin="line" table="" id="tb_1" cellspacing="0" cellpadding="2" width="100%" border="1" style="margin: 10px 0 20px;">
+                <thead>
+                    <tr>
+                        <th>楼宇名称</th>
+                        <th>层数</th>
+                        <th>房间号</th>
+                        <th>面积㎡</th>
+                        <th>操作</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>A座</td>
+                        <td>20</td>
+                        <td>8461561</td>
+                        <td>20</td>
+                        <th>
+                            <span class="my189 td-delte">删除</span>
+                        </th>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div class="layui-form-item">
+                <label class="layui-form-label label-long">合并后房间面积</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input  layui-input-disbaled layui-disabled"
+                        lay-skin="primary" disabled="" value="150㎡">
+                </div>
+            </div>
+
+
+
+
+        </form>
+
+    </div>
+</body>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+
+<script type="text/javascript">
+    // $(".warpbox").height($("body,html").height() - 150);
+
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+        //  判断是否企业类型
+        form.on('select(aihao)', function (data) {
+            owershow();
+        });
+
+    });
+
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#data1', //指定元素
+            theme: '#1890ff',
+        });
+    });
+    //  判断是否企业类型
+    function owershow() {
+        var onff = true;
+        var json2 = {
+            "height": "auto",
+        }
+        var json3 = {
+            "height": "0",
+            "overflow": "hidden"
+        }
+        if ($(".interest").val() == 1) {
+            //  alert($(".interest").val());
+            $(".enterprise-table").css(json2);
+            $(".enterprise").show();
+            $(".individual").hide();
+
+        } else {
+            $(".enterprise-table").css(json3);
+            $(".individual").show();
+            $(".enterprise").hide();
+
+        }
+    }
+    //  点击选择
+    $('.addselt').on('click', function () {
+        top.layer.open({
+            type: 2,
+            title: ['添加业主'],
+            shadeClose: false, //点击遮罩关闭层
+            maxmin: true,
+            area: ['700px', '400px'],
+            content: 'owner-addselt.html',
+            // end: function () {
+            // 	location.reload(); //点击后刷新父页面
+            // },
+            btn: ['保存', '取消'],
+            no: function (index, layero) {
+
+            },
+            yes: function (index, layero) { }
+
+        });
+    })
+    //  点击表格里面的删除
+    $('.td-delte').each(function (index) {
+        $(this).click(function () {
+
+            $(this).parent().parent().remove();
+        })
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>停车场管理</title>
+	<link rel="stylesheet" href="lib/layui/css/layui.css" />
+	<link rel="stylesheet" href="css/rest.css">
+	<link rel="stylesheet" href="css/public.css" />
+	<link rel="stylesheet" href="css/houseView.css" />
+	<link rel="stylesheet" href="css/stopcar.css">
+</head>
+
+<body class>
+	<!-- top msg -->
+	<div class="clearfix g-top-msg">
+		<ul class="clearfix fl msg-right-box">
+			<li class="fl">
+				<p class="msg-hose-title">总车位</p>
+				<p class="msg-hose-number" title="10">10</p>
+			</li>
+			<li class="fl">
+				<p class="msg-hose-title">总车辆 </p>
+				<p class="msg-hose-number" title="10">10</p>
+			</li>
+			<li class="fl">
+				<p class="msg-hose-title">出售 </p>
+				<p class="msg-hose-number" title="10">10</p>
+			</li>
+			<li class="fl">
+				<p class="msg-hose-title">出租 </p>
+				<p class="msg-hose-number" title="10">10</p>
+			</li>
+			<li class="fl">
+				<p class="msg-hose-title">空置</p>
+				<p class="msg-hose-number" title="10">10</p>
+			</li>
+		</ul>
+	</div>
+	<!--检索工具条 -->
+
+	<div class="demoTable">
+		<span>区位编号</span>
+		<div class="layui-input-inline layui-form my-inline-block">
+			<div class="layui-inline">
+				<select name="interest" lay-filter="aihao">
+					<option value="">11</option>
+					<option value="0">A</option>
+					<option value="1">B</option>
+
+				</select>
+			</div>
+		</div>
+		<span>车辆状态</span>
+		<div class="layui-input-inline layui-form my-inline-block">
+			<div class="layui-inline">
+				<select name="interest" lay-filter="aihao">
+					<option value="">11</option>
+					<option value="0">A</option>
+					<option value="1">B</option>
+
+				</select>
+			</div>
+		</div>
+
+		<div class="layui-inline">
+			<input class="layui-input" name="bloc_name" id="bloc_name" autocomplete="off" placeholder="请输入">
+		</div>
+		<button class="dy-btn" lay-event="sousuo" data-type="reload">搜索</button>
+		<button class="dy-btn newadd" lay-event="addbloc">添加车位</button>
+		<button class="dy-btn carport-car" lay-event="addbloc">添加车辆</button>
+
+
+		<!-- 剖面展示 -->
+		<div class="poumian">
+			<span class="pou-span-1">
+				<i></i>出售</span>
+			<span class="pou-span-2">
+				<i></i>出租</span>
+			<span class="pou-span-3">
+				<i></i>到期</span>
+			<span class="pou-span-4">
+				<i></i>空置</span>
+		</div>
+
+	</div>
+
+
+	<!-- top msg -->
+	<div class="houseBigBox">
+		<ul class="carportBox">
+			<li class="car car_blue">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+			</li>
+			<li class="car_gray">
+				<h3>50</h3>
+				<p>150m²</p>
+			</li>
+			<li class="car car_green">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+				<p>2017.09.10到期</p>
+			</li>
+			<li class="car car_redAll">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+			</li>
+			<li class="car car_blue">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+			</li>
+			<li class="car_gray">
+				<h3>50</h3>
+				<p>150m²</p>
+			</li>
+			<li class="car car_green">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+				<p>2017.09.10到期</p>
+			</li>
+			<li class="car car_redAll">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+			</li>
+			<li class="car car_blue">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+			</li>
+			<li class="car_gray">
+				<h3>50</h3>
+				<p>150m²</p>
+			</li>
+			<li class="car car_green">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+				<p>2017.09.10到期</p>
+			</li>
+			<li class="car car_redAll">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+			</li>
+			<li class="car car_blue">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+			</li>
+			<li class="car_gray">
+				<h3>50</h3>
+				<p>150m²</p>
+			</li>
+			<li class="car car_green">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+				<p>2017.09.10到期</p>
+			</li>
+			<li class="car car_redAll">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+			</li>
+			<li class="car_blue car">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+			</li>
+			<li class="car_gray">
+				<h3>50</h3>
+				<p>150m²</p>
+			</li>
+			<li class="car car_green">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+				<p>2017.09.10到期</p>
+			</li>
+			<li class="car car_redAll">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+			</li>
+			<li class="car car_blue">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+			</li>
+			<li class="car_gray">
+				<h3>50</h3>
+				<p>150m²</p>
+			</li>
+			<li class="car car_green">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+				<p>2017.09.10到期</p>
+			</li>
+			<li class="car car_redAll">
+				<h3>50</h3>
+				<p>150m²</p>
+				<p>甘A·88888</p>
+				<p>周润发</p>
+			</li>
+		</ul>
+	</div>
+	<!-- <div class="rightBoxBg">
+		<div class="rightBoxDiv">
+			<div class="topTitle">
+				<i class="layui-icon layui-icon-close"></i>
+				<p>车辆信息</p>
+			</div>
+			<iframe src="rightPark.html"></iframe>
+		</div>
+	</div> -->
+	<script src="js/jquery-1.7.2.min.js"></script>
+	<script src="lib/layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer', 'form', 'laypage', 'table'], function () {
+			var layer = layui.layer,
+				form = layui.form;
+			var form = layui.form;
+
+		})
+
+		// /*点击车辆显示右边详情*/
+		// $(".houseBigBox li").each(function () {
+		// 	$(this).click(function () {
+		// 		parent.$(".rightBoxBg").animate({ right: '0' });
+		// 		parent.$(".rightBoxDiv").animate({ right: '0' });
+		// 		parent.$(".rightBoxDiv iframe").attr("src","rightPark.html");
+		// 	})
+		// })
+		// /*点击右侧关闭*/
+		// parent.$(".topTitle").click(function () {
+		// 	parent.$(".rightBoxBg").animate({ right: '-100%' });
+		// 	parent.$(".rightBoxDiv").animate({ right: '-1000px' });
+		// })
+		
+
+    $(".houseBigBox li").each(function () {
+			$(this).click(function () {
+			
+
+				parent.parent.$(".rightBoxBg").animate({ right: '0' });
+			    parent.parent.$(".rightBoxDiv").animate({ right: '0' });
+				parent.parent.$(".rightBoxDiv iframe").attr("src","rightPark.html");
+			})
+		})
+
+		//  点击添加车位
+		$('.newadd').on('click', function () {
+			top.layer.open({
+				type: 2,
+				title: ['添加车位'],
+				shadeClose: false, //点击遮罩关闭层
+				area: ['700px', '300px'],
+				content: 'carport-add.html',
+				// end: function () {
+				// 	location.reload(); //点击后刷新父页面
+				// },
+				btn: ['保存', '取消'],
+				no: function (index, layero) {
+
+				},
+				yes: function (index, layero) { }
+
+			});
+		})
+			//  点击添加车辆
+			$('.carport-car').on('click', function () {
+			top.layer.open({
+				type: 2,
+				title: ['添加车位'],
+				shadeClose: false, //点击遮罩关闭层
+				area: ['700px', '600px'],
+				content: 'carport-car.html',
+				// end: function () {
+				// 	location.reload(); //点击后刷新父页面
+				// },
+				btn: ['保存', '取消'],
+				no: function (index, layero) {
+
+				},
+				yes: function (index, layero) { }
+
+			});
+		})
+		
+		
+	
+    
+	
+
+	</script>
+</body>
+
+</html>

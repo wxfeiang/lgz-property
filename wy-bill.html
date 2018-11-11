@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>物业账单</title>
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+
+<body>
+
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+        <ul class="layui-tab-title wy-bills">
+            <li class="layui-this">
+                <a href="wy-unpaid-bills.html">未缴账单</a>
+            </li>
+            <li>
+                <a href="wy-paid-in-bills.html">已缴账单</a>
+            </li>
+            <li>
+                <a href="wy-payment-records.html">缴费记录</a>
+            </li>
+            <li>
+                <a href="wy-payment-decion.html">缴费记录明细</a>
+            </li>
+            
+        </ul>
+        <div class="layui-tab-content">
+            <iframe frameborder="0" width="100%" height="100%" class="x-iframe" name="wy-bills" id="treeFrame"></iframe>
+        </div>
+    </div>
+
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+<script type="text/javascript" src="./js/xadmin.js"></script>
+<script src="js/dy-iframe.js"></script>
+<script>
+      $(".wy-bills li a").attr("target","wy-bills");
+      $(".wy-bills li  a")[0].click();
+</script>
+</html>

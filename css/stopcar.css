@@ -1,0 +1,46 @@
+.g-top-msg {
+	background: #fff;
+	margin:  0;
+	padding-bottom: 10px;
+  }
+  
+  .g-top-msg .msg-right-box li {
+	position: relative;
+	max-width: 200px;
+	text-align: center;
+	padding: 10px  70px 0;
+  }
+  
+  .g-top-msg .msg-right-box li .msg-hose-title {
+	font: 16px/34px "myfont";
+	color: #666;
+  }
+  
+  .g-top-msg .msg-right-box li .msg-hose-number {
+	font: 16px/34px "myfont";
+	color: #000;
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+  }
+  
+  .g-top-msg .msg-right-box li::before {
+	position: absolute;
+	top: 36%;
+	right: 0;
+	display: block;
+	content: '';
+	height: 40px;
+	border-left: 1px solid #ccc;
+  }
+  
+  .g-top-msg .msg-right-box li:last-child::before {
+	position: absolute;
+	top: 36%;
+	right: 0;
+	display: block;
+	content: '';
+	height: 40px;
+	border-left: none;
+  }

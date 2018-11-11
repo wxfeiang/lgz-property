@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>押金管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+
+    <link rel="stylesheet" href="./css/font.css">
+  
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+
+<body class="body-bg">
+    <!-- 表格区域 -->
+    <div class="table-min">
+        <div class="table-box">
+            <!-- 工具条 -->
+            <div class="demoTable">
+                <span>楼宇名称</span>
+                <div class="layui-inline">
+                    <input class="layui-input" name="bloc_name" id="bloc_name" autocomplete="off"> </div>
+                <button class="dy-btn" lay-event="sousuo" data-type="reload">搜索</button>
+                <button class="dy-btn newadd" lay-event="addbloc">添加</button>
+                 表格内部按钮 测试
+                <button class="dy-btn newadd" lay-event="addbloc">编辑</button>
+                <button class="dy-btn delete" lay-event="delete">删除</button>
+                <button class="dy-btn deposit-out" lay-event="deposit-out">退款</button>
+            </div>
+            <!-- 表格 -->
+            <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
+        </div>
+    </div>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn  " lay-event="">编辑</a>
+        <a class="layui-btn  deposit-out" lay-event="deposit-out">退款</a>
+        <a class="layui-btn layui-btn-xs" lay-event="del">删除</a>
+      </script>
+</body>
+
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+
+
+<script>
+    //一般直接写在一个js文件中
+    layui.use(['layer', 'form', 'laypage', 'table'], function () {
+        var layer = layui.layer,
+            form = layui.form;
+        var form = layui.form;
+        var table = layui.table;
+
+        //方法级渲染
+        table.render({
+            elem: '#LAY_table_user'
+            , url: '/demo/table/user/'
+            , cols: [[
+                { checkbox: true, fixed: true }
+                , { field: 'id', title: '楼宇名称', sort: true, fixed: true }
+                , { field: 'username', title: '房间号', }
+                , { field: 'sex', title: '业主/房客', sort: true }
+                , { field: 'city', title: '金额', }
+                , { field: 'sign', title: '押金类型' }
+                , { field: 'sign', title: '缴费日期' }
+                , { field: 'sign', title: '状态' }
+                , { field: 'sign', title: '备注' }
+                , { field: 'sign', title: '扣款金额' }
+                , { field: 'sign', title: '扣款原因' }
+                , { field: 'sign', title: '实退金额' }
+                , { field: 'sign', title: '退费日期' }
+                , { field: 'sign', title: '退款操作人' }
+                , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
+            ]]
+            , id: 'testReload'
+            , page: true
+            , height: 315
+        });
+
+        var $ = layui.$, active = {
+            reload: function () {
+                var demoReload = $('#demoReload');
+
+                //执行重载
+                table.reload('testReload', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        key: {
+                            id: demoReload.val()
+                        }
+                    }
+                });
+            }
+        };
+
+        $('.demoTable .layui-btn').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+
+
+
+
+    //   退款
+    $(".deposit-out").each(function () {
+        $(this).click(function () {
+            top.layer.open({
+                title: ['退款'],
+                type: 2,
+                shadeClose: false, //点击遮罩关闭层
+                area: ['700px', '500px'],
+                content: 'deposit-out.html',
+                btn: ['保存', '取消'],
+                no: function (index, layero) {
+
+                },
+                yes: function (index, layero) {
+
+                }
+
+            });
+        })
+    })
+
+    // 点击新增按钮
+    $('.newadd').on('click', function () {
+        top.layer.open({
+            type: 2,
+            title: ['添加押金'],
+            shadeClose: false, //点击遮罩关闭层
+            area: ['750px', '500px'],
+            content: 'deposit-add.html',
+            btn: ['保存', '取消'],
+            no: function (index, layero) {
+
+            },
+            yes: function (index, layero) { }
+
+        });
+    })
+
+
+   //  点击删除
+
+    $(".delete").each(function () {
+        $(this).click(function () {
+            top.layer.confirm('信息删除后无法恢复,确定要继续吗？', {
+                title : '提示信息',
+                area: '520px',
+                btn: ['确定删除','取消'] ,
+                
+            });
+
+        })
+
+    })
+
+    //工具栏事件
+    /* table.on('toolbar(test)', function(obj){
+        var checkStatus = table.checkStatus(obj.config.id);
+        switch(obj.event){
+          case 'getCheckData':
+            var data = checkStatus.data;
+            layer.alert(JSON.stringify(data));
+          break;
+          case 'getCheckLength':
+            var data = checkStatus.data;
+            layer.msg('选中了：'+ data.length + ' 个');
+          break;
+          case 'isAll':
+            layer.msg(checkStatus.isAll ? '全选': '未全选')
+          break;
+        };
+      });
+     */
+
+
+    //选中事件
+    layui.use(['form', 'layer'], function () { //独立版的layer无需执行这一句
+        var $ = layui.jquery,
+            layer = layui.layer,
+            form = layui.form; //独立版的layer无需执行这一句
+        form.on('checkbox(allChoose)', function (data) {
+            var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+            child.each(function (index, item) {
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+        });
+    });
+
+</script>
+
+</html>

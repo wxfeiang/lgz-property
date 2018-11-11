@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <title>添加车量</title>
+    <style>
+        .layui-form-label-dy {
+            width: 133px;
+            text-align: left;
+            margin-left: -33px;
+        }
+
+        .layui-input-block-dy {
+            margin-left: 140px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dy-albox">
+        <form class=" layui-form form-inline " action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>选择楼栋</label>
+                <div class="layui-input-block">
+                    <select name="  " lay-filter=" ">
+                        <option value="">A</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>选择单元</label>
+                <div class="layui-input-block">
+                    <select name="  " lay-filter=" ">
+                        <option value="">A</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>选择楼层</label>
+                <div class="layui-input-block">
+                    <select name="  " lay-filter=" ">
+                        <option value="">A</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>选择房号</label>
+                <div class="layui-input-block">
+                    <select name="  " lay-filter=" ">
+                        <option value="">A</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>选择车位</label>
+                <div class="layui-input-block">
+                    <select name="  " lay-filter=" ">
+                        <option value="">A</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item dy-linkage">
+                <label class="layui-form-label">车牌号</label>
+                <div class="layui-input-inline">
+                    <select name="provid" id="provid" lay-filter="provid">
+                        <option value="">甘</option>
+                    </select>
+                </div>
+                <div class="layui-input-inline">
+                    <select name="cityid" id="cityid" lay-filter="cityid">
+                        <option value="">A</option>
+                    </select>
+                </div>
+                <div class="layui-input-inline">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入车牌号" class="layui-input">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span> 车主姓名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入车主姓名" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span> 手机号</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入车位编号" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>车位状态</label>
+                <div class="layui-input-block">
+                    <select name="sell" lay-filter="sell" class="sell">
+                        <option value="0">出售</option>
+                        <option value="1">出租</option>
+                    </select>
+                </div>
+            </div>
+            <div class="showblock">
+                <div class="layui-form-item">
+                    <label class="layui-form-label layui-form-label-dy">
+                        <span class="myred-color">*</span>是否收取车辆管理费</label>
+                    <div class="layui-input-block layui-input-block-dy">
+                        <input type="radio" name="sex" value="是" title="是" checked>
+                        <input type="radio" name="sex" value="否" title="否">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">
+                        <span class="myred-color">*</span>收费标准</label>
+                    <div class="layui-input-block">
+                        <select name="  " lay-filter=" ">
+                            <option value="">车辆管理费</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-form-item enterprise">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>收费标准</label>
+                <div class="layui-input-block">
+                    <select name="  " lay-filter=" ">
+                        <option value="">租金</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>开始时间</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入开始时间" class="layui-input" id="data1">
+                    <i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>结束时间</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入结束时间" class="layui-input" id="data2">
+                    <i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">应收金额</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input  layui-input-disbaled layui-disabled"
+                        lay-skin="primary" disabled value="10000">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span> 优惠金额</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入优惠金额" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span> 实收金额</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入实收金额" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>支付方式</label>
+                <div class="layui-input-block">
+                    <select name="  " lay-filter=" ">
+                        <option value="">支付宝</option>
+                        <option value="">现金</option>
+                        <option value="">微信</option>
+                        <option value="">银行转账</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>收费日期</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入收费日期" class="layui-input" id="data3">
+                    <i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
+                </div>
+            </div>
+
+
+        </form>
+
+    </div>
+</body>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+
+<script type="text/javascript">
+    // $(".warpbox").height($("body,html").height() - 150);
+
+    layui.use('form', function () {
+        var form = layui.form;
+
+
+        //  判断车位出售状态
+        form.on('select(sell)', function (data) {
+            owershow();
+        });
+
+    });
+
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#data1', //指定元素
+            theme: '#1890ff',
+        });
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#data2', //指定元素
+            theme: '#1890ff',
+        });
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#data3', //指定元素
+            theme: '#1890ff',
+        });
+    });
+
+    //  判断出租状态
+    function owershow() {
+        var onff = true;
+        if ($(".sell").val() == 1) {
+            //  alert($(".sell").val());
+            $(".showblock").hide();
+            $(".enterprise").show();
+
+        } else {
+            $(".showblock").show();
+            $(".enterprise").hide();
+        }
+    }
+</script>
+
+</html>

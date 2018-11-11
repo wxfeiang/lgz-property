@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/rest.css">
+
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <title>添加房间</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="dy-albox">
+        <form class=" layui-form form-inline " action="">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">楼宇名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入登录账号" class="layui-input  layui-input-disbaled layui-disabled"
+                        lay-skin="primary" disabled value="tengxun">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">所在楼层</label>
+                <div class="layui-input-block">
+                    <select name="interest" lay-filter="aihao">
+                        <option value="">商铺</option>
+                        <option value="0">写字楼</option>
+                        <option value="1" selected="">住宅</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">房间号</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入供应商" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">房间面积</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入重量" class="layui-input">
+                </div>
+            </div>
+         
+
+        </form>
+
+    </div>
+</body>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+
+<script type="text/javascript">
+    // $(".warpbox").height($("body,html").height() - 150);
+
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#data1', //指定元素
+            theme: '#1890ff',
+        });
+    });
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#data1', //指定元素
+            theme: '#1890ff',
+        });
+    });
+
+</script>
+
+</html>

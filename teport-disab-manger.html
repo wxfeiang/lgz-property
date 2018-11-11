@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>报障管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+
+    <link rel="stylesheet" href="./css/font.css">
+  
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+
+<body class="body-bg">
+    <!-- 表格区域 -->
+    <div class="table-min">
+        <div class="table-box">
+            <!-- 工具条 -->
+            <div class="demoTable">
+                <span>业主/房客</span>
+                <div class="layui-inline">
+                    <input class="layui-input" name="bloc_name" id="bloc_name" autocomplete="off"> </div>
+                <button class="dy-btn" lay-event="sousuo" data-type="reload">搜索</button>
+                <button class="dy-btn newadd" lay-event="addbloc">新增报修</button>
+                <button class="dy-btn tesk-top" lay-event="addbloc">派工</button>
+               
+                 表格内部按钮 测试
+                 <button class="dy-btn dection" lay-event="addbloc">详情</button>
+                <button class="dy-btn " lay-event="addbloc">派工</button>
+                <button class="dy-btn newadd" lay-event="addbloc">打印</button>
+                <button class="dy-btn delete" lay-event="delete">附件</button>
+            </div>
+            <!-- 表格 -->
+            <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
+        </div>
+    </div>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">派工</a>
+        <a class="layui-btn layui-btn-xs" lay-event="edit">打印</a>
+        <a class="layui-btn  layui-btn-xs" lay-event="del">附件</a>
+      </script>
+</body>
+
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+
+
+<script>
+    //一般直接写在一个js文件中
+    layui.use(['layer', 'form', 'laypage', 'table'], function () {
+        var layer = layui.layer,
+            form = layui.form;
+        var form = layui.form;
+        var table = layui.table;
+
+        //方法级渲染
+        table.render({
+            elem: '#LAY_table_user'
+            , url: '/demo/table/user/'
+            , cols: [[
+                { checkbox: true, fixed: true }
+                , { field: 'id', title: '报修编号', sort: true, fixed: true }
+                , { field: 'username', title: '楼宇', }
+                , { field: 'sex', title: '房号', sort: true }
+                , { field: 'city', title: '电话', }
+                , { field: 'sign', title: '报修项目' }
+                , { field: 'sign', title: '故障描述' }
+                , { field: 'sign', title: '预约维修时间' }
+                , { field: 'sign', title: '报修时间' }
+                , { field: 'sign', title: '派工状态' }
+                , { field: 'sign', title: '接单人员' }
+                , { field: 'sign', title: '照片' }
+                , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
+            ]]
+            , id: 'testReload'
+            , page: true
+            , height: 315
+        });
+
+        var $ = layui.$, active = {
+            reload: function () {
+                var demoReload = $('#demoReload');
+
+                //执行重载
+                table.reload('testReload', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    , where: {
+                        key: {
+                            id: demoReload.val()
+                        }
+                    }
+                });
+            }
+        };
+
+        $('.demoTable .layui-btn').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+
+
+
+
+    //   详情编辑页面   点击编辑页面
+    $(".dection").each(function () {
+        $(this).click(function () {
+            parent.parent.parent.layer.open({
+                type: 2,
+                closeBtn: 0,
+                title: false,
+                shadeClose: false, //点击遮罩关闭层
+                area: ['100%', '100%'],
+                content: 'teport-disab-dection.html',
+                // end: function () {
+                // 	location.reload(); //点击后刷新父页面
+                // },
+                // btn: ['提交', '取消'],
+                // no: function (index, layero) {
+
+                // },
+                // yes: function (index, layero) {
+
+                // }
+
+            });
+        })
+    })
+    
+    $('.tesk-top').on('click', function () {
+        top.layer.open({
+            type: 2,
+            title: ['派工'],
+            shadeClose: false, //点击遮罩关闭层
+            area: ['750px', '480px'],
+            content: 'teport-disab-task.html',
+            // end: function () {
+            // 	location.reload(); //点击后刷新父页面
+            // },
+            btn: ['保存', '取消'],
+            no: function (index, layero) {
+
+            },
+            yes: function (index, layero) { }
+
+        });
+    })
+
+
+    // 点击新增按钮
+    $('.newadd').on('click', function () {
+        top.layer.open({
+            type: 2,
+            title: ['新增报修'],
+            shadeClose: false, //点击遮罩关闭层
+            area: ['700px', '550px'],
+            content: 'teport-disab-add.html',
+            // end: function () {
+            // 	location.reload(); //点击后刷新父页面
+            // },
+            btn: ['保存', '取消'],
+            no: function (index, layero) {
+
+            },
+            yes: function (index, layero) { }
+
+        });
+    })
+
+
+
+    //工具栏事件
+    /* table.on('toolbar(test)', function(obj){
+        var checkStatus = table.checkStatus(obj.config.id);
+        switch(obj.event){
+          case 'getCheckData':
+            var data = checkStatus.data;
+            layer.alert(JSON.stringify(data));
+          break;
+          case 'getCheckLength':
+            var data = checkStatus.data;
+            layer.msg('选中了：'+ data.length + ' 个');
+          break;
+          case 'isAll':
+            layer.msg(checkStatus.isAll ? '全选': '未全选')
+          break;
+        };
+      });
+     */
+
+
+    //选中事件
+    layui.use(['form', 'layer'], function () { //独立版的layer无需执行这一句
+        var $ = layui.jquery,
+            layer = layui.layer,
+            form = layui.form; //独立版的layer无需执行这一句
+        form.on('checkbox(allChoose)', function (data) {
+            var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+            child.each(function (index, item) {
+                item.checked = data.elem.checked;
+            });
+            form.render('checkbox');
+        });
+    });
+
+</script>
+
+</html>

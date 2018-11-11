@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>项目管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"
+    />
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/workbench.css">
+
+    <link rel="stylesheet" href="css/houseView.css" />
+
+
+</head>
+
+<body class="body-bg">
+
+
+    <!-- top msg -->
+    <div class="clearfix g-top-msg">
+        <div class="clearfix fl msg-left-box">
+            <div class="fl msg-left-imgbox">
+                <img src="images/1.png" alt="" width="160px" height="100px">
+            </div>
+            <div class="fl msg-left-dicon ">
+                <h3>高新大厦</h3>
+                <p>甘肃省兰州市高新大厦
+                    <span class="msg-left-details ">查看详情</span>
+                </p>
+            </div>
+        </div>
+        <ul class="clearfix fl msg-right-box">
+            <li class="fl">
+                <p class="msg-hose-title">总楼数</p>
+                <p class="msg-hose-number" title="10">10</p>
+            </li>
+            <li class="fl">
+                <p class="msg-hose-title">总面积㎡ </p>
+                <p class="msg-hose-number" title="10">10</p>
+            </li>
+            <li class="fl">
+                <p class="msg-hose-title">已出租面积㎡ </p>
+                <p class="msg-hose-number" title="10">10</p>
+            </li>
+            <li class="fl">
+                <p class="msg-hose-title">空置面积㎡ </p>
+                <p class="msg-hose-number" title="10">10</p>
+            </li>
+            <li class="fl">
+                <p class="msg-hose-title">业主总数</p>
+                <p class="msg-hose-number" title="10">10</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- top msg  END-->
+
+    <div class="tab-warpbox">
+
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief" >
+            <ul class="layui-tab-title workbench  ">
+                <li class="layui-this">
+                    <a href="buding-magent.html">楼宇管理</a>
+                </li>
+                <li>
+                    <a href="owner-magent.html">业主管理</a>
+                </li>
+                <li>
+                    <a href="tenants-margent.html">房客管理</a>
+                </li>
+                <li>
+                    <a href="lease-contract.html">租赁合同</a>
+                </li>
+                <li>
+                    <a href="instr-manger.html">仪表管理</a>
+                </li>
+                <li>
+                    <a href="receiving.html">收付款</a>
+                </li>
+                <li>
+                    <a href="cost-set.html">费项设置</a>
+                </li>
+                <li>
+                    <a href="stop-car-manger.html">停车管理</a>
+                </li>
+                <li>
+                    <a href="wy-manger.html">物业管理</a>
+                </li>
+                <li>
+                    <a href="warehouse-manger.html">仓库管理</a>
+                </li>
+                <li>
+                    <a href="data-operation.html">经营数据统计</a>
+                </li>
+            </ul>
+
+
+            <!-- 嵌入内容区域 -->
+            <div class="layui-tab-content">
+                <iframe frameborder="0" width="100%" height="100%" class="x-iframe" name="workbench" id="treeFrame"></iframe>
+         
+            </div>
+
+
+        </div>
+    </div>
+</body>
+<!-- 车辆信息的侧滑页面 -->
+<div class="rightBoxBg">
+    <div class="rightBoxDiv">
+        <div class="topTitle">
+            <i class="layui-icon layui-icon-close"></i>
+            <p>车辆信息</p>
+        </div>
+        <iframe  name="cehua"></iframe>
+    </div>
+</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+<script type="text/javascript" src="./js/xadmin.js"></script>
+<script src="js/dy-iframe.js"></script>
+
+<script>
+    $(".workbench a").attr("target", "workbench");
+    $(".workbench a")[0].click();
+
+    layui.use(['layer', 'form', 'laypage'], function () {
+        var layer = layui.layer,
+            form = layui.form;
+        var form = layui.form;
+
+    })
+    //点击查看项目详情
+    $(".msg-left-details").click(function () {
+        layer.open({
+            type: 2,
+            closeBtn: 0,
+            title: false,
+            shadeClose: false, //点击遮罩关闭层
+            area: ['100%', '100%'],
+            content: 'project-detalis.html ',
+
+        })
+
+    })
+    //  点击策划页面  关闭按钮
+    
+        $(".topTitle").click(function(){
+				$(".rightBoxBg").animate({right:'-100%'});
+				$(".rightBoxDiv").animate({right:'-1000px'});
+			})
+
+</script>
+
+
+
+
+</html>

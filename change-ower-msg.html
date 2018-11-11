@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/rest.css" />
+
+    <link rel="stylesheet" href="lib/layui/css/layui.css" />
+    <link rel="stylesheet" href="css/public.css" />
+    <title>修改业主信息</title>
+    <style>
+        .layui-form-label {
+            width: 60px;
+        }
+
+        .layui-input-block {
+            margin-left: 94px;
+        }
+
+        .layui-form-item .layui-input-block {
+            width: 482px;
+        }
+
+        .label-long {
+            width: 90px;
+            margin-left: -32px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dy-albox">
+        <form class=" layui-form form-inline " action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">业主名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input   layui-input-disbaled layui-disabled  "
+                        lay-skin="primary" disabled value="tengxun" />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">联系人</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input     " lay-skin="primary" value="你大爷"
+                    />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">联系电话</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入联系电话" class="layui-input     " lay-skin="primary"
+                    />
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">业主类型</label>
+                <div class="layui-input-block">
+                    <select name="interest" lay-filter="aihao" class="interest">
+                        <option value="0" selected>个人</option>
+                        <option value="1">企业</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item  individual" style="display:block">
+                <label class="layui-form-label">身份证号</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入信用代码" class="layui-input     " lay-skin="primary"
+                    />
+                </div>
+            </div>
+            <div class="layui-form-item enterprise">
+                <label class="layui-form-label">信用代码</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入信用代码" class="layui-input   layui-input-disbaled layui-disabled   "
+                        lay-skin="primary" disabled value="tengxun" />
+                </div>
+            </div>
+
+            <div class="enterprise-table">
+                <!-- 这是一条华丽的分割线 hr -->
+                <hr style=" margin: 20px auto;width: 98%;color:#ccc; " />
+                <div class="layui-form-item">
+                    <label class="layui-form-label my189">开票信息</label>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">开户银行</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input  " lay-skin="primary" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">账号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input " lay-skin="primary" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">联系电话</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input  " lay-skin="primary" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label label-long">纳税人识别号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input " lay-skin="primary" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">开票地址</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input " lay-skin="primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+
+<script type="text/javascript">
+    // $(".warpbox").height($("body,html").height() - 150);
+
+    layui.use("form", function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on("submit(formDemo)", function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+        //  判断是否企业类型
+        form.on("select(aihao)", function (data) {
+            owershow();
+        });
+    });
+
+    layui.use("laydate", function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: "#data1", //指定元素
+            theme: "#1890ff"
+        });
+    });
+    //  判断是否企业类型
+    function owershow() {
+        if ($(".interest").val() == 1) {
+            //  alert($(".interest").val());
+            $(".enterprise-table").show();
+            $(".enterprise").show();
+            $(".individual").hide();
+        } else {
+            $(".enterprise-table").hide();
+            $(".enterprise").hide();
+            $(".individual").show();
+        }
+    }
+    //  点击选择
+    $(".addselt").on("click", function () {
+        top.layer.open({
+            type: 2,
+            title: ["选择房间"],
+            shadeClose: false, //点击遮罩关闭层
+            maxmin: true,
+            area: ["700px", "400px"],
+            content: "owner-addselt.html",
+            // end: function () {
+            // 	location.reload(); //点击后刷新父页面
+            // },
+            btn: ["保存", "取消"],
+            no: function (index, layero) { },
+            yes: function (index, layero) { }
+        });
+    });
+    //  点击表格里面的删除
+    $(".td-delte").each(function (index) {
+        $(this).click(function () {
+            $(this)
+                .parent()
+                .parent()
+                .remove();
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>新建房客</title>
+		<link rel="stylesheet" href="lib/layui/css/layui.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/houseView.css" />
+    	<script src="js/jquery-1.7.2.min.js"></script>
+        <script src="lib/layui/layui.js"></script>
+	</head>
+	<body>
+		<div class="layOpen">
+			<form class="layui-form form-inline" action="">
+	            <div class="">
+	            	<div class="layui-form-item">
+		                <label class="layui-form-label">行业</label>
+		                <div class="layui-input-block">
+		                    <select name="" lay-filter="">
+		                        <option value="0">互联网</option>
+		                        <option value="1">商业</option>
+		                    </select>
+		                </div>
+		            </div>
+	            	<div class="layui-form-item">
+		                <label class="layui-form-label">联系人</label>
+		                <div class="layui-input-block">
+		                    <input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入联系人" class="layui-input">
+		                </div>
+		            </div>
+		            <div class="layui-form-item">
+		                <label class="layui-form-label">联系电话</label>
+		                <div class="layui-input-block">
+		                    <input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入联系电话" class="layui-input">
+		                </div>
+		            </div>
+		            <div class="layui-form-item">
+		                <label class="layui-form-label">房客类型</label>
+		                <div class="layui-input-block">
+		                    <select name="" lay-filter="personType" >
+		                        <option value="1">企业</option>
+		                        <option value="2">个人</option>
+		                    </select>
+		                </div>
+		            </div>
+		            <div class="layui-form-item geren">
+		                <label class="layui-form-label">身份证号</label>
+		                <div class="layui-input-block">
+		                    <input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入身份证号" class="layui-input">
+		                </div>
+		            </div>
+		            <div class="qiye">
+		            	<div class="layui-form-item">
+			                <label class="layui-form-label">信用代码</label>
+			                <div class="layui-input-block">
+			                    <input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入联系电话" class="layui-input">
+			                </div>
+			            </div>
+			            <div class="layui-form-item">
+			            	<label class="layui-form-label labelTitle">开票信息</label>
+			            </div>
+			            <div class="layui-form-item">
+			                <label class="layui-form-label">开户银行</label>
+			                <div class="layui-input-block">
+			                    <input type="text" name="" lay-verify="" autocomplete="off" placeholder="请填写开户银行" class="layui-input">
+			                </div>
+			            </div>
+			            <div class="layui-form-item">
+			                <label class="layui-form-label">账号</label>
+			                <div class="layui-input-block">
+			                    <input type="text" name="" lay-verify="" autocomplete="off" placeholder="请填写账号" class="layui-input">
+			                </div>
+			            </div>
+			            <div class="layui-form-item">
+			                <label class="layui-form-label">联系电话</label>
+			                <div class="layui-input-block">
+			                    <input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入联系电话" class="layui-input">
+			                </div>
+			            </div>
+			            <div class="layui-form-item">
+			                <label class="layui-form-label">纳税人识别号</label>
+			                <div class="layui-input-block">
+			                    <input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入纳税人识别号" class="layui-input">
+			                </div>
+			            </div>
+			            <div class="layui-form-item">
+			                <label class="layui-form-label">开票地址</label>
+			                <div class="layui-input-block">
+			                    <input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入开票地址" class="layui-input">
+			                </div>
+			            </div>
+		            </div>
+	            </div>
+            </form>
+		</div>
+		<script type="text/javascript">
+			layui.use('form',function() {
+		        var form = layui.form;
+		        //房客类型
+		        form.on('select(personType)', function (data) {
+		        	if(data.value=="1"){
+			        	$(".qiye").show();
+			        	$(".geren").hide();
+			        }
+			        if(data.value=="2"){
+			        	$(".qiye").hide();
+			        	$(".geren").show();
+			        }
+		        });
+		   });
+		   $("#personType") .change(function(){
+		        var selectedValue=$(this).val();
+		        alert(1)
+		        alert(selectedValue)
+		       
+		    });
+			/*点击新建业主*/
+			$(".hasCursor").click(function(){
+				$(".hasCursor").val("");
+				$(".chooseOne_y").slideToggle();
+			})
+			$(".layOpen .layui-input-block .selectOne li").eq(0).addClass("active")
+			$(".layOpen .layui-input-block .selectOne li").each(function(){
+				$(this).click(function(){
+					$(".layOpen .layui-input-block .selectOne li").removeClass("active");
+					$(this).addClass("active");
+					$(".chooseOne_y").slideUp();
+					/*选择好后给业主名称赋值，只显示名称不显示电话号码*/
+					$(".hasCursor").val($(this).find("span").text());
+				})
+			})
+			$("#addOne_y").click(function(){
+				$(".chooseOne_y").hide();
+				$(".addoccupancy_y").show();
+				$("#occupancyName").hide();
+			})
+			layui.use('form', function () {
+		        var form = layui.form;
+		        //监听提交
+		        form.on('submit(formDemo)', function (data) {
+		            layer.msg(JSON.stringify(data.field));
+		            return false;
+		        });
+		    });
+		</script>
+	</body>
+</html>

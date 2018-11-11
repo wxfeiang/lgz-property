@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>报障管理页面</title>
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+
+<body>
+
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+        <ul class="layui-tab-title teport-disab">
+            <li class="layui-this">
+                <a href="teport-disab-manger.html">报障管理</a>
+            </li>
+
+            <li>
+                <a href="workorder-manger.html">工单管理 </a>
+            </li>
+            <li>
+                <a href="teport-analysis.html">统计分析 </a>
+            </li>
+          
+
+        </ul>
+        <div class="layui-tab-content">
+            <iframe frameborder="0" width="100%" height="100%" class="x-iframe" name="teport-disab" id="treeFrame"></iframe>
+        </div>
+    </div>
+
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+<script type="text/javascript" src="./js/xadmin.js"></script>
+<script src="js/dy-iframe.js"></script>
+<script>
+
+    $(".teport-disab li a").attr("target", "teport-disab");
+    $(".teport-disab li  a")[0].click();
+</script>
+
+</html>

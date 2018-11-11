@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>分拆房间</title>
+		<link rel="stylesheet" href="lib/layui/css/layui.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/houseView.css" />
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<script src="lib/layui/layui.js"></script>
+	</head>
+
+	<body>
+		<div class="layOpen">
+			<form class="layui-form form-inline" action="">
+				<!--这个隐藏域用来存当前房间的房号-->
+				<input type="hidden" value="1101" id="houseNum"/>
+				<div class="borderBtoom_y">
+					<div class="layui-form-item">
+						<label class="layui-form-label">待分拆房间</label>
+						<div class="layui-input-block">
+							<p>11层1101室<span>110m²</span></p>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">分拆数量</label>
+						<div class="layui-input-block">
+							<input type="number" name="" lay-verify="" autocomplete="off" placeholder="请输入分拆房间数量" class="layui-input" style="width:85%;" id="fenchaiNum">
+							<span class="clickOne_y">点击生成</span>
+						</div>
+					</div>
+				</div>
+				<div class="layui-form-item fenchai_y">
+					<label class="layui-form-label">分拆后房间</label>
+					<div class="layui-input-block">
+						<table class="layui-table">
+							<thead>
+								<tr>
+									<th>房间号</th>
+									<th>房间面积</th>
+								</tr>
+							</thead>
+							<tbody>
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script type="text/javascript">
+			layui.use('layer',function() {
+		        var layer = layui.layer;
+				var houseNum=$("#houseNum").val();
+				$(".clickOne_y").click(function(){
+					var fenchaiNum=Number($("#fenchaiNum").val());
+					if(!(fenchaiNum>0)){
+						layer.msg('请输入分拆数量');
+					}else{
+						for(var i=0;i<$("#fenchaiNum").val();i++){
+							if (i==0) {
+								var _tr=$('<tr><td>'+houseNum+'</td><td><input type="number" name="" lay-verify="" autocomplete="off" placeholder="请输入分拆房间面积" class="layui-input fenchaiArear_y"></td></tr>');								
+							} else{
+								var _tr=$('<tr><td>'+houseNum+"-"+i+'</td><td><input type="number" name="" lay-verify="" autocomplete="off" placeholder="请输入分拆房间面积" class="layui-input fenchaiArear_y"></td></tr>');
+								
+							}
+							//var _tr=$('<tr><td>'+houseNum+"-"+(i+1)+'</td><td><input type="number" name="" lay-verify="" autocomplete="off" placeholder="请输入分拆房间面积" class="layui-input fenchaiArear_y"></td></tr>');
+							$(".fenchai_y table tbody").append(_tr);
+						}
+						$(".fenchai_y").show();
+					}
+				})
+			 });
+			/*点击提交时分拆后的房间面积不能大于待分拆房间的总面积*/
+		</script>
+	</body>
+
+</html>

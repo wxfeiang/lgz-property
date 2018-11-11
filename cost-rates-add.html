@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/rest.css">
+
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <title>添加收费标准</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="dy-albox">
+        <form class=" layui-form form-inline " action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">收费科目</label>
+                <div class="layui-input-block">
+                    <select name="payslet" lay-filter="payslet" class="payslet">
+                        <option value="0">物业费</option>
+                        <option value="1">水费</option>
+                        <option value="2">电费</option>
+                        <option value="3">暖气费</option>
+                        <option value="4">停车费</option>
+                        <option value="5">一次性其他费用</option>
+                        <option value="6">周期性其他费用</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">标准名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入收费标准名称" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">计费方式</label>
+                <div class="layui-input-block">
+                    <select name="   " lay-filter="">
+                        <option value="1">单位 * 面积</option>
+                        <option value="2">固定金额</option>
+                        <option value="3">单价 * 用量 </option>
+                        <!-- <option value="">自主充值</option> -->
+                        <option value="">按面积分摊</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">收费价格</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入收费价格" class="layui-input">
+                    <i class="" style="position: absolute; right:10px;top: 10px;">元</i>
+                </div>
+            </div>
+
+            <div class="enterprise-table">
+                <div class="layui-form-item">
+                    <label class="layui-form-label ">
+                        <span class="myred-color">*</span>是否供暖</label>
+                    <div class="layui-input-block ">
+                        <input type="radio" name="sex0" lay-filter="noheating" value="是" title="是" checked>
+                        <input type="radio" name="sex0" lay-filter="noheating" value="否" title="否" class="noheating">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">
+                        <span class="myred-color">*</span>开始时间</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入开始时间" class="layui-input" id="data1">
+                        <i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">
+                        <span class="myred-color">*</span>结束时间</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入结束时间" class="layui-input" id="data2">
+                        <i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
+                    </div>
+                </div>
+                <!-- 收取过热费比例 -->
+                <div class="layui-form-item noheat">
+                    <label class="layui-form-label">过热费比例</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入收费价格" class="layui-input">
+                        <i class="" style="position: absolute; right:10px;top: 10px;">&#37;</i>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <!-- 只有暖气费的时候   付款周期是隐藏的  -->
+            <div class="layui-form-item   period">
+                <label class="layui-form-label">付款周期</label>
+                <div class="layui-input-block">
+                    <select name="   " lay-filter="">
+                        <option value="">一月一付</option>
+                        <option value="">两月一付</option>
+                        <option value="">三月一付</option>
+                        <option value="">四月一付</option>
+                        <option value="">五月一付</option>
+                        <option value="">六月一付</option>
+                        <option value="">七月一付</option>
+                        <option value="">八月一付</option>
+                        <option value="">九月一付</option>
+                        <option value="">十月一付</option>
+                        <option value="">十一月一付</option>
+                        <option value="">十二月一付</option>
+
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">计算精度</label>
+                <div class="layui-input-block">
+                    <select name="   " lay-filter="">
+                        <option value="">保留两位小数</option>
+                        <option value="">保留一位小数</option>
+                        <option value="">不保留小数</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">四舍五入</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="sex" value="是" title="是" checked>
+                    <input type="radio" name="sex" value="否" title="否">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">滞纳金</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="sex1" value="收取" lay-filter="overdue" title="收取" class="overdue">
+                    <input type="radio" name="sex1" value="不收取" lay-filter="overdue" title="不收取" checked>
+                </div>
+            </div>
+            <!-- 是否收取滞纳金 -->
+           <div class="overdue-tab">
+                <div class="layui-form-item ">
+                    <label class="layui-form-label">滞纳金收取时间</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="从账单结束多少天开始收取" class="layui-input" id="data3">
+                        <i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">收费比例(天)</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入收费比例" class="layui-input">
+                        <i class="" style="position: absolute; right:10px;top: 10px;">&#8240;</i>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">状态</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="switch" lay-skin="switch" lay-text="启用|禁用" checked>
+                    <div class="layui-unselect layui-form-switch layui-form-onswitch" lay-skin="_switch">
+                        <em>启用</em>
+                        <i></i>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+
+<script type="text/javascript">
+alert("临时性收费的   不显示 付款周期");
+    layui.use('form', function () {
+        var form = layui.form;
+        //  判断是否企业类型
+        form.on('select(payslet)', function (data) {
+            owershow();
+        });
+        // 判断是否供暖
+        form.on('radio(noheating)', function (data) {
+            if ($(".noheating").attr("checked")) {
+                $(".noheat").show();
+               
+            } else {
+                $(".noheat").hide();
+            }
+        });
+        //  判断是否收取滞纳金
+        form.on('radio(overdue)', function (data) {
+            if ($(".overdue").attr("checked")) {
+                
+                $(".overdue-tab").show();
+            } else {
+                 $(".overdue-tab").hide();
+             
+            }
+        });
+       
+        
+
+
+    });
+
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#data1', //指定元素
+            theme: '#1890ff',
+        });
+        laydate.render({
+            elem: '#data2', //指定元素
+            theme: '#1890ff',
+        });
+        laydate.render({
+            elem: '#data3', //指定元素
+            theme: '#1890ff',
+        });
+
+    });
+
+    //  判断是否选择了暖气费
+    function owershow() {
+        // var onff = true;
+        // var json2 = {
+        //     "height": "auto",
+        // }
+        // var json3 = {
+        //     "height": "0",
+        //     "overflow": "hidden"
+        // }
+        if ($(".payslet").val() == 3) {
+            // alert($(".payslet").val());
+            $(".enterprise-table").show();
+
+
+            $(".enterprise").hide();
+            $(".period").hide();
+            // 选择不供暖的时候  显示 过热费比例
+            if ($(".noheating") == checked) {
+            }
+
+        } else {
+            $(".enterprise-table").hide();
+            $(".enterprise").show();
+            $(".period").show();
+
+
+        }
+
+         // 判断临时性收费  不显示付款周期
+         if ($(".payslet").val() == 5) {
+            $(".period").hide();
+
+         }else{
+            $(".period").show();
+         }
+    }
+</script>
+
+</html>

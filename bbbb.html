@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+
+    <title>添加押金</title>
+    <style>
+        .d-worpbox {
+            padding: 10px 20px;
+        }
+
+        .left-laytree {
+            width: 280px;
+
+
+        }
+
+        .dep-title {
+            line-height: 50px;
+
+        }
+
+        .smai-tree {
+            margin-top: 0;
+            border: 1px solid #ccc;
+            padding: 10px 0;
+            height: 280px;
+            max-height: 280px;
+            overflow-y: auto;
+        }
+
+        .right-showbox {
+            width: 390px;
+        }
+
+        .layui-form-item .layui-input-block {
+            width: 270px;
+        }
+
+        .layui-input-block {
+            margin-left: 90px;
+        }
+
+        .layui-form-label {
+            float: left;
+            display: block;
+            padding: 9px 15px;
+            width: 60px;
+            font-weight: 400;
+            line-height: 18px;
+            text-align: left;
+        }
+
+        .layui-form-label {
+            float: left;
+            display: block;
+            padding: 9px 10px;
+            width: 60px;
+            font-weight: 400;
+            line-height: 18px;
+            text-align: right;
+        }
+
+        .formbox {
+            border: 1px solid #ccc;
+            padding: 20px 0;
+            height: 260px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clearfix  d-worpbox">
+
+
+    </div>
+
+
+    <span class="dy-btn">点击生成 checked</span>
+    <form class=" layui-form form-inline " action="">
+        <input type="checkbox" name="" title="已收1" lay-skin="primary">
+        <input type="checkbox" name="" title="已收2" lay-skin="primary">
+        <input id="data1" type="text" name="" lay-verify="date" autocomplete="off" class="layui-input">
+
+
+    </form>
+
+
+</body>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+
+
+
+<script type="text/javascript">
+    var inputs = `<input type="checkbox" name="" title="已收" lay-skin="primary" >`;
+   
+
+    layui.use('form', function () {
+        var form = layui.form;
+
+    });
+
+
+    layui.use('laydate', function () {
+      
+          
+        var laydate = layui.laydate;
+        var num = 0;
+       
+        $(".dy-btn").click(function () {
+            var datas = `<input  type="text" name="" lay-verify="date" autocomplete="off" class="layui-input" id="aa${num}">`;
+            $(".form-inline").append(datas);
+
+
+          
+           
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#aa'+num,  //指定元素
+                theme: '#1890ff',
+            });
+          
+            num++;
+
+        })
+
+
+          laydate.render({
+                elem: '#data1 ',       
+                theme: '#1890ff',
+            });
+
+
+    });
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

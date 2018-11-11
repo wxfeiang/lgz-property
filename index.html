@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>蓝格子云平台</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"
+    />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="css/xadmin.css">
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script src="lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/xadmin.js"></script>
+    <style>
+        .red {
+            background: #151a20;
+            color: #FFFFFF;
+            border-left: 5px solid #20a8ff
+        }
+
+        .dy-wp-nav {}
+
+        .dy-wp-nav li {
+
+            padding: 0 10px;
+            margin: 10px auto;
+
+        }
+
+        .dy-wp-nav li a {
+            display: block;
+            padding: 6px 4px;
+
+        }
+
+        .dy-wp-nav li:hover {
+        /* border: 1px solid #ff9900; */
+        }
+
+        .dy-wp-nav li:hover a {
+            border: 1px solid #ff9900;
+        }
+
+        .dy-wp-nav li a .actived{
+            border: 1px solid #ff9900;
+        }
+                .img-box {
+            margin-right: 10px;
+            width: 60px;
+            height: 40px;
+            background: aqua;
+        }
+
+        .show-obj-box {
+            width: 116px;
+            max-width: 150px;
+
+        }
+
+        .show-obj-box p {
+            max-width: 130px;
+            color: #fff;
+            line-height: 20px;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 顶部开始 -->
+    <div class="container">
+        <div class="logo">
+            <a href="./index.html">
+                <img src="images/logo.png" alt="">
+                
+                智慧楼宇服务云平台</a>
+        </div>
+        <div class="left_open">
+            <i title="展开左侧栏" class="iconfont">&#xe699;</i>
+        </div>
+        <ul class="layui-nav left fast-add" lay-filter="">
+            <li class="layui-nav-item">
+                <a href="shouye.html" target="myIframe">首页</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="workbench.html "  target="myIframe">工作台</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="oa.html" target="myIframe">OA</a>
+            </li>
+        </ul>
+        <ul class="layui-nav right" lay-filter="">
+            <li class="layui-nav-item">
+                <a href="javascript:;">admin</a>
+                <dl class="layui-nav-child">
+                    <!-- 二级菜单 -->
+                    <dd>
+                        <a onclick="">权限管理</a>
+                    </dd>
+                    <dd>
+                        <a onclick="">角色管理</a>
+                    </dd>
+                    <dd>
+                        <a onclick="">部门管理</a>
+                    </dd>
+                    <dd>
+                        <a onclick="">用户管理</a>
+                    </dd>
+                    <dd>
+                        <a onclick="">项目分配</a>
+                    </dd>
+
+                    <dd>
+                        <a onclick="">系统日志</a>
+                    </dd>
+                    <dd>
+                        <a onclick="">用户中心</a>
+                    </dd>
+                    <dd>
+                        <a href="./login.html">退出登录</a>
+                    </dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item to-index">
+                <a href="/"></a>
+            </li>
+        </ul>
+
+    </div>
+    <!-- 顶部结束 -->
+    <!-- 中部开始 -->
+    <!-- 左侧菜单开始 -->
+    <div class="left-nav">
+        <div id="side-nav">
+            <!-- <ul id="nav">
+                <li>
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe6b4;</i>
+                        <cite>用户管理</cite>
+                        <i class="iconfont nav_right">&#xe6a7;</i>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a _href="workbench.html">
+                                <i class="iconfont" style="color:transparent">&#xe6a7;</i>
+                                <cite>高新大厦</cite>
+                            </a>
+                        </li>
+
+                        
+                    </ul>
+                </li>
+                <li>
+                        <a href="javascript:;">
+                            <i class="iconfont">&#xe6b4;</i>
+                            <cite>房产管理</cite>
+                            <i class="iconfont nav_right">&#xe6a7;</i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a _href="project-magent.html">
+                                    <i class="iconfont" style="color:transparent">&#xe6a7;</i>
+                                    <cite>项目管理</cite>
+                                </a>
+                            </li>
+                                                   
+                        </ul>
+                    </li>
+            </ul> -->
+            <ul class="dy-wp-nav">
+                <li>
+                    <a href="workbench.html" class="clearfix "  target="myIframe">
+                        <div class="img-box fl">
+                            <img src="images/1.png" alt="" width="60px" height="40px;">
+                        </div>
+                        <div class="show-obj-box fl">
+                            <p title="兰州高新大厦">兰州高新大厦</p>
+                            <p title="150㎡">150㎡</p>
+                        </div>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="workbench.html" class="clearfix " target="myIframe">
+                        <div class="img-box fl">
+                            <img src="images/1.png" alt="" width="60px" height="40px;">
+                        </div>
+                        <div class="show-obj-box fl">
+                            <p title="兰州高新大厦">兰州高新大厦</p>
+                            <p title="150㎡">150㎡</p>
+                        </div>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="workbench.html" class="clearfix " target="myIframe" >
+                        <div class="img-box fl">
+                            <img src="images/1.png" alt="" width="60px" height="40px;">
+                        </div>
+                        <div class="show-obj-box fl">
+                            <p title="兰州高新大厦">兰州高新大厦</p>
+                            <p title="150㎡">150㎡</p>
+                        </div>
+
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="x-slide_left"></div> -->
+    <!-- 左侧菜单结束 -->
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+        <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+            <div class="layui-tab-content" style="top: 0;">
+                <div class="layui-tab-item layui-show">
+                    <iframe src='' frameborder="0" scrolling="yes" class="x-iframe" name="myIframe" id="myIframe"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="page-content-bg">
+
+    </div> -->
+    <!-- 右侧主体结束 -->
+    <!-- 中部结束 -->
+
+    <script>
+        //  循环找到每个li 的 a 加点击事件    actived 
+         
+        $(".dy-wp-nav li").each(function () {
+            var json2 = {
+                "border-width": "1px",
+                "border-style": "solid",
+                "border-color": "#ff9900",
+            }
+            var json3 = {
+                "border-width": "1px",
+                "border-style": "solid",
+                "border-color": "transparent",
+            }
+            $(".dy-wp-nav li").eq(0).find("a").css(json2);
+            $(".dy-wp-nav li").eq(0).find("a")[0].click();
+            
+            $(this).click(function () {
+            
+                $(this).find("a").css(json2);
+                $(this).siblings().find("a").css(json3);
+              
+            });
+           
+        })
+ 
+       
+
+
+    </script>
+</body>
+
+</html>

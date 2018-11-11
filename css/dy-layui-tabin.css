@@ -1,0 +1,17 @@
+.layui-form-label {
+    width: 60px;
+}
+
+.layui-input-block {
+    margin-left: 94px;
+}
+
+.layui-form-item .layui-input-block {
+    width: 482px;
+}
+
+.label-long {
+    width: 90px;
+    margin-left: -32px;
+}
+/* 单独有表格和 输入框改动 */
