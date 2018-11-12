@@ -15,34 +15,41 @@
 
 <body>
     <div class="">
-       
-        <div class="warp-btns">
+        <div class="dy-top-back">
 
-            <span class="dy-back go-back">
-               &lt; 返回上一页</span>
-                    
+            <span class="dy-back go-back ">
+                <i class="layui-icon layui-icon-left"></i> 返回上一页</span>
+
         </div>
-        <!-- 这是一条华丽的分割线 hr  -->
-        <hr style=" margin: 20px auto;width: 98%;color:#ccc; ">
 
         <!--  列表详细内容展示区域 -->
-        <p class="decion-tit" >业主信息(2018-18-18结束)</p>
+        <p class="decion-tit">房客信息(2018-18-18结束)</p>
         <ul class="clearfix decion-box">
-            <li class="fl"><span>房客名称:</span> 兰州高新区</li>
-            <li class="fl"><span>联系人:</span>里二狗</li>
-            <li class="fl"><span>联系电话:</span>41321654894610</li>
-            <li class="fl"><span>业主类型:</span> 企业</li>
-            <li class="fl"><span>信用代码:</span> 765416+497</li>  
+            <li class="fl">
+                <span>房客名称:</span> 兰州高新区</li>
+            <li class="fl">
+                <span>联系人:</span>里二狗</li>
+            <li class="fl">
+                <span>联系电话:</span>41321654894610</li>
+            <li class="fl">
+                <span>业主类型:</span> 企业</li>
+            <li class="fl">
+                <span>信用代码:</span> 765416+497</li>
         </ul>
-        <p class="decion-tit" >开票信息</p>
-        <ul class="clearfix decion-box" >
-            <li class="fl"><span>开户银行:</span> 中国建设银行</li>
-            <li class="fl"><span>账号:</span> 184131986541</li>
-            <li class="fl"><span>联系电话:</span> 8513541684846</li>
-            <li class="fl"><span>纳税人识别号:</span> 566456168</li>   
-            <li class="fl"><span>开票地址:</span> 兰州市城关区</li>   
+        <p class="decion-tit">开票信息</p>
+        <ul class="clearfix decion-box">
+            <li class="fl">
+                <span>开户银行:</span> 中国建设银行</li>
+            <li class="fl">
+                <span>账号:</span> 184131986541</li>
+            <li class="fl">
+                <span>联系电话:</span> 8513541684846</li>
+            <li class="fl">
+                <span>纳税人识别号:</span> 566456168</li>
+            <li class="fl">
+                <span>开票地址:</span> 兰州市城关区</li>
         </ul>
-        <p class="decion-tit" >关联房间</p>
+        <p class="decion-tit">关联房间</p>
         <div class="warp-show-list">
             <table class="layui-table" lay-skin="line" table id="tb_1" cellspacing="0" cellpadding="2" width="100%" border="1">
 
@@ -124,18 +131,18 @@
             });
         })
     })
- //  点击删除
+    //  点击删除
 
     $(".delete").click(function () {
-      
-            layer.confirm('业主删除后无法恢复,是否确认删除？', {
-                title : '提示信息',
-                area: '520px',
-                btn: ['确认删除','取消'] ,
-                
-            });
 
-     
+        layer.confirm('业主删除后无法恢复,是否确认删除？', {
+            title: '提示信息',
+            area: '520px',
+            btn: ['确认删除', '取消'],
+
+        });
+
+
 
     })
 

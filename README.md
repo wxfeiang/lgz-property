@@ -201,7 +201,7 @@
 
 ###  剖面图    house-cutaway.html   // 住宅和楼宇的剖面图展示  加判断 展示
 *   添加房间     house-cutaway-add.html
-*  批量添加     
+*  批量添加房间     batch-house.html
 *  空置房间  的 编辑按钮   house-cutaway-add.htmll
 ###   右侧划出房间  rightRoom.html
 *      入住页面    house-checkin.html
@@ -231,18 +231,19 @@
 *  打印
 *  详情   pact-house-dection.html
 ####  物业账单 wy-house-bill.html
-*  批量收款
-*  提醒
-*  点击行显示 详情 wy-house-billdec.html
+*  批量收款   batch-pay.html
 
-*  预缴
-*  充值水电
+*  提醒  提示信息框
+*  点击行显示 详情  wy-house-dection.html
+
+*  预缴  wy-house-prepay.html 
+*  充值水电 wy-house-prepay2.html
 *  撤销
 * 打印
 *  开票
 *  点击行显示 详情   wy-house-updec.html 
 ####  租金账单  price-house-bill.html
-*  批量收款
+*  批量收款    batch-pay.html
 *  提醒
 *  收款
 *  点击行 显示详情   price-house-dection.html

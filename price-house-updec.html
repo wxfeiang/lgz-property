@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,19 +15,18 @@
 
 <body>
     <div class="">
-      
-        <div class="warp-btns">
 
-            <span class="dy-btn go-back">
-                &lt;&lt; 返回</span>
+        <div class="dy-top-back">
+
+            <span class="dy-back go-back ">
+                <i class="layui-icon layui-icon-left"></i> 返回上一页</span>
 
         </div>
-        <!-- 这是一条华丽的分割线 hr  -->
-        <hr style=" margin: 20px auto;width: 98%;color:#ccc; ">
+
 
         <!--  列表详细内容展示区域 -->
         <p class="decion-tit">缴费记录</p>
-        <ul class="clearfix decion-box"  >
+        <ul class="clearfix decion-box">
             <li class="fl">
                 <span>缴费记录编号:</span> 4531324</li>
             <li class="fl">
@@ -63,7 +61,7 @@
         <p class="decion-tit">缴费明细</p>
 
         <div class="warp-show-list">
-            <table class="layui-table" lay-skin="line" table id="tb_1" cellspacing="0" cellpadding="2" width="100%" border="1"  >
+            <table class="layui-table" lay-skin="line" table id="tb_1" cellspacing="0" cellpadding="2" width="100%" border="1">
 
                 <thead>
                     <tr>
@@ -112,20 +110,20 @@
             </table>
         </div>
     </div>
-<!-- Code injected by live-server -->
-<script src="js/jquery-1.7.2.min.js"></script>
-<script src="lib/layui/layui.js"></script>
-<script type="text/javascript">
+    <!-- Code injected by live-server -->
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="lib/layui/layui.js"></script>
+    <script type="text/javascript">
 
-    /*获取弹出窗口索引*/
-    var index = parent.layer.getFrameIndex(window.name);
-    /*取消*/
-    $(".go-back").click(function () {
-        parent.layer.close(index);
-    })
+        /*获取弹出窗口索引*/
+        var index = parent.layer.getFrameIndex(window.name);
+        /*取消*/
+        $(".go-back").click(function () {
+            parent.layer.close(index);
+        })
 
- 
-</script>
+
+    </script>
 
 
 

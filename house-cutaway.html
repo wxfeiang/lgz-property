@@ -37,7 +37,7 @@
 		</div>
 		<button class="dy-btn" lay-event="sousuo" data-type="reload">搜索</button>
 		<button class="dy-btn newadd" lay-event="addbloc">添加房间</button>
-		<button class="dy-btn carport-car" lay-event="addbloc">添加批量添加</button>
+		<button class="dy-btn batch-house" lay-event="addbloc">批量添加</button>
 
 		<!-- 剖面展示 -->
 		<div class="poumian">
@@ -266,6 +266,26 @@
 
 				});
 			});
+		})
+		//  点批量添加
+		$(".batch-house").click(function(){
+			top.layer.open({
+					type: 2,
+					title: ['批量添加房间'],
+					shadeClose: false, //点击遮罩关闭层
+					area: ['770px', '600px'],
+					content: 'batch-house.html',
+					// end: function () {
+					// 	location.reload(); //点击后刷新父页面
+					// },
+					btn: ['保存', '取消'],
+					no: function (index, layero) {
+
+					},
+					yes: function (index, layero) { }
+
+				});
+
 		})
 
 

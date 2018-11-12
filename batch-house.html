@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <title>批量添加房间</title>
+    <style>
+        .bacth-top {
+            margin: 0 20px 10px;
+        }
+
+        .bacth-box h3 {
+            padding: 10px 0;
+        }
+
+        .bacth-top .top-img {
+            margin: 0 30px 0 0;
+            width: 120px;
+            height: 80px;
+            background: #ccc;
+        }
+
+        .bacth-top .top-dec p {
+            line-height: 34px;
+        }
+
+        .bacth-from {
+            margin: 0 20px;
+        }
+
+
+
+        .less-selectbox {
+            padding: 20px;
+        }
+
+        .layui-form-checkbox[lay-skin=primary] {
+            margin: 10px 0;
+        }
+
+        .sm-leasebox:nth-child(odd) {
+            margin-right: 20px;
+        }
+
+        .lease-tit {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+
+        }
+
+        .lease-tit h3 {
+            font-size: 16px;
+            color: #333333;
+            border-left: 4px solid #20a8ff;
+            padding-left: 10px;
+            font-weight: bold;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .dectionbox {
+            padding: 14px 0;
+            height: 268px;
+            overflow-y: auto;
+
+        }
+
+        .dectiontwo {
+            height: 366px;
+        }
+
+        .dectionbox .layui-inline:nth-child(2n) {
+            margin-left: 20px;
+        }
+
+        .dectionbox .lay-itembox .layui-inline:nth-child(2n) {
+            margin-left: 20px;
+        }
+
+        .dectionbox h4 {
+            padding: 5px 15px;
+        }
+
+        .dectionbox h4 i {
+            font-size: 14px;
+            background: #20a8ff;
+            color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .layui-form-label {
+            padding: 10px 0;
+            text-align: left;
+        }
+
+        .layui-input-block {
+            margin-left: 0px;
+            width: 100px;
+        }
+
+        .layui-form-select dl {
+            top: 78px;
+        }
+
+        .layui-form-select .layui-edge {
+            top: 80%;
+        }
+
+        .bacth-btn {
+            display: inline-block;
+            padding: 0 20px;
+            line-height: 30px;
+            cursor: pointer;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+
+        }
+
+        .bacth-btn:hover {
+            color: #fff;
+            background: #20a8ff;
+            border: 1px solid transparent;
+
+        }
+
+        .operat-box .layui-inline {
+            margin-left: 20px;
+
+        }
+
+        .operat-box .layui-inline:first-child {
+            margin-left: 0;
+        }
+
+        .opeact-show {
+            border-top: 1px solid #e4e4e4;
+            margin-top: 10px;
+            height: 250px;
+
+            overflow-y: auto;
+
+        }
+
+        .opeact-show .layui-input-block {
+            margin-left: 0px;
+            width: 160px;
+        }
+
+        .opeact-show .layui-inline {
+            margin-left: 83px;
+
+        }
+
+        .opeact-show .layui-inline:first-child {
+            margin-left: 0;
+        }
+
+
+        .opeact-show .layui-icon-delete {
+            position: relative;
+            right: -20px;
+            top: 23px;
+            font-size: 22px;
+            cursor: pointer;
+
+        }
+
+        .opeact-show .layui-icon-delete:hover {
+            color: #20a8ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bacth-box">
+        <div class="clearfix bacth-top">
+            <h3>楼宇信息</h3>
+            <div class="fl top-img">
+                <img src="images/1.png" alt="楼宇图片" width="120px;" height="80px;">
+            </div>
+            <div class="fl top-dec">
+                <p>高新大厦 A座</p>
+                <p>20000 ㎡</p>
+            </div>
+
+        </div>
+        <div class=" bacth-from layui-form ">
+            <h3>批量添加信息</h3>
+            <!-- 操作区域 -->
+            <div class="operat-box ">
+                <div class=" layui-inline">
+                    <label class="layui-form-label ">开始楼层</label>
+                    <div class="layui-input-block">
+                        <select name="" lay-filter="floorStartId" id="floorStartId">
+                            <option value="0">1</option>
+                            <option value="1">2</option>
+                            <option value="2">3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class=" layui-inline">
+                    <label class="layui-form-label ">结束楼层</label>
+                    <div class="layui-input-block">
+                        <select name="" lay-filter="floorEndId" id="floorEndId">
+                            <option value="1">1</option>
+                            <option value="3">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-inline">
+                    <label class="layui-form-label ">每层房间数</label>
+                    <div class="layui-input-block">
+                        <input type="number" name="title" min="1" lay-verify="title" autocomplete="off" class="layui-input " lay-skin="primary" id="houseNum">
+                    </div>
+                </div>
+                <div class=" layui-inline">
+                    <label class="layui-form-label ">每间面积(㎡)</label>
+                    <div class="layui-input-block">
+                        <input type="number" name="title" min="1" lay-verify="title" autocomplete="off" class="layui-input " lay-skin="primary" id="hoseArea">
+                    </div>
+                </div>
+                <div class=" layui-inline">
+                    <label class="layui-form-label ">房间编号规则</label>
+                    <div class="layui-input-block">
+                        <select name="guize" lay-filter="guize">
+                            <option value="0" selected >请选择规则</option>
+                            <option value="1">数字</option>
+                            <option value="2">字母</option>
+
+
+                        </select>
+                    </div>
+                </div>
+                <div class=" layui-inline">
+                    <label class="layui-form-label ">&nbsp;</label>
+                    <div class="layui-input-block">
+                        <span class="bacth-btn">批量生成</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 显示区域 -->
+            <div class="opeact-show">
+                <!--  每一条 -->
+                <div class="shoe-list">
+                    <div class=" layui-inline">
+                        <label class="layui-form-label ">楼层</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input  layui-input-disbaled layui-disabled "
+                                value="150" lay-skin="primary" readonly>
+                        </div>
+                    </div>
+                    <div class=" layui-inline">
+                        <label class="layui-form-label ">房间号</label>
+                        <div class="layui-input-block">
+                            <input type="number" name="title" lay-verify="title" autocomplete="off" class="layui-input " value="150" lay-skin="primary">
+                        </div>
+                    </div>
+                    <div class=" layui-inline">
+                        <label class="layui-form-label ">面积(㎡)</label>
+                        <div class="layui-input-block">
+                            <input type="number" name="title" lay-verify="title" autocomplete="off" class="layui-input " value="150" lay-skin="primary">
+                        </div>
+
+                    </div>
+                    <i class="layui-icon layui-icon-delete delete"></i>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+
+<script type="text/javascript">
+    // $(".warpbox").height($("body,html").height() - 150);
+
+    layui.use('form', function () {
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#data1', //指定元素
+            theme: '#1890ff',
+        });
+    });
+    //  bacth-btn  点击 批量生成
+
+    window.onload = function () {
+        var floorStart = '', floorEnd = '', guize = '';
+        layui.use('form', function () {
+            var form = layui.form;
+
+
+            //监听
+            form.on('select(floorStartId)', function (data) {
+                floorStart = data.elem[data.elem.selectedIndex].text;
+            });
+            form.on('select(floorEndId)', function (data) {
+                floorEnd = data.elem[data.elem.selectedIndex].text;
+            });
+            form.on('select(guize)', function (data) {
+                guize = data.value;
+            });
+
+
+
+        });
+
+
+        $(".bacth-btn").click(function () {
+
+            var houseNum = Number($("#houseNum").val());
+            var hoseArea = Number($("#hoseArea").val());
+            addFlag = true;
+
+            if (floorStart == '0') {
+                errtips("请选择开始楼层!!");
+                return false;
+            }
+            if (floorEnd == '0') {
+                errtips("请选择结束楼层!!");
+                return false;
+            }
+            if (Number(floorEnd) < Number(floorStart)) {
+                errtips("结束层需大于开始层!");
+                return false;
+            }
+            //每层房间个数
+            if (houseNum == "" || houseNum == null) {
+                errtips("请填写每层房间个数!");
+                return false;
+            }
+            if(hoseArea ==""||hoseArea ==null){
+                errtips("请填写每间面积!");
+					return false;
+                }   
+            if(guize == "0"){
+                errtips("请选择房号编号规则!");
+					return false;
+            }
+            // 楼层个数
+            var floorNum =  Number(floorEnd) - Number(floorStart);
+            if(floorNum== 0){
+                floorNum == 1;;
+            }
+            
+            console.log(floorStart, floorEnd,  guize);
+        })
+
+    }
+
+
+    deletes();
+    // 错误提示
+    function errtips(errtips) {
+        layer.msg(errtips, {
+            icon: 5,
+            anim: 6,
+        })
+
+    }
+
+    //  点击垃圾桶 
+    function deletes() {
+        $(".delete").each(function () {
+            $(this).click(function () {
+                $(this).parent().remove();
+            })
+
+        })
+    }
+
+
+</script>
+
+</html>

@@ -12,41 +12,46 @@
 </head>
 
 <body>
+    <div class="dy-warp-tab">
+        <ul class="myUl_y">
+            <li>
+                <div class="tableTop">
+                    <p>待处理账单(600元) &nbsp; 账单金额(600元) &nbsp; 滞纳金(600元) </p>
 
-    <ul class="myUl_y">
-        <li>
-            <div class="tableTop">
-                <p>待处理账单(600元) &nbsp; 账单金额(600元) &nbsp; 滞纳金(600元) </p>
-               
-                <span>提醒</span>
-                <span>批量收款</span>
-            </div>
-            <div class="pBox_y">
-                <!-- 表格 -->
-            <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
-            </div>
-        </li>
-        <li>
-            <div class="tableTop">
-                <p>缴费记录(600元) </p>
-               
-                <span>充值水电</span>
-                <span>预缴</span>
-            </div>
-            <div class="pBox_y">
+                    <span class="remind">提醒</span>
+                    <span class="batch-pay">批量收款</span>
+                    <!-- 记得删掉 -->
+                    <span class="bat-pay">表格内部收款</span>
+                    <span class="billdec1">行详情</span>
+                </div>
+                <div class="pBox_y">
+                    <!-- 表格 -->
+                    <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
+                </div>
+            </li>
+            <li>
+                <div class="tableTop">
+                    <p>缴费记录(600元) </p>
+
+                    <span class="prepay2">充值水电</span>
+                    <span class="prepay">预缴</span>
+                    <!-- 记得删掉 -->
+                    <span class="billdec2">表格行详情</span>
+                </div>
+                <div class="pBox_y">
                     <table class="layui-hide" id="LAY_table_user2" lay-filter="user"></table>
-            </div>
-        </li>
-       
-    </ul>
+                </div>
+            </li>
 
+        </ul>
+    </div>
 </body>
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="lib/layui/layui.js"></script>
 <script>
 
-     //一般直接写在一个js文件中
-     layui.use(['layer', 'form', 'laypage', 'table'], function () {
+    //一般直接写在一个js文件中
+    layui.use(['layer', 'form', 'laypage', 'table'], function () {
         var layer = layui.layer,
             form = layui.form;
         var form = layui.form;
@@ -63,10 +68,10 @@
                 , { field: 'sex', title: '账单状态', sort: true }
                 , { field: 'city', title: '账单金额', }
                 , { field: 'sign', title: '未收金额' }
-               
+
                 , { field: 'sign', title: '滞纳金' }
-                
-                        
+
+
                 , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
             ]]
             , id: 'testReload'
@@ -95,8 +100,8 @@
         //  第二个表格
 
 
-         //方法级渲染
-         table.render({
+        //方法级渲染
+        table.render({
             elem: '#LAY_table_user2'
             , url: '/demo/table/user/'
             , cols: [[
@@ -109,8 +114,8 @@
                 , { field: 'sign', title: '缴费日期' }
                 , { field: 'sign', title: '线上支付' }
                 , { field: 'sign', title: '开票状态' }
-                
-                        
+
+
                 , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
             ]]
             , id: 'testReload'
@@ -136,8 +141,126 @@
             }
         };
 
-        
+
     });
+//  点击批量收款 batch-pay
+$(".batch-pay").click(function () {
+        top.layer.open({
+            type: 2,
+            title: ['批量收款'],
+            shadeClose: false, //点击遮罩关闭层
+            area: ['840px', '600px'],
+            content: 'batch-pay.html',
+            // end: function () {
+            // 	location.reload(); //点击后刷新父页面
+            // },
+            btn: ['保存', '取消'],
+            no: function (index, layero) {
+
+            },
+            yes: function (index, layero) { }
+
+        });
+
+    })
+// 点击提醒
+
+    $(".remind").each(function () {
+        $(this).click(function () {
+            top.layer.confirm('提醒信息？', {
+                title : '提示信息',
+                area: '520px',
+                btn: ['确定删除','取消'] ,
+                
+            });
+
+        })
+
+    })
+    // 点击收款
+    $(".bat-pay").click(function () {
+        top.layer.open({
+            type: 2,
+            title: ['收款'],
+            shadeClose: false, //点击遮罩关闭层
+            area: ['700px', '600px'],
+            content: 'batc-pay.html',
+            // end: function () {
+            // 	location.reload(); //点击后刷新父页面
+            // },
+            btn: ['保存', '取消'],
+            no: function (index, layero) {
+
+            },
+            yes: function (index, layero) { }
+
+        });
+
+    })
+    // 点击行 进入详情
+    $(".billdec1").click(function () {
+        layer.open({
+            type: 2,
+            closeBtn: 0,
+            title: false,
+            shadeClose: false, //点击遮罩关闭层
+            area: ['100%', '100%'],
+            content: 'wy-house-dection.html'
+        });
+    })
+    //  点击预缴 wy-house-prepay.html
+    $(".prepay").click(function () {
+        top.layer.open({
+            type: 2,
+            title: ['预缴'],
+            shadeClose: false, //点击遮罩关闭层
+            area: ['700px', '600px'],
+            content: 'wy-house-prepay.html',
+            // end: function () {
+            // 	location.reload(); //点击后刷新父页面
+            // },
+            btn: ['保存', '取消'],
+            no: function (index, layero) {
+
+            },
+            yes: function (index, layero) { }
+
+        });
+
+    })
+    // 点击充值水电
+
+  $(".prepay2").click(function () {
+        top.layer.open({
+            type: 2,
+            title: ['预缴'],
+            shadeClose: false, //点击遮罩关闭层
+            area: ['700px', '450px'],
+            content: 'wy-house-prepay2.html',
+            // end: function () {
+            // 	location.reload(); //点击后刷新父页面
+            // },
+            btn: ['保存', '取消'],
+            no: function (index, layero) {
+
+            },
+            yes: function (index, layero) { }
+
+        });
+
+    })
+ // 点击行 进入详情
+ $(".billdec2").click(function () {
+        layer.open({
+            type: 2,
+            closeBtn: 0,
+            title: false,
+            shadeClose: false, //点击遮罩关闭层
+            area: ['100%', '100%'],
+            content: 'wy-house-updec.html '
+        });
+    })
+
 
 
 </script>

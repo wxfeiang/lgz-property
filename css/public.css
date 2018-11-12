@@ -688,6 +688,12 @@ table>tbody>tr>td {
 }
 
 /* 关联项目的样式 */
+
+.dy-top-back{
+	padding: 10px 10px 20px ;
+
+}
+
 .dy-back{
 	cursor: pointer;
 }
@@ -710,6 +716,14 @@ table>tbody>tr>td {
 	height: 0;
 	overflow: hidden;
 } */
+.dy-warp-tab {
+	/* width: 99%; */
+	padding: 30px 18px 10px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 100%;
+	background: #e4e4e4;
+}
 
 .enterprise-table,
 .overdue-tab,
