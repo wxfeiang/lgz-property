@@ -194,14 +194,15 @@
         <div class=" bacth-from layui-form ">
             <h3>批量添加信息</h3>
             <!-- 操作区域 -->
-            <div class="operat-box ">
+            <form class="operat-box " id="muforms">
                 <div class=" layui-inline">
                     <label class="layui-form-label ">开始楼层</label>
                     <div class="layui-input-block">
                         <select name="" lay-filter="floorStartId" id="floorStartId">
-                            <option value="0">1</option>
-                            <option value="1">2</option>
-                            <option value="2">3</option>
+                            <option value="0" selected>选择开始层</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
                         </select>
                     </div>
                 </div>
@@ -209,19 +210,22 @@
                     <label class="layui-form-label ">结束楼层</label>
                     <div class="layui-input-block">
                         <select name="" lay-filter="floorEndId" id="floorEndId">
+                            <option value="0" selected>选择结束层</option>
                             <option value="1">1</option>
-                            <option value="3">2</option>
+                            <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
+
                         </select>
                     </div>
                 </div>
                 <div class="layui-inline">
                     <label class="layui-form-label ">每层房间数</label>
                     <div class="layui-input-block">
-                        <input type="number" name="title" min="1" lay-verify="title" autocomplete="off" class="layui-input " lay-skin="primary" id="houseNum">
+                        <input type="number" name="title" min="1" lay-verify="title" autocomplete="off" class="layui-input " 
+                    lay-skin="primary" id="houseNum">
                     </div>
                 </div>
                 <div class=" layui-inline">
@@ -234,7 +238,7 @@
                     <label class="layui-form-label ">房间编号规则</label>
                     <div class="layui-input-block">
                         <select name="guize" lay-filter="guize">
-                            <option value="0" selected >请选择规则</option>
+                            <option value="0" selected>请选择规则</option>
                             <option value="1">数字</option>
                             <option value="2">字母</option>
 
@@ -249,12 +253,12 @@
                     </div>
                 </div>
 
-            </div>
+            </form>
 
             <!-- 显示区域 -->
             <div class="opeact-show">
                 <!--  每一条 -->
-                <div class="shoe-list">
+                <!-- <div class="shoe-list">
                     <div class=" layui-inline">
                         <label class="layui-form-label ">楼层</label>
                         <div class="layui-input-block">
@@ -275,10 +279,10 @@
                         </div>
 
                     </div>
-                    <i class="layui-icon layui-icon-delete delete"></i>
-                </div>
+                    <i class="layui-icon layui-icon-delete delete"></i>                  
+                </div> -->
 
-
+      
 
 
             </div>
@@ -314,34 +318,40 @@
     });
     //  bacth-btn  点击 批量生成
 
-    window.onload = function () {
-        var floorStart = '', floorEnd = '', guize = '';
-        layui.use('form', function () {
-            var form = layui.form;
+
+    var floorStart = '',
+        floorEnd = '',
+        numberRules = '';
+    layui.use('form', function () {
+        var form = layui.form;
 
 
-            //监听
-            form.on('select(floorStartId)', function (data) {
-                floorStart = data.elem[data.elem.selectedIndex].text;
-            });
-            form.on('select(floorEndId)', function (data) {
-                floorEnd = data.elem[data.elem.selectedIndex].text;
-            });
-            form.on('select(guize)', function (data) {
-                guize = data.value;
-            });
+        //监听
+        form.on('select(floorStartId)', function (data) {
+            floorStart = data.elem[data.elem.selectedIndex].text;
 
-
-
+            console.log(floorStart)
+        });
+        form.on('select(floorEndId)', function (data) {
+            floorEnd = data.elem[data.elem.selectedIndex].text;
+            console.log(floorEnd)
+        });
+        form.on('select(guize)', function (data) {
+            numberRules = data.value;
         });
 
 
-        $(".bacth-btn").click(function () {
 
-            var houseNum = Number($("#houseNum").val());
-            var hoseArea = Number($("#hoseArea").val());
-            addFlag = true;
+    });
 
+    var onff = true;
+    $(".bacth-btn").click(function () {
+
+        var houseNum = Number($("#houseNum").val()); // 每层房间数
+        var hoseArea = Number($("#hoseArea").val()); // 每层面积
+        addFlag = true;
+        // 第一次点击
+        if (onff) {
             if (floorStart == '0') {
                 errtips("请选择开始楼层!!");
                 return false;
@@ -359,27 +369,108 @@
                 errtips("请填写每层房间个数!");
                 return false;
             }
-            if(hoseArea ==""||hoseArea ==null){
+            if (hoseArea == "" || hoseArea == null) {
                 errtips("请填写每间面积!");
-					return false;
-                }   
-            if(guize == "0"){
+                return false;
+            }
+            if (numberRules == "0") {
                 errtips("请选择房号编号规则!");
-					return false;
+                return false;
             }
+            // var floorIndexOne = $("#floorStartId option:selected").attr("floorStartIndex"); // 选中的楼层
             // 楼层个数
-            var floorNum =  Number(floorEnd) - Number(floorStart);
-            if(floorNum== 0){
-                floorNum == 1;;
-            }
             
-            console.log(floorStart, floorEnd,  guize);
-        })
+            var floorNum = (floorEnd - floorStart) + 1; //楼层个数
+            // console.log("结束" + floorEnd);
+            // console.log("开始" + floorStart);
+            // console.log("总共" + floorNum);
+            for (var i = floorStart; i <= floorEnd; i++) {
+                if (i == 0) {
+                    i = i + 1;
+                }
+                for (var j = 1; j <= houseNum; j++) {
+                    // 数字规则
+                    if (numberRules == 1) {
+                        j = String(j);
+                        if (j.length == 1) {
+                            j = "0" + String(j);
+                        }
+                        var num = String(i) + j;
+                        var str = 
+                        `
+                    <div class="shoe-list">
+                    <div class=" layui-inline">
+                        <label class="layui-form-label ">楼层</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input  layui-input-disbaled layui-disabled "
+                                value="${i}" lay-skin="primary" readonly>
+                        </div>
+                    </div>
+                    <div class=" layui-inline">
+                        <label class="layui-form-label ">房间号</label>
+                        <div class="layui-input-block">
+                            <input type="number" name="title" lay-verify="title" autocomplete="off" class="layui-input " value="${num}" lay-skin="primary" >
+                        </div>
+                    </div>
+                    <div class=" layui-inline">
+                        <label class="layui-form-label ">面积(㎡)</label>
+                        <div class="layui-input-block">
+                            <input type="number" name="title" lay-verify="title" autocomplete="off" class="layui-input " value="${hoseArea}" lay-skin="primary">
+                        </div>
 
-    }
+                    </div>
+                    <i class="layui-icon layui-icon-delete delete"></i>
+                </div>                  
+                    `;
+                        //  console.log("第 "+i+"层"+num+"号");
+                        $(".opeact-show").append(str);
+                        deletes();
+                    } else if (numberRules == 2) {
+                        //字母规则
+                        var num1 = String.fromCharCode((64 + j));
+                        //console.log("第 " + i + "层" + num1 + "号");
+                        var str1 = 
+                            ` 
+                    <div class="shoe-list">
+                    <div class=" layui-inline">
+                        <label class="layui-form-label ">楼层</label>
+                        <div class="layui-input-block">
+                            <input type="text"  lay-verify="title" autocomplete="off" class="layui-input  layui-input-disbaled layui-disabled "
+                                value="${i}" lay-skin="primary" readonly>
+                        </div>
+                    </div>
+                    <div class=" layui-inline">
+                        <label class="layui-form-label ">房间号</label>
+                        <div class="layui-input-block">
+                            <input type="text"  lay-verify="title" autocomplete="off" class="layui-input " value="${num1}" lay-skin="primary">
+                        </div>
+                    </div>
+                    <div class=" layui-inline">
+                        <label class="layui-form-label ">面积(㎡)</label>
+                        <div class="layui-input-block">
+                            <input type="number"  lay-verify="title" autocomplete="off" class="layui-input " value="${hoseArea}" lay-skin="primary">
+                        </div>
 
+                    </div>
+                    <i class="layui-icon layui-icon-delete delete"></i>
+                </div>                 
+                    `;
 
-    deletes();
+                        $(".opeact-show").append(str1);
+                        deletes();
+                    }
+                }
+            }
+            onff = false;
+
+        } else {
+            errtips("请重新选择!!");
+            document.getElementById("muforms").reset();
+            $(".opeact-show").html("");
+            onff = true;
+            return false;
+        }
+    })
     // 错误提示
     function errtips(errtips) {
         layer.msg(errtips, {
@@ -398,8 +489,6 @@
 
         })
     }
-
-
 </script>
 
 </html>

@@ -9,6 +9,33 @@
     <link rel="stylesheet" href="css/public.css" />
     <link rel="stylesheet" href="css/houseView.css" />
     <title>房子收费标准</title>
+    <style>
+        .layui-input-block {
+            margin-left: 0px;
+
+
+        }
+
+        .myUl_y .pBox_y {
+            overflow: inherit;
+            padding: 0 20px 20px;
+        }
+
+        .layui-select-disabled .layui-disabled {
+            border-color: transparent !important;
+            background: transparent;
+        }
+
+        .layui-select-disabled .layui-edge {
+            border-top-color: transparent;
+        }
+
+        .show-input {
+            border: none;
+            outline: none;
+            background: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,7 +48,7 @@
                     <span class="cheage-tab">修改</span>
 
                 </div>
-                <div class="pBox_y">
+                <div class="pBox_y layui-form">
                     <!-- 表格 -->
                     <table class="layui-table" lay-skin="line" table="" id="tb_1" cellspacing="0" cellpadding="2" width="100%" border="1" style="margin: 10px 0 20px;">
                         <thead>
@@ -37,14 +64,124 @@
                         <tbody>
                             <tr>
                                 <td>A座</td>
-                                <td>20</td>
-                                <td>8461561</td>
-                                <td>20</td>
-                                <td>20</td>
-                                
+                                <td>
 
-
+                                    <div class="layui-input-block">
+                                        <select name="" lay-filter="" disabled="disabled" class="noem-disabled">
+                                            <option value="0" selected>电费一</option>
+                                            <option value="1">水费一</option>
+                                            <option value="2">电费二</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    单价*面积
+                                </td>
+                                <td>
+                                    <div class="layui-input-block">
+                                        <input type="number" name="title" required="" lay-verify="required" class="layui-input show-input" value="555" readonly="readonly">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="layui-input-block">
+                                        <select name="" lay-filter="" disabled="disabled" class="noem-disabled">
+                                            <option value="0">一月一付</option>
+                                            <option value="1">两月一付</option>
+                                            <option value="2">三月一付</option>
+                                            <option value="3">四月一付</option>
+                                            <option value="4">五月一付</option>
+                                            <option value="5">六月一付</option>
+                                            <option value="6">七月一付</option>
+                                            <option value="7">八月一付</option>
+                                            <option value="8">九月一付</option>
+                                            <option value="9">十月一付</option>
+                                            <option value="10">十一月一付</option>
+                                            <option value="11">十二月一付</option>
+                                        </select>
+                                    </div>
+                                </td>
                             </tr>
+                            <tr>
+                                <td>A座</td>
+                                <td>
+
+                                    <div class="layui-input-block">
+                                        <select name="" lay-filter="" disabled="disabled" class="noem-disabled">
+                                            <option value="0" selected>电费一</option>
+                                            <option value="1">水费一</option>
+                                            <option value="2">电费二</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    单价*面积
+                                </td>
+                                <td>
+                                    <div class="layui-input-block">
+                                        <input type="number" name="title" required="" lay-verify="required" class="layui-input show-input" value="555" readonly="readonly">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="layui-input-block">
+                                        <select name="" lay-filter="" disabled="disabled" class="noem-disabled">
+                                            <option value="0">一月一付</option>
+                                            <option value="1">两月一付</option>
+                                            <option value="2">三月一付</option>
+                                            <option value="3">四月一付</option>
+                                            <option value="4">五月一付</option>
+                                            <option value="5">六月一付</option>
+                                            <option value="6">七月一付</option>
+                                            <option value="7">八月一付</option>
+                                            <option value="8">九月一付</option>
+                                            <option value="9">十月一付</option>
+                                            <option value="10">十一月一付</option>
+                                            <option value="11">十二月一付</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>A座</td>
+                                <td>
+
+                                    <div class="layui-input-block">
+                                        <select name="" lay-filter="" disabled="disabled" class="noem-disabled">
+                                            <option value="0" selected>电费一</option>
+                                            <option value="1">水费一</option>
+                                            <option value="2">电费二</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    单价*面积
+                                </td>
+                                <td>
+                                    <div class="layui-input-block">
+                                        <input type="number" name="title" required="" lay-verify="required" class="layui-input show-input" value="555" readonly="readonly">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="layui-input-block">
+                                        <select name="" lay-filter="" disabled="disabled" class="noem-disabled">
+                                            <option value="0">一月一付</option>
+                                            <option value="1">两月一付</option>
+                                            <option value="2">三月一付</option>
+                                            <option value="3">四月一付</option>
+                                            <option value="4">五月一付</option>
+                                            <option value="5">六月一付</option>
+                                            <option value="6">七月一付</option>
+                                            <option value="7">八月一付</option>
+                                            <option value="8">九月一付</option>
+                                            <option value="9">十月一付</option>
+                                            <option value="10">十一月一付</option>
+                                            <option value="11">十二月一付</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+
                         </tbody>
                     </table>
                 </div>
@@ -57,24 +194,36 @@
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="lib/layui/layui.js"></script>
 <script>
-
     //一般直接写在一个js文件中
     layui.use(['layer', 'form', 'laypage', 'table'], function () {
         var layer = layui.layer,
             form = layui.form;
         var form = layui.form;
         var table = layui.table;
-
-
-
-
-
-
-
-
+         // 点击修改\
+    var onff = true;
+    $(".cheage-tab").click(function () {
+        if (onff) {
+            $(this).html("完成");
+            $(".layui-input").removeAttr("readonly");
+            $(".layui-input").removeClass("show-input");
+            $(".noem-disabled").removeAttr("disabled");
+            $(".noem-disabled").removeClass(" layui-unselect layui-disabled");
+            form.render();
+            onff = false;
+        } else {
+            $(this).html("修改");
+            $(".layui-input").attr("readonly", "readonly");
+            $(".layui-input").addClass("show-input");
+            $(".noem-disabled").attr("disabled","disabled");
+            $(".noem-disabled").addClass(" layui-unselect layui-disabled");
+            form.render();
+            onff = true;
+        }
     });
 
-
+    });
+   
 </script>
 
 </html>
