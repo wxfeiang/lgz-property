@@ -117,6 +117,12 @@
 			margin-left: -236px;
 			text-align: right;
 		}
+		.more-house{
+			height: 268px;
+			overflow-y: auto;
+			
+
+		}
 	</style>
 </head>
 
@@ -142,73 +148,144 @@
 					<!--基本信息-->
 					<div class="layui-tab-item layui-show">
 						<div class="havBgWhite_y" style="margin-top: 10px;height: 335px;">
-							<h6 class="title_h6_y">选择房间</h6>
-							<div class="checkBox_y">
-								<div class="topHouseOne_y">
-									<img src="images/3.jpg" />
-									<div class="topMiaoshu">
-										<p>高新大厦A座</p>
-										<span>兰州市城关区高新大厦158号</span>
+							<h6 class="title_h6_y" style="margin-bottom: 0">选择房间</h6>
+							<div class="more-house">
+								<!--  多个 -->
+								<div class="checkBox_y">
+									<div class="topHouseOne_y">
+										<img src="images/1.png" />
+										<div class="topMiaoshu">
+											<p>高新大厦A座</p>
+											<span>兰州市城关区高新大厦158号</span>
+										</div>
+										<i class="layui-icon layui-icon-down" id="clickDown"></i>
 									</div>
-									<i class="layui-icon layui-icon-down" id="clickDown"></i>
-								</div>
-								<div class="overDiv_y">
-									<div class="searchBox_y">
-										<input type="text" name="" lay-verify="" autocomplete="off" placeholder="搜索房间" class="layui-input">
-										<i class="layui-icon layui-icon-search"></i>
+									<div class="overDiv_y">
+										<div class="searchBox_y">
+											<input type="text" name="" lay-verify="" autocomplete="off" placeholder="搜索房间" class="layui-input">
+											<i class="layui-icon layui-icon-search"></i>
+										</div>
+										<ul class="ul_box1">
+											<li class="li_list">
+												<input id="a9f03a145c404493b8c12c043e336edb" type="checkbox" name="houseinfo_id" lay-skin="primary" housearea="100" value="a9f03a145c404493b8c12c043e336edb">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input id="f9f03a145c404493b8c12c043e336edb" type="checkbox" name="houseinfo_id" lay-skin="primary" housearea="150" value="f9f03a145c404493b8c12c043e336edb">
+												<span>2层</span>
+												<span>102室</span>
+												<span>150m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+										</ul>
 									</div>
-									<ul class="ul_box1">
-										<li class="li_list">
-											<input id="a9f03a145c404493b8c12c043e336edb" type="checkbox" name="houseinfo_id" lay-skin="primary" housearea="100" value="a9f03a145c404493b8c12c043e336edb">
-											<span>1层</span>
-											<span>101室</span>
-											<span>100m²</span>
-										</li>
-										<li class="li_list">
-											<input id="f9f03a145c404493b8c12c043e336edb" type="checkbox" name="houseinfo_id" lay-skin="primary" housearea="150" value="f9f03a145c404493b8c12c043e336edb">
-											<span>2层</span>
-											<span>102室</span>
-											<span>150m²</span>
-										</li>
-										<li class="li_list">
-											<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
-											<span>1层</span>
-											<span>101室</span>
-											<span>100m²</span>
-										</li>
-										<li class="li_list">
-											<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
-											<span>1层</span>
-											<span>101室</span>
-											<span>100m²</span>
-										</li>
-										<li class="li_list">
-											<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
-											<span>1层</span>
-											<span>101室</span>
-											<span>100m²</span>
-										</li>
-										<li class="li_list">
-											<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
-											<span>1层</span>
-											<span>101室</span>
-											<span>100m²</span>
-										</li>
-										<li class="li_list">
-											<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
-											<span>1层</span>
-											<span>101室</span>
-											<span>100m²</span>
-										</li>
-										<li class="li_list">
-											<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
-											<span>1层</span>
-											<span>101室</span>
-											<span>100m²</span>
-										</li>
-									</ul>
 								</div>
+								<div class="checkBox_y">
+									<div class="topHouseOne_y">
+										<img src="images/1.png" />
+										<div class="topMiaoshu">
+											<p>高新大厦A座</p>
+											<span>兰州市城关区高新大厦158号</span>
+										</div>
+										<i class="layui-icon layui-icon-down" id="clickDown1"></i>
+									</div>
+									<div class="overDiv_y">
+										<div class="searchBox_y">
+											<input type="text" name="" lay-verify="" autocomplete="off" placeholder="搜索房间" class="layui-input">
+											<i class="layui-icon layui-icon-search"></i>
+										</div>
+										<ul class="ul_box1">
+											<li class="li_list">
+												<input id="a9f03a145c404493b8c12c043e336edb1" type="checkbox" name="houseinfo_id" lay-skin="primary" housearea="100" value="a9f03a145c404493b8c12c043e336edb">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input id="f9f03a145c404493b8c12c043e336edb1" type="checkbox" name="houseinfo_id" lay-skin="primary" housearea="150" value="f9f03a145c404493b8c12c043e336edb">
+												<span>2层</span>
+												<span>102室</span>
+												<span>150m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
 							</div>
+
 						</div>
 						<div class="havBgWhite_y">
 							<h6 class="title_h6_y">房客信息</h6>
@@ -369,7 +446,7 @@
 							</div>
 							<div class="layui-form-item" id="labelTeshu">
 								<label class="layui-form-label">滞纳金</label>
-								
+
 
 
 								<div class="layui-input-block">
@@ -693,13 +770,19 @@
 
 			)
 			/*点击下拉*/
+			$(".layui-icon-down").each(function () {
+				$(this).click(function () {
+					$(this).parent().next(".overDiv_y").slideToggle();
+					$(this).toggleClass("active");
+				})
 
-			$("#clickDown").click(function () {
-				$(".overDiv_y").slideToggle();
-				$(this).toggleClass("active");
-			}
+			})
 
-			)
+
+			// $("#clickDown").click(function () {
+			// 	$(".overDiv_y").slideToggle();
+			// 	$(this).toggleClass("active");
+			// })
 			/*点击新建房客*/
 
 			$("#addOne_y").click(function () {
