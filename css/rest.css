@@ -12,7 +12,7 @@
 	}
 	@font-face {
 		font-family: myfont;
-		 src: url('../font/PingFang Medium.ttf')format('truetype'); 
+		 src: url('../fonts/PingFang Medium.ttf')format('truetype'); 
 		}
 
 	h1,h2,h3,h4,h5,h6{

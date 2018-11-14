@@ -3,7 +3,9 @@
 *  project-edit.html          编辑
 
 
-## 批量导入 bulk-import.html   (页面  修改)
+## 批量导入 bulk-import.html   
+## 附件页面  accessory.html  
+##  打印   票据打印    print
 
 ## 楼宇管理   buding-magent.html
 *  buding-add.html     添加楼宇
@@ -30,9 +32,6 @@
 *   编辑     
 *   作废    和删除一样 ()
 *   打印
-
-
-
 
 
 ##  仪表管理    instr-manger.html
@@ -238,15 +237,15 @@
 
 *  预缴  wy-house-prepay.html 
 *  充值水电 wy-house-prepay2.html
-*  撤销
+*  撤销 
 * 打印
 *  开票
 *  点击行显示 详情   wy-house-updec.html 
-####  租金账单  price-house-bill.html
+####  租金账单  price-house-bill.html   
 *  批量收款    batch-pay.html
 *  提醒
 *  收款
-*  点击行 显示详情   price-house-dection.html
+*  点击行 显示详情   price-house-dection.html  (做禁止父页面的滚动条)
 
 *  撤销
 *  打印
@@ -265,14 +264,6 @@
 
 
 
-###    房子页面   houseView.html
-###    新增合同   addCompact.html
-###   新增  租赁合同   1.html
-###   分拆房间   splitRoom.html
-
-###    添加房客(右侧)            rightAddtenant.html
-###    添加业主  (右侧)             rightAddoccupancy.html
-###      新建房客      newAddtenant.html
 ```
 所有的缴费方式
  <div class="layui-form-item">
@@ -291,6 +282,23 @@
                         </select>
                     </div>
                 </div>
+```
+```
+红 绿 蓝 颜色类名
+.my189 {
+	color: #1890ff;
+	cursor: pointer;
+}
+
+.myred-color {
+	color: red;
+}
+.my-green {
+	color: rgba(51, 204, 0, 0.647058823529412);
+}
+.my--red{
+	color: rgba(255, 51, 0, 0.647058823529412);
+}
 ```
 
 

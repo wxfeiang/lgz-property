@@ -24,7 +24,7 @@
                         <option value="0">物业费</option>
                         <option value="1">水费</option>
                         <option value="2">电费</option>
-                        <option value="3">暖气费</option>
+                        <option value="3">供热(冷)费</option>
                         <option value="4">停车费</option>
                         <option value="5">一次性其他费用</option>
                         <option value="6">周期性其他费用</option>
@@ -62,14 +62,14 @@
             </div>
 
             <div class="enterprise-table">
-                <div class="layui-form-item">
+                <!-- <div class="layui-form-item">
                     <label class="layui-form-label ">
                         <span class="myred-color">*</span>是否供暖</label>
                     <div class="layui-input-block ">
                         <input type="radio" name="sex0" lay-filter="noheating" value="是" title="是" checked>
                         <input type="radio" name="sex0" lay-filter="noheating" value="否" title="否" class="noheating">
                     </div>
-                </div>
+                </div> -->
                 <div class="layui-form-item">
                     <label class="layui-form-label">
                         <span class="myred-color">*</span>开始时间</label>
@@ -87,17 +87,13 @@
                     </div>
                 </div>
                 <!-- 收取过热费比例 -->
-                <div class="layui-form-item noheat">
+                <!-- <div class="layui-form-item noheat">
                     <label class="layui-form-label">过热费比例</label>
                     <div class="layui-input-block">
                         <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入收费价格" class="layui-input">
                         <i class="" style="position: absolute; right:10px;top: 10px;">&#37;</i>
                     </div>
-                </div>
-
-
-
-
+                </div> -->
             </div>
 
             <!-- 只有暖气费的时候   付款周期是隐藏的  -->
@@ -117,7 +113,6 @@
                         <option value="">十月一付</option>
                         <option value="">十一月一付</option>
                         <option value="">十二月一付</option>
-
                     </select>
                 </div>
             </div>

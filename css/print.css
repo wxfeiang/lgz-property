@@ -1,0 +1,46 @@
+.print-layout {
+  margin: 0 auto;
+  padding: 50px 0 0 0;
+  width: 20cm;
+  height: 842px;
+}
+
+.print-layout h3 {
+  text-align: center;
+  font: 20px/30px "myfont";
+}
+
+.print-layout .print-box {
+  padding: 5px 0;
+}
+
+.print-layout .print-box li {
+  width: 25%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font: 14px/20px "myfont";
+}
+
+.print-layout table {
+  width: 100%;
+}
+
+.print-layout table tr td {
+  padding: 0 5px;
+  line-height: 40px;
+  font-size: 16px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.print-layout table tr .tab40 {
+  font-size: 16px;
+}
+
+.print-layout table tr .tab120 {
+  height: 120px;
+}
+
+.print-layout table tr .tabcont {
+  font: 16px/32px "Microsoft YaHei";
+}

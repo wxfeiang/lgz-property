@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/rest.css">
+
+    <!--  图片上传 -->
+    <link rel="stylesheet" type="text/css" href="lib/upload/css/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="lib/upload/css/style.css" />
+
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+
+    <title>附件上传</title>
+    <style type="text/css">
+        body {
+            padding-top: 20px;
+        }
+
+        .updo {
+            margin: 0 auto;
+            width: 525px;
+            border: 1px dashed #999;
+            border-radius: 4px;
+            padding: 25px 0 0 0;
+            min-height: 50px;
+        }
+
+        .updo b {
+            margin: 0 0 0 86px;
+            font-size: 14px;
+        }
+
+        .updo h3 {
+            margin: 0;
+            text-align: center;
+            font: 14px/50px "微软雅黑";
+            color: #3b414e;
+        }
+
+        .updo h3 i {
+            font-size: 18px;
+            margin: 0 10px 0 0;
+        }
+
+        .updo h3 span {
+            color: #2280ff;
+        }
+
+        .upshow {
+            margin: 20px auto 0;
+            padding: 10px 14px 0;
+            width: 500px;
+            height: 70px;
+            border-radius: 4px;
+            border: solid 1px #d9d9d9;
+        }
+
+        .upshow .showimg {
+            float: left;
+            width: 50px;
+            height: 50px;
+            background: #ccc;
+
+        }
+
+        .upshow .showcont h4,
+        .upshow .showcont p {
+            margin: 0;
+            padding: 0;
+            line-height: 30px;
+
+        }
+
+        .upshow .showcont {
+            float: left;
+            margin: 0 0 0 10px;
+            width: 250px;
+
+        }
+
+        .upshow .shouop {
+            line-height: 70px;
+        }
+
+        .upshow .shouop i {
+            margin: 0 5px;
+            color: #999;
+        }
+
+        .upshow .shouop i:hover {
+            cursor: pointer;
+        }
+
+        /*dange*/
+
+        #uploader .filelist li {
+            width: 80px;
+            height: 80px;
+            background: url(./bg.png) no-repeat;
+            text-align: center;
+            margin: 0 8px 7px 0;
+            position: relative;
+            display: inline;
+            float: left;
+            overflow: hidden;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        #uploader .placeholder .webuploader-pick {
+            font-size: 14px;
+            background: none !important;
+            border-radius: 0;
+            line-height: 18px;
+            padding: 0;
+            color: #2280ff;
+            display: inline-block;
+            cursor: pointer;
+            margin: 0px 0 0 154px;
+        }
+
+        #uploader .filelist {
+            list-style: none;
+
+            padding: 0 10px;
+            width: 400px;
+
+        }
+
+        #uploader .statusBar .btns {
+            position: absolute;
+            top: 10px;
+            right: 0px;
+            line-height: 35px;
+            width: 100%;
+        }
+
+        #uploader .filelist {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            margin-top: 25px;
+        }
+
+        #uploader .placeholder .webuploader-pick {
+            top: 0;
+            font-size: 18px;
+            background: none;
+            border: none;
+            color: #1890ff;
+            border-radius: 3px;
+            line-height: 30px;
+            padding: 0 30px;
+            display: inline-block;
+            margin: -11px 0 0 116px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: none;
+        }
+
+        #uploader .queueList {
+            margin: 10px 0 -15px 14px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form class="form-horizontal m-t" id="signupForm" novalidate="novalidate">
+        <input type="hidden" id="oldFile" value="" />
+        <div class="updo">
+            <b>
+                <i class="layui-icon layui-icon-upload"></i>将文件拖拽至此,或者</b>
+
+            <div class="floatDiv" style="width: 400px; margin: -24px 0 0 0">
+                <div class="pictrueUrl">
+                    <input type="hidden" name="is_upload" id="is_upload" maxlength="200" title="附件地址" />
+                    <div id="uploader">
+                        <div class="queueList">
+                            <div id="dndArea" class="placeholder">
+                                <div id="filePicker"></div>
+                            </div>
+                        </div>
+                        <div class="statusBar" style="display:none;">
+                            <div class="progress">
+                                <span class="text">0%</span>
+                                <span class="percentage"></span>
+                            </div>
+                            <div class="info"></div>
+                            <div class="btns">
+                                <div id="filePicker2"></div>
+                                <div class="uploadBtn">开始上传</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!--  有图片的传上 的时候 显示 -->
+
+        <div class="upshow" style="display:block;">
+            <div class="showimg tdimg">
+                <img src="images/1.png" alt="" style="width:50px; height:50px;">
+            </div>
+            <div class="showcont">
+                <h4>1.jpg</h4>
+            </div>
+            <div class="shouop">
+                <i class=" layui-icon layui-icon-download-circle" onclick="download('41585609bdd74b7cad960a17d86305b2','9d8f8f2d04b6413e905f15d536255570');"></i>
+                <i class="layui-icon layui-icon-delete" onclick="deletePictures('41585609bdd74b7cad960a17d86305b2','9d8f8f2d04b6413e905f15d536255570');"></i>
+                <!--  删除按钮 -->
+            </div>
+        </div>
+
+        <div class="upshow" style="display:block;">
+            <div class="showimg tdimg">
+                <img src="images/2.jpg" alt="" style="width:50px; height:50px;">
+            </div>
+            <div class="showcont">
+                <h4>2.jpg</h4>
+            </div>
+            <div class="shouop">
+                <i class=" layui-icon layui-icon-download-circle" onclick="download('41585609bdd74b7cad960a17d86305b2','9d8f8f2d04b6413e905f15d536255570');"></i>
+                <i class="layui-icon layui-icon-delete" onclick="deletePictures('41585609bdd74b7cad960a17d86305b2','9d8f8f2d04b6413e905f15d536255570');"></i>
+                <!--  删除按钮 -->
+            </div>
+        </div>
+
+
+
+    </form>
+
+    <!-- 图片放大显示 -->
+    <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:99;width:100%;height:100%;display:none;">
+        <div id="innerdiv" style="position:absolute;">
+            <img id="bigimg" src="" />
+        </div>
+    </div>
+
+</body>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+<script src="lib/upload/js/webuploader.js"></script>
+<script src="lib/upload/js/upload.js"></script>
+<!-- 封装图片放大函数 -->
+<script type="text/javascript" src="js/imgbig.js"></script>
+
+<script>
+    // 点击图片放大
+    $(".tdimg img").each(function () {
+        $(this).click(function () {
+            var _this = $(this);//将当前的img元素作为_this传入函数  
+            imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);
+
+        })
+    })
+
+</script>
+
+</html>

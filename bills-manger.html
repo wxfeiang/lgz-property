@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <title>开票管理</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"
+    />
     <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="css/rest.css">
     <link rel="stylesheet" href="lib/layui/css/layui.css">
@@ -20,7 +21,7 @@
             <div class="demoTable">
                 <span>开票人名称</span>
                 <div class="layui-inline">
-                    <input class="layui-input" name="bloc_name" id="bloc_name" autocomplete="off"> 
+                    <input class="layui-input" name="bloc_name" id="bloc_name" autocomplete="off">
                 </div>
                 <span>状态</span>
                 <div class="layui-input-inline layui-form my-inline-block">
@@ -28,7 +29,7 @@
                         <select name="interest" lay-filter="aihao">
                             <option value="">正常</option>
                             <option value="0">作废</option>
-                       
+
                         </select>
                     </div>
                 </div>
@@ -38,26 +39,26 @@
                         <select name="interest" lay-filter="aihao">
                             <option value="">普票</option>
                             <option value="0">专票</option>
-                       
+
                         </select>
                     </div>
                 </div>
                 <button class="dy-btn" lay-event="sousuo" data-type="reload">搜索</button>
-                <button class="dy-btn newadd" lay-event="addbloc">开票</button>
+                <button class="dy-btn " lay-event="addbloc">开票</button>
 
-                 表格内部按钮 测试
-                <button class="dy-btn newadd" lay-event="addbloc">编辑</button>
+                表格内部按钮 测试
+                <button class="dy-btn accessory" lay-event="addbloc">附件</button>
                 <button class="dy-btn delete" lay-event="delete">作废</button>
-                
+
             </div>
             <!-- 表格 -->
             <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
         </div>
     </div>
     <script type="text/html" id="barDemo">
-        <a class="layui-btn  " lay-event="">附件</a>
+        <a class="layui-btn accessory " lay-event="">附件</a>
         <a class="layui-btn  deposit-out" lay-event="deposit-out">作废</a>
-        <a class="layui-btn layui-btn-xs" lay-event="del">打印</a>
+      
       </script>
 </body>
 
@@ -92,7 +93,7 @@
                 , { field: 'sign', title: '开票金额' }
                 , { field: 'sign', title: '税额' }
                 , { field: 'sign', title: '状态' }
-                
+
                 , { field: 'sign', title: '销售方名称' }
                 , { field: 'username', title: '纳税人识别号', }
                 , { field: 'sex', title: '地址', sort: true }
@@ -131,25 +132,44 @@
         });
     });
 
-  
-    
 
-   //  点击删除
+
+
+    //  点击删除
 
     $(".delete").each(function () {
         $(this).click(function () {
             top.layer.confirm('信息删除后无法恢复,确定要继续吗？', {
-                title : '提示信息',
+                title: '提示信息',
                 area: '520px',
-                btn: ['确定删除','取消'] ,
-                
+                btn: ['确定删除', '取消'],
+
             });
 
         })
 
     })
+    // 点击附件 
 
-    
+    $('.accessory').on('click', function () {
+
+        top.layer.open({
+            type: 2,
+            title: ['附件'],
+            shadeClose: false, //点击遮罩关闭层
+            area: ['600px', '600px'],
+           
+            content: 'accessory.html',
+            // end: function () {
+            // 	location.reload(); //点击后刷新父页面
+            // },
+          
+
+        });
+    })
+
+
+
 
 </script>
 

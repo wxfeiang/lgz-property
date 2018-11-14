@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>票据打印页面</title>
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/print.css">
+    
+</head>
+
+<body>
+    
+    <div class="print-layout">
+            <span id="btn" class="my189">
+                    打印
+                </span>
+        <h3>波迪物业收款收据单</h3>
+        <ul class="clearfix print-box">
+                <li class="fl">小区名称:  博迪小区</li>
+                <li class="fl">缴费方式: 银行代收</li>
+                <li class="fl">收款日期: 2018-18-18 09:25:25</li>
+                <li class="fl">票据号: 8941842848512116513146512.08</li>
+            </ul> 
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="3">房号:1号楼1单元2层215室</th>
+                        <th  colspan="4">房主信息:滞纳金的钱</th>
+                        <th  colspan="4">建筑面积:1000m²</th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>qq</td>
+                        <td>qq</td>
+                        <td>qq</td>
+                        <td>qq</td>
+                        <td>qq</td>
+                        <td>qq</td>
+                        <td>qq</td>
+                        <td>qq</td>
+                        <td>qq</td>
+                        <td>qq</td>
+                        <td>qq</td>
+                    </tr>
+                </tbody>
+
+            </table>
+    </div>
+    
+
+
+   
+</body>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+<script>
+    var btn = document.getElementById("btn");
+   
+    btn.onclick = function () {
+        btn.style.display = 'none';
+        print();
+        setTimeout(function () {
+            btn.style.display = 'block';
+        }, 20);
+    }
+</script>
+
+</html>

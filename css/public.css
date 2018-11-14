@@ -285,6 +285,7 @@
 .body-bg {
 	background: #f0f3f4;
 	overflow: hidden;
+	height: 100vh;
 }
 
 .dy-albox {
@@ -711,11 +712,6 @@ table>tbody>tr>td {
 .my--red{
 	color: rgba(255, 51, 0, 0.647058823529412);
 }
-
-/* .enterprise-table {
-	height: 0;
-	overflow: hidden;
-} */
 .dy-warp-tab {
 	/* width: 99%; */
 	padding: 30px 18px 10px;
