@@ -1,3 +1,7 @@
+@page 
+    size: auto  /* auto is the initial value */
+    margin: 0 /* this affects the margin in the printer settings */
+
 .print-layout
     margin: 0 auto
     padding: 50px 0 0 0
@@ -6,6 +10,7 @@
     h3
         text-align: center
         font: 20px/30px "myfont"
+        margin-bottom: 10px
     .print-box
         padding: 5px 0
         li
@@ -16,10 +21,15 @@
     table
         width: 100%
         tr
+            th
+                text-align: center
+                vertical-align: middle
+                font: 14px/40px "myfont"
+        tr
             td
-                padding: 0 5px
-                line-height: 40px
-                font-size: 16px
+                
+                line-height: 18px
+                font-size: 12px
                 text-align: center
                 vertical-align: middle
             .tab40
@@ -28,5 +38,17 @@
             .tab120
                 height: 120px
             .tabcont
-                font: 16px/32px "Microsoft YaHei"
+                font: 16px/32px "myfont"
+        tfoot
+            tr
+                td
+                    line-height: 40px
+    .foot-dec
+        li
+            width: 33.33%
+            line-height: 50px
+            input
+                outline: none
+                border: none
+                background: none
             
