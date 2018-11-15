@@ -273,10 +273,6 @@
 ### 房间收费统计  
 
 
-
-
-
-
 ```
 所有的缴费方式
  <div class="layui-form-item">
