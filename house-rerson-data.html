@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>物业未缴账单</title>
+    <title>个人收费统计</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"
     />
@@ -31,11 +31,8 @@
                         </select>
                     </div>
                 </div>
-                <span>房间号</span>
-                <div class="layui-inline my-inline-block">
-                    <input class="layui-input" name="bloc_name" id="bloc_name" autocomplete="off">
-                </div>
-                <span>账单类型</span>
+              
+                <span>收费科目</span>
                 <div class="layui-input-inline layui-form my-inline-block">
                     <div class="layui-inline">
                         <select name="interest" lay-filter="aihao">
@@ -45,14 +42,30 @@
                         </select>
                     </div>
                 </div>
-                <span>计费周期</span>
+                <span>缴费方式</span>
+                <div class="layui-input-inline layui-form my-inline-block"> 
+                        <div class="layui-inline">
+                                <select name="interest" lay-filter="aihao">
+                                        <option value="0">现金</option>
+                                        <option value="1">支票</option>
+                                        <option value="2">银行代收</option>
+                                        <option value="3">POS机刷</option>
+                                        <option value="4">转账</option>
+                                        <option value="5">支付宝</option>
+                                        <option value="7">微信</option>
+                                        <option value="7">其他</option>
+                                    </select>
+                        </div>
+                    </div>
+                <span>缴费日期</span>
                 <div class="layui-input-inline layui-form my-inline-block">
                     <div class="layui-inline">
-                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入上期抄表时间" class="layui-input" id="data1">
+                        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入计费周期" class="layui-input" id="data1">
                         <i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
 
                     </div>
                 </div>
+              
                 <span>付款方</span>
                 <div class="layui-inline my-inline-block">
                     <input class="layui-input" name="bloc_name" id="" autocomplete="off">
@@ -60,18 +73,18 @@
 
                 <button class="dy-btn" lay-event="sousuo" data-type="reload">搜索</button>
                 <button class="dy-btn " lay-event="addbloc">导出</button>
+                <button class="dy-btn " lay-event="addbloc">打印</button>
 
-                表格内部按钮 测试
-                <button class="dy-btn newadd" lay-event="addbloc">收款</button>
             </div>
             <!-- 表格 -->
+            <p>实收金额:15000元</p>
             <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
         </div>
     </div>
-    <script type="text/html" id="barDemo">
+    <!-- <script type="text/html" id="barDemo">
         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-      </script>
+      </script> -->
 </body>
 
 
@@ -80,6 +93,7 @@
 
 
 <script>
+   
     //一般直接写在一个js文件中
     layui.use(['layer', 'form', 'laypage', 'table'], function () {
         var layer = layui.layer,
@@ -92,21 +106,18 @@
             elem: '#LAY_table_user'
             , url: '/demo/table/user/'
             , cols: [[
-                { checkbox: true, fixed: true }
+            , { field: 'sign', title: '项目名称' }
                 , { field: 'id', title: '楼宇名称', sort: true, fixed: true }
                 , { field: 'username', title: '房间号', }
                 , { field: 'sex', title: '付款方', sort: true }
-                , { field: 'city', title: '账单类型', }
-                , { field: 'sign', title: '计费周期' }
-                , { field: 'sign', title: '账单应缴日期' }
-                , { field: 'sign', title: '滞纳金计费日期' }
-                , { field: 'sign', title: '账单金额' }
-                , { field: 'sign', title: '滞纳金' }
-                
-                , { field: 'sign', title: '应收金额' }
-              
-                , { field: 'sign', title: '账单状态' }             
-                , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
+                , { field: 'city', title: '收费科目', }
+                , { field: 'sign', title: '收费标准' }
+                , { field: 'sign', title: '优惠金额' }
+                , { field: 'sign', title: '实收金额' }
+                , { field: 'sign', title: '计费周期' } 
+                , { field: 'sign', title: '缴费方式' }    
+                , { field: 'sign', title: '缴费日期' }            
+                , { field: 'sign', title: '操作人' }
             ]]
             , id: 'testReload'
             , page: true
@@ -146,34 +157,12 @@
             range: true ,
             theme: '#1890ff',
         });
-    });
-
-
-
-
-
-    // 点击新增按钮
-    $('.newadd').on('click', function () {
-
-
-
-        top.layer.open({
-            type: 2,
-            title: ['收款'],
-            shadeClose: false, //点击遮罩关闭层
-            area: ['700px', '600px'],
-            content: 'proceeds.html',
-            // end: function () {
-            // 	location.reload(); //点击后刷新父页面
-            // },
-            btn: ['保存', '取消'],
-            no: function (index, layero) {
-
-            },
-            yes: function (index, layero) { }
-
+        laydate.render({
+            elem: '#data2', //指定元素
+           
+            theme: '#1890ff',
         });
-    })
+    });
 
 
 

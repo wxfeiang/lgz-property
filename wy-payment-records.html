@@ -78,7 +78,7 @@
 
                 表格内部按钮 测试
                 <button class="dy-btn dection" lay-event="">详情</button>
-                <button class="dy-btn delete" lay-event="addbloc">撤销</button>
+        
                 <button class="dy-btn"  lay-event="addbloc">打印</button>
                 <button class="dy-btn " lay-event="addbloc">开票</button>
 
@@ -120,11 +120,12 @@
                 , { field: 'username', title: '缴费记录编号', }
                 , { field: 'sex', title: '付款方', sort: true }
                 , { field: 'city', title: '账单总额', }
-                , { field: 'city', title: '账单未收总额', }
+              
                 , { field: 'sign', title: '滞纳金总额' }
                 , { field: 'sign', title: '实收滞纳金总额' }
                 , { field: 'sign', title: '应收总额' }
-                , { field: 'sign', title: '抹零金额' }
+                , { field: 'sign', title: '取整金额' }
+                 , { field: 'city', title: '实收金额', }
                 , { field: 'sign', title: '缴费方式' }
                 , { field: 'sign', title: '缴费日期' }
                
@@ -180,20 +181,8 @@
         });
     });
 
-//  点击撤销
 
-    $(".delete").each(function () {
-        $(this).click(function () {
-            top.layer.confirm('信息撤销后无法恢复,确定要继续吗？', {
-                title : '提示信息',
-                area: '520px',
-                btn: ['确定','取消'] ,
-                
-            });
 
-        })
-
-    })
       //  详情
       $(".dection").each(function(){
         $(this).click(function () {

@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="lib/layui/css/layui.css">
     <link rel="stylesheet" href="css/public.css">
-    <title>添加楼宇</title>
+    <title>批量收款</title>
     <style>
         td input {
             border: 1px solid #ccc;
@@ -27,15 +27,14 @@
         }
 
         .layui-input-block {
-            margin-left: 90px;
+            margin-left: 112px;
         }
         .layui-form-label {
-            width: 60px;
+            width: 70px;
         }
 
-        .layui-inline:nth-child(odd) {
-            /* margin-right: 54px; */
-            float: right;
+        .integers{
+            display: none;
         }
     </style>
 </head>
@@ -50,8 +49,7 @@
                         <tr>
                             <th>计费周期</th>
                             <th>费项名称</th>
-                            <th>账单金额</th>
-                            <th>未收金额</th>
+                            <th>账单金额</th>                         
                             <th>滞纳金</th>
                             <th>实收滞纳金</th>
                             <th>操作</th>
@@ -65,9 +63,6 @@
                             </td>
                             <td>
                                 物业费一
-                            </td>
-                            <td>
-                                60元
                             </td>
                             <td>
                                 10元
@@ -84,7 +79,7 @@
                         </tr>
 
                         <tr id="lasttr">
-                            <td colspan="2">合计</td>
+                            <td >合计</td>
                             <td>60元</td>
                             <td>60元</td>
                             <td>60元</td>
@@ -98,20 +93,47 @@
                 </table>
             </div>
             <!--  输入部分 -->
-
-
             <div class="layui-form-item layui-inline">
-                <label class="layui-form-label ">抹零</label>
+                <label class="layui-form-label ">缴费方式</label>
                 <div class="layui-input-block">
-                    <select name="interest" lay-filter="" class="interest">
-                        <option value="0">不抹零</option>
-                        <option value="1">保留一位</option>
-                        <option value="2">保留两位</option>
-
+                    <select name="interest" lay-filter="aihao">
+                        <option value="0">现金</option>
+                        <option value="1">支票</option>
+                        <option value="2">银行代收</option>
+                        <option value="3">POS机刷</option>
+                        <option value="4">转账</option>
+                        <option value="5">支付宝</option>
+                        <option value="6">微信</option>
+                        <option value="7">其他</option>
                     </select>
 
                 </div>
             </div>
+            <div class="layui-form-item layui-inline">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>取整</label>
+                <div class="layui-input-block">
+                    <select name="integer" lay-filter="integer" class="integer">
+                        <option value="0">不取整</option>
+                        <option value="1">向上取整</option>
+                        <option value="2">向下取整</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item layui-inline integers" >
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>取整位数</label>
+                <div class="layui-input-block">
+                    <select name="integer-all" lay-filter="" class="integer-all">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                    </select>
+                </div>
+            </div>
+
+
+           
             <div class="layui-form-item layui-inline">
                 <label class="layui-form-label ">支付金额</label>
                 <div class="layui-input-block">
@@ -134,24 +156,6 @@
                         lay-skin="primary" disabled value="000.0">
                 </div>
             </div>
-
-
-            <div class="layui-form-item layui-inline">
-                <label class="layui-form-label ">缴费方式</label>
-                <div class="layui-input-block">
-                    <select name="interest" lay-filter="aihao">
-                        <option value="0">现金</option>
-                        <option value="1">支票</option>
-                        <option value="2">银行代收</option>
-                        <option value="3">POS机刷</option>
-                        <option value="4">转账</option>
-                        <option value="5">支付宝</option>
-                        <option value="6">微信</option>
-                        <option value="7">其他</option>
-                    </select>
-
-                </div>
-            </div>
             <div class="layui-form-item layui-inline">
                     <label class="layui-form-label">
                         缴费日期</label>
@@ -160,11 +164,6 @@
                         <i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
                     </div>
                 </div>
-    
-    
-
-
-
             <div class="layui-form-item layui-inline">
                     <label class="layui-form-label">备注</label>
                     <div class="layui-input-block">
@@ -184,7 +183,9 @@
 
     layui.use('form', function () {
         var form = layui.form;
-
+        form.on('select(integer)', function (data) {
+            owershow();
+        });
 
     });
 
@@ -207,6 +208,16 @@
         });
     });
 
+ //  判断取整
+ function owershow() {
+       
+       if ($(".integer").val() == 0) {
+            $(".integers").hide();
+       } else {
+            $(".integers").css("display","inline-block");
+
+       }
+   }
 </script>
 
 </html>

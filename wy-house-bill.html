@@ -20,9 +20,11 @@
 
                     <span class="remind">提醒</span>
                     <span class="batch-pay">批量收款</span>
+                    <span class="creadit">减免</span>
                     <!-- 记得删掉 -->
                     <span class="bat-pay">表格内部收款</span>
                     <span class="billdec1">行详情</span>
+
                 </div>
                 <div class="pBox_y">
                     <!-- 表格 -->
@@ -67,11 +69,7 @@
                 , { field: 'username', title: '账单类型', }
                 , { field: 'sex', title: '账单状态', sort: true }
                 , { field: 'city', title: '账单金额', }
-                , { field: 'sign', title: '未收金额' }
-
                 , { field: 'sign', title: '滞纳金' }
-
-
                 , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
             ]]
             , id: 'testReload'
@@ -171,6 +169,19 @@ $(".batch-pay").click(function () {
                 title : '提示信息',
                 area: '520px',
                 btn: ['确定删除','取消'] ,
+                
+            });
+
+        })
+
+    })
+    // 点击减免 creadit
+    $(".creadit").each(function () {
+        $(this).click(function () {
+            top.layer.confirm('账单减免后将不收取费用，是否确认减免？', {
+                title : '提示信息',
+                area: '520px',
+                btn: ['确认','取消'] ,
                 
             });
 

@@ -65,6 +65,7 @@
 *     未缴账单  wy-unpaid-bills.html
 > 收款   proceeds.html
 * 已缴账单 wy-paid-in-bills.html
+* 减免记录  wy-record.html
 * 缴费记录  wy-payment-records.html
 > 点击行详情   wy-records-dection.html 
 > 开票
@@ -75,6 +76,7 @@
 *  未缴账单  rent-unpaid-bills.html
 >    收款   proceeds.html
 *  已缴账单 rent-paid-in-bills.html
+*  减免 记录   rent-record.html
 *  缴费记录  rent-payment-records.html
 >   开票
 >   打印
@@ -231,7 +233,7 @@
 *  详情   pact-house-dection.html
 ####  物业账单 wy-house-bill.html
 *  批量收款   batch-pay.html
-
+    收款   batc-pay.html
 *  提醒  提示信息框
 *  点击行显示 详情  wy-house-dection.html
 
@@ -244,8 +246,8 @@
 ####  租金账单  price-house-bill.html   
 *  批量收款    batch-pay.html
 *  提醒
-*  收款
-*  点击行 显示详情   price-house-dection.html  (做禁止父页面的滚动条)
+*  收款   batc-pay.html
+*  点击行 显示详情   price-house-dection.html  
 
 *  撤销
 *  打印
@@ -260,6 +262,17 @@
 
 菜单导航固定
 编辑 
+
+
+
+## 经营数据 统计    house-data-operation.html
+### 个人收费统计   house-rerson-data.html
+### 收费台账   pay-bills.html
+### 项目收费统计
+### 楼宇收费统计 
+### 房间收费统计  
+
+
 
 
 

@@ -55,19 +55,19 @@
         //方法级渲染
         table.render({
             elem: '#LAY_table_user'
-            , url: '/demo/table/user/'
+            , url: 'http://localhost:8080/Property_Platform/toIndex/building/getBuildingData'
             , cols: [[
-                { checkbox: true, fixed: true }
-                , { field: 'id', title: '楼宇名称', sort: true, fixed: true }
-                , { field: 'username', title: '楼宇类型', }
-                , { field: 'sex', title: '面积㎡', sort: true }
-                , { field: 'city', title: '总楼层', }
-                , { field: 'sign', title: '楼宇朝向' }
-                , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
-            ]]
-            , id: 'testReload'
-            , page: true
-            , height: 315
+	                { checkbox: true, fixed: true }
+	                , { field: 'building_name', title: '楼宇名称', sort: true, fixed: true }
+	                , { field: 'building_type', title: '楼宇类型', templet:'#buildingType' }
+	                , { field: 'total_area', title: '面积㎡', sort: true }
+	                , { field: 'end_floor', title: '总楼层', }
+	                , { field: 'building_orientation', title: '楼宇朝向', templet:'#buildingOrientation'}
+	                , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
+	            ]]
+	            , id: 'testReload'
+	            , page: true
+	            , height: 'full'
         });
 
         var $ = layui.$, active = {

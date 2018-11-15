@@ -179,9 +179,6 @@
                                     </div>
                                 </td>
                             </tr>
-
-
-
                         </tbody>
                     </table>
                 </div>
@@ -200,30 +197,43 @@
             form = layui.form;
         var form = layui.form;
         var table = layui.table;
-         // 点击修改\
-    var onff = true;
-    $(".cheage-tab").click(function () {
-        if (onff) {
-            $(this).html("完成");
-            $(".layui-input").removeAttr("readonly");
-            $(".layui-input").removeClass("show-input");
-            $(".noem-disabled").removeAttr("disabled");
-            $(".noem-disabled").removeClass(" layui-unselect layui-disabled");
-            form.render();
-            onff = false;
-        } else {
-            $(this).html("修改");
-            $(".layui-input").attr("readonly", "readonly");
-            $(".layui-input").addClass("show-input");
-            $(".noem-disabled").attr("disabled","disabled");
-            $(".noem-disabled").addClass(" layui-unselect layui-disabled");
-            form.render();
-            onff = true;
-        }
-    });
+        // 点击修改\
+        var onff = true;
+        $(".cheage-tab").click(function () {
+            if (onff) {
+                $(this).html("完成");
+                $(".layui-input").removeAttr("readonly");
+                $(".layui-input").removeClass("show-input");
+                $(".noem-disabled").removeAttr("disabled");
+                $(".noem-disabled").removeClass(" layui-unselect layui-disabled");
+                form.render();
+                onff = false;
+            } else {
+                top.layer.confirm('费项标准修改成功,是否更新已生成的账单？', {
+                    title: '提示信息',
+                    area: '520px',
+                    btn: ['更新', '取消'],
+                    yes: function (index, layero) {
+                        $(".layui-input").attr("readonly", "readonly");
+                        $(".layui-input").addClass("show-input");
+                        $(".noem-disabled").attr("disabled", "disabled");
+                        $(".noem-disabled").addClass(" layui-unselect layui-disabled");
+                        form.render();
+                        top.layer.close(index); //如果设定了yes回调，需进行手工关闭
+                    }
+                    ,btn2: function(index, layero){
+                 
+                    
+                   
+                      }
+                  });
+                $(this).html("修改");
+                onff = true;
+            }
+        });
 
     });
-   
+
 </script>
 
 </html>

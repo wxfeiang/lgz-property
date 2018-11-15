@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>物业未缴账单</title>
+    <title>租金减免记录 </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"
     />
@@ -35,16 +35,7 @@
                 <div class="layui-inline my-inline-block">
                     <input class="layui-input" name="bloc_name" id="bloc_name" autocomplete="off">
                 </div>
-                <span>账单类型</span>
-                <div class="layui-input-inline layui-form my-inline-block">
-                    <div class="layui-inline">
-                        <select name="interest" lay-filter="aihao">
-                            <option value="">水费</option>
-                            <option value="0">电费</option>
-                            <option value="1">物业费</option>
-                        </select>
-                    </div>
-                </div>
+              
                 <span>计费周期</span>
                 <div class="layui-input-inline layui-form my-inline-block">
                     <div class="layui-inline">
@@ -61,16 +52,15 @@
                 <button class="dy-btn" lay-event="sousuo" data-type="reload">搜索</button>
                 <button class="dy-btn " lay-event="addbloc">导出</button>
 
-                表格内部按钮 测试
-                <button class="dy-btn newadd" lay-event="addbloc">收款</button>
+               
             </div>
             <!-- 表格 -->
             <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
         </div>
     </div>
     <script type="text/html" id="barDemo">
-        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+  
+        <a class="layui-btn  layui-btn-xs" lay-event="del">已减免</a>
       </script>
 </body>
 
@@ -104,9 +94,9 @@
                 , { field: 'sign', title: '滞纳金' }
                 
                 , { field: 'sign', title: '应收金额' }
-              
+               
                 , { field: 'sign', title: '账单状态' }             
-                , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
+            
             ]]
             , id: 'testReload'
             , page: true
@@ -147,34 +137,6 @@
             theme: '#1890ff',
         });
     });
-
-
-
-
-
-    // 点击新增按钮
-    $('.newadd').on('click', function () {
-
-
-
-        top.layer.open({
-            type: 2,
-            title: ['收款'],
-            shadeClose: false, //点击遮罩关闭层
-            area: ['700px', '600px'],
-            content: 'proceeds.html',
-            // end: function () {
-            // 	location.reload(); //点击后刷新父页面
-            // },
-            btn: ['保存', '取消'],
-            no: function (index, layero) {
-
-            },
-            yes: function (index, layero) { }
-
-        });
-    })
-
 
 
 </script>

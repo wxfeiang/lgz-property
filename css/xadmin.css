@@ -378,7 +378,7 @@ xblock{
 }
 .page-content{
     position: absolute;
-    top: 46px;
+    top: 60px;
     right: 0;
     bottom: 0px;
     left: 221px;
@@ -549,3 +549,25 @@ background: rgb(57, 61, 73) !important;;
     }
 }
 
+.container{
+	height: 60px;
+}
+.container .layui-nav-item{
+	line-height: 60px;
+}
+.container .left_open i{
+	margin-top: 15px;
+}
+.container .layui-nav-more {
+top: 30px;
+}
+.container .layui-nav-child {
+    top: 60px;
+}
+.layui-nav .layui-nav-child dd.layui-this a, .layui-nav-child dd.layui-this {
+    background-color: #1890ff;
+    color: #fff;
+}
+.layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after {
+    background-color: #1890ff;
+}

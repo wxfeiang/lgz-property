@@ -35,28 +35,31 @@
             border-radius: 4px;
             color: #333;
         }
+        .integers{
+            display: none;
+        }
     </style>
 </head>
 
 <body>
     <div class="dy-albox">
-
-
         <form class=" layui-form form-inline " action="">
-            <div class="layui-form-item">
-                <label class="layui-form-label">业主名称</label>
-                <div class="layui-input-block">
-                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入登录账号" class="layui-input  layui-input-disbaled layui-disabled"
-                        lay-skin="primary" disabled value="tengxun">
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">房间号</label>
-                <div class="layui-input-block">
-                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入登录账号" class="layui-input  layui-input-disbaled layui-disabled"
-                        lay-skin="primary" disabled value="tengxun">
-                </div>
-            </div>
+                <div class="layui-form-item">
+                        <label class="layui-form-label">业主名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入登录账号" class="layui-input  layui-input-disbaled layui-disabled"
+                                lay-skin="primary" disabled value="tengxun">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">房间号</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入登录账号" class="layui-input  layui-input-disbaled layui-disabled"
+                                lay-skin="primary" disabled value="tengxun">
+                        </div>
+                    </div>
+        
+            
             <div class="layui-form-item">
                 <label class="layui-form-label">计费周期</label>
                 <div class="layui-input-block">
@@ -70,7 +73,7 @@
                     <tr>
                         <th>费项名称</th>
                         <th>账单金额</th>
-                        <th>未收金额</th>
+                  
                         <th>滞纳金</th>
                         <th>实收滞纳金</th>
                         <th>应收金额 </th>
@@ -81,7 +84,7 @@
                     <tr>
                         <td>物业费一</td>
                         <td>600元</td>
-                        <td>0.00元</td>
+                  
                         <td>100元</td>
                         <th>
                             <input type="text" value="513154" class="width-80">
@@ -94,16 +97,42 @@
             </table>
             <!-- 这是一条华丽的分割线 hr  -->
             <hr style=" margin: 20px auto;width: 98%;color:#ccc; ">
+            <div class="layui-form-item">
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>缴费方式</label>
+                <div class="layui-input-block">
+                        <select name="interest" lay-filter="aihao">
+                                <option value="0">现金</option>
+                                <option value="1">支票</option>
+                                <option value="2">银行代收</option>
+                                <option value="3">POS机刷</option>
+                                <option value="4">转账</option>
+                                <option value="5">支付宝</option>
+                                <option value="6">微信</option>
+                                <option value="7">其他</option>
+                            </select>
+                </div>
+            </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">
-                    <span class="myred-color">*</span>抹零</label>
+                    <span class="myred-color">*</span>取整</label>
                 <div class="layui-input-block">
-                    <select name="interest" lay-filter="" class="interest">
-                        <option value="0">不抹零</option>
-                        <option value="1">保留一位</option>
-                        <option value="2">保留两位</option>
+                    <select name="integer" lay-filter="integer" class="integer">
+                        <option value="0">不取整</option>
+                        <option value="1">向上取整</option>
+                        <option value="2">向下取整</option>
 
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item integers" >
+                <label class="layui-form-label">
+                    <span class="myred-color">*</span>取整位数</label>
+                <div class="layui-input-block">
+                    <select name="integer-all" lay-filter="" class="integer-all">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
                     </select>
                 </div>
             </div>
@@ -129,22 +158,7 @@
                     <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="找零金额" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">
-                    <span class="myred-color">*</span>缴费方式</label>
-                <div class="layui-input-block">
-                        <select name="interest" lay-filter="aihao">
-                                <option value="0">现金</option>
-                                <option value="1">支票</option>
-                                <option value="2">银行代收</option>
-                                <option value="3">POS机刷</option>
-                                <option value="4">转账</option>
-                                <option value="5">支付宝</option>
-                                <option value="6">微信</option>
-                                <option value="7">其他</option>
-                            </select>
-                </div>
-            </div>
+            
             <div class="layui-form-item">
                 <label class="layui-form-label">
                     <span class="myred-color">*</span>缴费日期</label>
@@ -172,7 +186,7 @@
 <script src="lib/layui/layui.js"></script>
 
 <script type="text/javascript">
-    // $(".warpbox").height($("body,html").height() - 150);
+
 
     layui.use('form', function () {
         var form = layui.form;
@@ -182,8 +196,8 @@
             layer.msg(JSON.stringify(data.field));
             return false;
         });
-        //  判断是否企业类型
-        form.on('select(aihao)', function (data) {
+     
+        form.on('select(integer)', function (data) {
             owershow();
         });
 
@@ -198,26 +212,13 @@
             theme: '#1890ff',
         });
     });
-    //  判断是否企业类型
+    //  判断取整
     function owershow() {
-        var onff = true;
-        var json2 = {
-            "height": "auto",
-        }
-        var json3 = {
-            "height": "0",
-            "overflow": "hidden"
-        }
-        if ($(".interest").val() == 1) {
-            //  alert($(".interest").val());
-            $(".enterprise-table").css(json2);
-            $(".enterprise").show();
-            $(".individual").hide();
-
+       
+        if ($(".integer").val() == 0) {
+             $(".integers").hide();
         } else {
-            $(".enterprise-table").css(json3);
-            $(".individual").show();
-            $(".enterprise").hide();
+             $(".integers").show();
 
         }
     }
