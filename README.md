@@ -5,8 +5,9 @@
 
 ## 批量导入 bulk-import.html   
 ## 附件页面  accessory.html  
-##  打印   票据打印    print
-
+##  打印   票据打印    print.html
+##  车量管理   打印  car-print.html
+## 临时性缴费的  打印  temporary-print.html
 ## 楼宇管理   buding-magent.html
 *  buding-add.html     添加楼宇
 *  buding-edit.html    编辑楼宇
@@ -198,6 +199,7 @@
 
 
 
+# 房间里的菜单  基本与外层菜单一样  弹框部分 少了一些选择 
 ## 房子剖面图 页面     house.htnl
 
 ###  剖面图    house-cutaway.html   // 住宅和楼宇的剖面图展示  加判断 展示
@@ -255,15 +257,20 @@
 *  点击行显示详情    price-house-updec.html
 ####  收费标准  norm-house-bill.html
 *   点击开启单元格编辑    ( 逻辑没有写)
+## 业主管理  house-owner-magent.html
+* 添加业主   house-owner-add.html
+## 房客管理 house-tenants-margent.html
+* 添加房客  house-tenants-add.html
+## 租赁合同 
+*  添加合同  house-lease-contract.html
+* 续租
+* 退租
+* 详情
+* 作废
+* 打印  (暂时没有 )
 
-
-
-
-
-菜单导航固定
-编辑 
-
-
+##  仪表管理 
+##  收付款
 
 ## 经营数据 统计    house-data-operation.html
 ### 个人收费统计   house-rerson-data.html
@@ -271,6 +278,8 @@
 ### 项目收费统计
 ### 楼宇收费统计 
 ### 房间收费统计  
+
+
 
 
 ```

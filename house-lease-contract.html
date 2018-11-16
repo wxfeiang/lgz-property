@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>新增合同</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="lib/layui/css/layui.css" />
+	<link rel="stylesheet" href="css/public.css" />
+	<link rel="stylesheet" href="css/houseView.css" />
+	<script src="js/jquery-1.7.2.min.js"></script>
+	<script src="lib/layui/layui.js"></script>
+	<style type="text/css">
+		html,
+		body {
+			background: #EFEFEF;
+		}
+
+		.layOpen {
+			padding: 0;
+		}
+
+		.layui-tab {
+			margin: 0;
+		}
+
+		.layui-tab-content {
+			background: #EFEFEF;
+			padding: 0;
+			margin-top: 36px;
+			height: 467px;
+			overflow-y: auto;
+		}
+
+		.layui-tab .layui-tab-title {
+			background: #FFFFFF;
+		}
+
+		.layui-tab-title {
+			height: 35px;
+			padding-left: 20px;
+			position: fixed;
+			top: 0;
+			z-index: 99;
+			width: 100%;
+		}
+
+		.layui-tab-title li {
+			line-height: 35px;
+			font-size: 12px;
+		}
+
+		.layui-tab-title .layui-this:after {
+			height: 36px;
+		}
+
+		.layui-tab-brief>.layui-tab-title .layui-this {
+			color: #1E9FFF;
+		}
+
+		.layui-tab-brief>.layui-tab-more li.layui-this:after,
+		.layui-tab-brief>.layui-tab-title .layui-this:after {
+			border-bottom: 2px solid #1E9FFF;
+		}
+
+		.layOpen .layui-input-block .selectOne {
+			max-height: 76px;
+			margin-left: 8px;
+			width: 208px;
+		}
+
+		.layOpen .layui-input-block #addOne_y {
+			margin-left: 8px;
+			width: 208px;
+		}
+
+		.shouquBili input {
+			float: left;
+		}
+
+		.shouquBili span {
+			float: left;
+			margin-left: -50px;
+			display: block;
+			line-height: 32px;
+		}
+
+		.haveBg {
+			background: #e4e4e4;
+		}
+
+		.layui-form-radio>i {
+			font-size: 16px;
+		}
+
+		.floatTwo_y .layui-form-item .layui-input-block.teshu_y .layui-input {
+			width: 100px;
+		}
+
+		.floatTwo_y .layui-form-item .layui-input-block.teshu1_y .layui-input {
+			width: 65px;
+		}
+
+		.btnBox1 {
+			clear: both;
+			margin-left: 5px;
+			margin-bottom: 20px;
+		}
+
+		#editMoney {
+			color: #1890ff;
+			cursor: pointer;
+			/* width: 12px; */
+			float: right;
+			display: inline-block;
+			margin-left: -236px;
+			text-align: right;
+		}
+		.more-house{
+			height: 268px;
+			overflow-y: auto;
+			
+
+		}
+	</style>
+</head>
+
+<body>
+	<form class="layui-form form-inline" action="">
+		<input type="hidden" name="yj" id="houseyj" />
+		<input type="hidden" name="checkHouse" id="checkHouse" />
+		<input type="hidden" name="building_id" value="c5c47908f0454cbea20db8ca1f951246" id="building_id" />
+		<input type="hidden" name="rent_details" value="" id="rent_details" />
+		<input type="hidden" name="rent_bills_a" id="rent_bills_a" />
+		<input type="hidden" name="rent_bills_b" id="rent_bills_b" />
+		<input type="hidden" name="rent_bills_d" id="rent_bills_d" />
+		<input type="hidden" name="property_details" id="property_details" />
+		<input type="hidden" name="house_status" id="house_status" />
+		<input type="hidden" id="calculation_method_Flag" name="calculation_method_Flag" />
+		<div class="layOpen floatTwo_y">
+			<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+				<ul class="layui-tab-title">
+					<li class="layui-this">基本信息</li>
+					<li class="zulinHasValue">费用条款</li>
+				</ul>
+				<div class="layui-tab-content">
+					<!--基本信息-->
+					<div class="layui-tab-item layui-show">
+						<div class="havBgWhite_y" style="margin-top: 10px;height: 335px;">
+							<h6 class="title_h6_y" style="margin-bottom: 0">选择房间</h6>
+							<div class="more-house">
+								<!--  多个 -->
+								<div class="checkBox_y">
+									<div class="topHouseOne_y">
+										<img src="images/1.png" />
+										<div class="topMiaoshu">
+											<p>高新大厦A座</p>
+											<span>兰州市城关区高新大厦158号</span>
+										</div>
+										<i class="layui-icon layui-icon-down" id="clickDown"></i>
+									</div>
+									<div class="overDiv_y">
+										<div class="searchBox_y">
+											<input type="text" name="" lay-verify="" autocomplete="off" placeholder="搜索房间" class="layui-input">
+											<i class="layui-icon layui-icon-search"></i>
+										</div>
+										<ul class="ul_box1">
+											<li class="li_list">
+												<input id="a9f03a145c404493b8c12c043e336edb" type="checkbox" name="houseinfo_id" lay-skin="primary" housearea="100" value="a9f03a145c404493b8c12c043e336edb">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input id="f9f03a145c404493b8c12c043e336edb" type="checkbox" name="houseinfo_id" lay-skin="primary" housearea="150" value="f9f03a145c404493b8c12c043e336edb">
+												<span>2层</span>
+												<span>102室</span>
+												<span>150m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="checkBox_y">
+									<div class="topHouseOne_y">
+										<img src="images/1.png" />
+										<div class="topMiaoshu">
+											<p>高新大厦A座</p>
+											<span>兰州市城关区高新大厦158号</span>
+										</div>
+										<i class="layui-icon layui-icon-down" id="clickDown1"></i>
+									</div>
+									<div class="overDiv_y">
+										<div class="searchBox_y">
+											<input type="text" name="" lay-verify="" autocomplete="off" placeholder="搜索房间" class="layui-input">
+											<i class="layui-icon layui-icon-search"></i>
+										</div>
+										<ul class="ul_box1">
+											<li class="li_list">
+												<input id="a9f03a145c404493b8c12c043e336edb1" type="checkbox" name="houseinfo_id" lay-skin="primary" housearea="100" value="a9f03a145c404493b8c12c043e336edb">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input id="f9f03a145c404493b8c12c043e336edb1" type="checkbox" name="houseinfo_id" lay-skin="primary" housearea="150" value="f9f03a145c404493b8c12c043e336edb">
+												<span>2层</span>
+												<span>102室</span>
+												<span>150m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+											<li class="li_list">
+												<input type="checkbox" name="like1[write]" lay-skin="primary" title="">
+												<span>1层</span>
+												<span>101室</span>
+												<span>100m²</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+						<div class="havBgWhite_y">
+							<h6 class="title_h6_y">房客信息</h6>
+							<div class="layui-form-item" id="occupancyName">
+								<label class="layui-form-label ">房客名称</label>
+								<div class="layui-input-block ">
+									<input type="text" name="" lay-verify="" autocomplete="off" placeholder="请输入业主名称" class="layui-input hasCursor" lay-skin="primary">
+									<div class="chooseOne_y">
+										<ul class="selectOne">
+											<li>
+												<span>兰州睿创波技有限公司1</span>
+											</li>
+											<li>
+												<span>兰州睿创波迪技有限公司2</span>
+											</li>
+											<li>
+												<span>兰州睿创波迪信有限公司3</span>
+											</li>
+											<li>
+												<span>兰州睿创波迪公司4</span>
+											</li>
+											<li>
+												<span>兰州睿创波迪信息科公司5</span>
+											</li>
+										</ul>
+										<p id="addOne_y">新建房客</p>
+									</div>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">行业</label>
+								<div class="layui-input-block">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input" value="选择完成 赋值对应数据">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">联系人</label>
+								<div class="layui-input-block">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input" value="选择完成 赋值对应数据">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">联系电话</label>
+								<div class="layui-input-block">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input" value="选择完成 赋值对应数据">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">房客类型</label>
+								<div class="layui-input-block">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input" value="选择完成 赋值对应数据">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">信用代码</label>
+								<div class="layui-input-block">
+									<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input" value="选择完成 赋值对应数据">
+								</div>
+							</div>
+						</div>
+						<div class="btnBox_y">
+							<input type="button" class="layui-btn zulinHasValue" lay-submit="" lay-filter="demo1" value="下一步" />
+							<input type="button" class="layui-btn layui-btn-primary" lay-submit="" lay-filter="demo1" value="取消" />
+						</div>
+					</div>
+					<!--费用条款-->
+					<div class="layui-tab-item">
+						<div class="havBgWhite_y" style="margin-top: 10px;">
+							<h6 class="title_h6_y">基本条款</h6>
+							<div class="layui-form-item">
+								<label class="layui-form-label">租赁面积</label>
+								<div class="layui-input-block">
+									<input id="rental_area" type="text" name="" lay-verify="" autocomplete="off" class="layui-input haveBg" value="250" readonly="readonly">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">签订时间</label>
+								<div class="layui-input-block">
+									<input id="compact_signing_time" type="text" name="" lay-verify="date" autocomplete="off" class="layui-input" value="" placeholder="yyyy-MM-dd">
+									<i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">计租时间</label>
+								<div class="layui-input-block">
+									<input id="compact_start_time" type="text" name="" lay-verify="date" autocomplete="off" class="layui-input" value="" placeholder="yyyy-MM-dd">
+									<i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">结束时间</label>
+								<div class="layui-input-block">
+									<input id="compact_end_time" type="text" name="" lay-verify="date" autocomplete="off" class="layui-input" value="" placeholder="yyyy-MM-dd">
+									<i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">押金</label>
+								<div class="layui-input-block" style="width: 100px;float: left;margin:0;margin-right: 10px;">
+									<input id="cash_pledge" type="number" name="" lay-verify="" autocomplete="off" class="layui-input" value="" placeholder="请输入金额"
+									 style="width: 100px;">
+								</div>
+								<div class="layui-input-block teshu_y" style="float: left;width:100px;margin: 0;">
+									<select name="" lay-filter="cash_pledge_type" id="cash_pledge_type">
+										<option value="1">元</option>
+										<option value="2">月</option>
+									</select>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">付款周期</label>
+								<div class="layui-input-block">
+									<select name="" lay-filter="payment_mode" id="payment_mode">
+										<option value="1">一月一付</option>
+										<option value="2">二月一付</option>
+										<option value="3">三月一付</option>
+										<option value="4">四月一付</option>
+										<option value="5">五月一付</option>
+										<option value="6">六月一付</option>
+										<option value="7">七月一付</option>
+										<option value="8">八月一付</option>
+										<option value="9">九月一付</option>
+										<option value="10">十月一付</option>
+										<option value="11">十一月一付</option>
+										<option value="12">十二月一付</option>
+									</select>
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">收租方式</label>
+								<div class="layui-input-block teshu_y" style="float: left;width:100px;margin: 0;margin-right: 10px;">
+									<select name="" lay-filter="rent_way_type" id="rent_way_type">
+										<option value="2">提前日收租</option>
+										<option value="1">固定日收租</option>
+									</select>
+								</div>
+								<div class="layui-input-block" style="width: 100px;float: left;margin:0;">
+									<input id="rent_way_date" type="number" name="" lay-verify="" autocomplete="off" class="layui-input" value="1" placeholder="请输入金额"
+									 style="width: 100px;">
+								</div>
+							</div>
+							<div class="layui-form-item">
+								<label class="layui-form-label">周期转化</label>
+								<div class="layui-input-block">
+									<select name="" lay-filter="transformationOne" id="transformationOne">
+										<option value="1">月对月</option>
+										<option value="2">转为1号</option>
+									</select>
+								</div>
+							</div>
+							<div class="layui-form-item" id="dateShow">
+								<label class="layui-form-label">转化日期</label>
+								<div class="layui-input-block">
+									<input id="compact_periodic_transformation" type="text" name="" lay-verify="date" autocomplete="off" class="layui-input"
+									 value="" placeholder="yyyy-MM-dd">
+									<i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
+								</div>
+							</div>
+							<div class="layui-form-item" id="labelTeshu">
+								<label class="layui-form-label">滞纳金</label>
+
+
+
+								<div class="layui-input-block">
+									<input type="radio" name="gather" value="收取" lay-filter="gather" title="收取" checked>
+									<input type="radio" name="gather" value="不收取" lay-filter="gather" title="不收取" class="gather">
+								</div>
+							</div>
+							<div class="layui-form-item gatherdata" id="labelTeshu1">
+								<label class="layui-form-label" style="margin-top: -10px;">滞纳金收取时间</label>
+								<div class="layui-input-block">
+									<input type="number" name="" lay-verify="" autocomplete="off" class="layui-input" value="" placeholder="从付款日结束多少天收取">
+
+								</div>
+							</div>
+							<div class="layui-form-item gatherdata2">
+								<label class="layui-form-label">收取比例</label>
+								<div class="layui-input-block shouquBili">
+									<input type="number" name="" lay-verify="" autocomplete="off" class="layui-input" value="" placeholder="请输入">
+									<span>%/天</span>
+								</div>
+							</div>
+						</div>
+						<div class="havBgWhite_y">
+							<div class="rentBox">
+								<div class="addRentHouse">
+									<h6 class="title_h6_y">租赁条款</h6>
+									<div class="layui-form-item">
+										<label class="layui-form-label">选择房源</label>
+										<div class="layui-input-block chooseHouse">
+											<div class="houseBox houseBoxOne2">
+											</div>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">租赁面积</label>
+										<div class="layui-input-block">
+											<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input haveBg rental_area1 rental_areaOnly" value="120.00m²"
+											 readonly="readonly">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">租金单价</label>
+										<div class="layui-input-block" style="width: 100px;float: left;margin:0;margin-right: 10px;">
+											<input id="rent_price" type="number" name="" lay-verify="" autocomplete="off" class="layui-input rent_price" value="1" placeholder="请输入数字"
+											 style="width: 100px;">
+										</div>
+										<div class="layui-input-block teshu_y" style="float: left;width:100px;margin: 0;">
+											<select name="" lay-filter="rent_price_type" id="rent_price_type">
+												<option value="1">元/m²·月</option>
+												<option value="2">元/m²·天</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="addBox"></div>
+							<div class="addBox1"></div>
+							<div class="borderTop" id="addOne"></div>
+							<div class="addform" style="display: none">
+								<div class="layui-form-item" style="margin-right: 40px;">
+									<label class="layui-form-label">优惠类型</label>
+									<div class="layui-input-block">
+										<select name="" lay-filter="discount_type" id="discount_type">
+											<option value="1">免租期</option>
+											<option value="2">单价折扣</option>
+											<option value="3">减免金额</option>
+										</select>
+									</div>
+								</div>
+								<div class="discountsOne">
+									<div class="layui-form-item">
+										<label class="layui-form-label">开始时间</label>
+										<div class="layui-input-block">
+											<input id="rentFree_start_time" type="text" name="" lay-verify="date" autocomplete="off" class="layui-input" value="" readonly="readonly">
+											<i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label" style="margin-top: -10px;">免租时长(月)</label>
+										<div class="layui-input-block">
+											<input id="rentFree_time" type="number" name="" lay-verify="date" autocomplete="off" class="layui-input" value="0">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">备注</label>
+										<div class="layui-input-block">
+											<input id="rentFree_text" type="text" name="" lay-verify="date" autocomplete="off" class="layui-input" value="" placeholder="请输入备注">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<strong style="float:left;width: 100px;margin: 0;color:#20a8ff;cursor: pointer;margin-left: 15px;">
+											<h5>删除优惠</h5>
+										</strong>
+									</div>
+								</div>
+								<div class="discountsTwo" style="display:none;">
+									<div class="layui-form-item">
+										<label class="layui-form-label">开始时间</label>
+										<div class="layui-input-block">
+											<input id="discount_start_time" type="text" name="" lay-verify="" autocomplete="off" class="layui-input" value="" readonly="readonly"
+											 placeholder="请选择租赁合同优惠开始时间">
+											<i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label" style="margin-top: -10px;">折扣时长(月)</label>
+										<div class="layui-input-block">
+											<input id="discount_time" type="number" name="" lay-verify="" autocomplete="off" class="layui-input" value="0" placeholder="请填写几个月">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">折扣</label>
+										<div class="layui-input-block">
+											<input id="discount_num" type="number" name="" lay-verify="" autocomplete="off" class="layui-input" value="0" placeholder="请填写折扣">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">备注</label>
+										<div class="layui-input-block">
+											<input id="discount_text" type="text" name="" lay-verify="" autocomplete="off" class="layui-input" value="" placeholder="请填写备注">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<strong style="float:right;width: 100px;margin: 0;text-align: right;color:#20a8ff;cursor: pointer;">
+											<h5>删除优惠</h5>
+										</strong>
+									</div>
+								</div>
+								<div class="discountsThr" style="display:none;">
+									<div class="layui-form-item">
+										<label class="layui-form-label">开始期数</label>
+										<div class="layui-input-block">
+											<input id="reliefAmount_start_time" type="number" name="" lay-verify="" autocomplete="off" class="layui-input" value="" placeholder="请填写开始期数">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">期长</label>
+										<div class="layui-input-block">
+											<input id="reliefAmount_time" type="number" name="" lay-verify="" autocomplete="off" class="layui-input" value="0" placeholder="请填写期长">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">减免金额</label>
+										<div class="layui-input-block">
+											<input id="reliefAmount_money" type="number" name="" lay-verify="" autocomplete="off" class="layui-input" value="0" placeholder="请填写减免金额">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<label class="layui-form-label">备注</label>
+										<div class="layui-input-block">
+											<input id="reliefAmount_text" type="text" name="" lay-verify="" autocomplete="off" class="layui-input" value="" placeholder="请填写备注">
+										</div>
+									</div>
+									<div class="layui-form-item">
+										<strong style="float:right;width: 100px;margin: 0;text-align: right;color:#20a8ff;cursor: pointer;">
+											<h5>删除优惠</h5>
+										</strong>
+									</div>
+								</div>
+							</div>
+							<div class="btnBox1 addAnother">
+								<input type="button" class="dy-btn p_btn1" lay-event="addYouhui" data-type="reload" value="添加优惠" />
+								<input type="button" class="dy-btn p_btn2" lay-event="adddizeng" data-type="reload" value="添加递增率" />
+								<input type="button" class="dy-btn addRentClause" lay-event="addtiaokuan" data-type="reload" value="添加租赁条款" style="float: right;"
+								/>
+							</div>
+							<div class="moneyDetail">点击生成租金明细 </div>
+
+							<div class="moneyDetail_1 layui-from">
+								<h4>租金明细表
+									<span id="editMoney">编辑</span>
+								</h4>
+								<div class="moneyDetail_1T rentTipBox">
+									<span>区间</span>
+									<span style="width:150px;">付款日</span>
+									<span class="hejiHave" style="width:210px;">合计金额(元)</span>
+									<i class="haveBakground_i haveBakground_i2" style="margin-top:5px;margin-left: -80px;"></i>
+								</div>
+								<ul class="moneyDetail_1B">
+								</ul>
+								<p>
+									<span style="width: 50px;">押金：</span>
+									<span style="margin-left: 0;" id="yj">0.00元</span>
+								</p>
+							</div>
+						</div>
+						<div class="btnBox_y">
+							<input type="button" class="layui-btn" lay-submit="" lay-filter="demo1" value="保存" />
+							<input type="button" class="layui-btn layui-btn-primary" lay-submit="" lay-filter="demo1" value="上一步" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</form>
+	<script src="js/rentDetailsFunction.js"></script>
+	<script type="text/javascript">
+		var rent_way_typeFlag = $("#rent_way_type").val();//收租方式
+		var calculation_method_Flag = 1;/*周期转换方式*/
+		var priceFlag = "元/m²·月";//租金单价
+		var priceFlagOne = 1;//租金单价
+		var cashFlag = 1;
+		var calculation_method_Flag = 1;/*周期转换方式*/
+		var preferentialFlag = 1;//优惠类型
+		var chooseRateType = 1 //租金单价递增
+		var chooseRateTypeValue = "元"
+		//注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+		layui.use(['form', 'element', 'laydate'], function () {
+			var form = layui.form;
+			var layer = layui.layer;
+			var element = layui.element;
+			var laydate = layui.laydate;
+			laydate.render({
+				elem: '#compact_start_time',
+				theme: '#1890ff',
+			});
+			laydate.render({
+				elem: '#compact_signing_time',
+				theme: '#1890ff',
+			});
+			laydate.render({
+				elem: '#compact_end_time',
+				theme: '#1890ff',
+			});
+			laydate.render({
+				elem: '#compact_periodic_transformation',
+				theme: '#1890ff',
+			});
+			//收租方式
+			var rent_way_typeFlag = $("#rent_way_type").val();
+			form.on('select(rent_way_type)', function (data) {
+				if (data.value == "1") {
+					rent_way_typeFlag = 1;
+				}
+				if (data.value == "2") {
+					rent_way_typeFlag = 2;
+				}
+			});
+			//优惠类型
+			var preferentialFlag = 1;
+			form.on('select(discount_type)', function (data) {
+				if (data.value == "1") {
+					$(".discountsOne").show();
+					$(".discountsThr").hide();
+					$(".discountsTwo").hide();
+					preferentialFlag = 1;
+				}
+				if (data.value == "2") {
+					$(".discountsOne").hide();
+					$(".discountsThr").hide();
+					$(".discountsTwo").show();
+					preferentialFlag = 2;
+				}
+				if (data.value == "3") {
+					$(".discountsOne").hide();
+					$(".discountsTwo").hide();
+					$(".discountsThr").show();
+					preferentialFlag = 3;
+				}
+			});
+			//租金单价
+			var priceFlag = "元/m²·月";
+			var priceFlagOne = 1;
+			form.on('select(rent_price_type)', function (data) {
+				if (data.value == "1") {
+					priceFlag = "元/m²·月";
+					priceFlagOne = 1;
+				}
+				if (data.value == "2") {
+					priceFlag = "元/m²·天";
+					priceFlagOne = 2;
+				}
+				$(".priceTypeP").val(priceFlag);
+			});
+			//押金
+			var cashFlag = 1;
+			form.on('select(cash_pledge_type)', function (data) {
+				if (data.value == "1") {
+					cashFlag = 1;
+				}
+				if (data.value == "2") {
+					cashFlag = 2;
+				}
+			});
+			/*周期转换方式*/
+			var calculation_method_Flag = 1;
+			$("#dateShow").hide();
+			$("#labelTeshu").css({ "margin-right": "40px" })
+			$("#labelTeshu1").css({ "margin-right": "0px" })
+			form.on('select(transformationOne)', function (data) {
+				if (data.value == "1") {
+					calculation_method_Flag = 1;
+					$("#dateShow").hide();
+					$("#labelTeshu").css({ "margin-right": "40px" })
+					$("#labelTeshu1").css({ "margin-right": "0px" })
+				}
+				if (data.value == "2") {
+					calculation_method_Flag = 2;
+					$("#dateShow").show();
+					$("#labelTeshu").css({ "margin-right": "0px" })
+					$("#labelTeshu1").css({ "margin-right": "40px" })
+				}
+			});
+
+			/*点击房客名称*/
+			$(".hasCursor").click(function () {
+				$(".hasCursor").val("");
+				$(".chooseOne_y").slideToggle();
+			})
+			$(".layOpen .layui-input-block .selectOne li").eq(0).addClass("active");
+			$(".layOpen .layui-input-block .selectOne li").each(function () {
+				$(this).click(function () {
+					$(".layOpen .layui-input-block .selectOne li").removeClass("active");
+					$(this).addClass("active");
+					$(".chooseOne_y").slideUp();
+					/*选择好后给业主名称赋值，只显示名称不显示电话号码*/
+					$(".hasCursor").val($(this).find("span").text());
+				})
+			}
+
+			)
+			/*点击下拉*/
+			$(".layui-icon-down").each(function () {
+				$(this).click(function () {
+					$(this).parent().next(".overDiv_y").slideToggle();
+					$(this).toggleClass("active");
+				})
+
+			})
+
+
+			// $("#clickDown").click(function () {
+			// 	$(".overDiv_y").slideToggle();
+			// 	$(this).toggleClass("active");
+			// })
+			/*点击新建房客*/
+
+			$("#addOne_y").click(function () {
+				parent.layer.open({
+					type: 2,
+					title: '添加房客',
+					shadeClose: false, //点击遮罩关闭层
+					area: ['720px', '600px'],
+					content: 'newAddtenant.html',
+					end: function () {
+						location.reload(); //点击后刷新父页面
+					},
+					btn: ['保存', '取消'],
+					no: function (index, layero) { },
+					yes: function (index, layero) { }
+				});
+			}
+
+			)
+			/*租金计算*/
+			/*点击”费用条款或者下一步时租赁条款初始化“*/
+			$(".zulinHasValue").click(function () {
+				rentInit();
+			})
+			var owner_img = "";
+			/**租赁条款初始化 **/
+			function rentInit() {
+				var check;
+				houseArry = []; //最上部已选房源数组
+				smallHouseArry = []; //小数组里的已选房源数组
+				//给已选房源赋值
+				$(".ul_box1 .li_list").each(function () {
+					if ($(this).find("input").is(":checked")) {
+						houseArry.push($(this).find("input").val() + "&" + $(this).find("span").eq(0).text() + ":" + $(this).find("span").eq(1).text() + "#" + $(this).find("span").eq(2).text())
+						console.log(houseArry)
+					}
+				});
+				if (houseArry.length == 0) {
+					alert("!请选择先房源!");
+					check = false;
+					return;
+				}
+				if (houseArry.length > 0) {
+					$(".houseBoxOne2").html("");
+					for (var i = 0; i < houseArry.length; i++) {
+						var houseId = houseArry[i].split("&")[0];
+						houseArry[i].split("&")[1].split(":")[0];
+						var houseNum = houseArry[i].split("&")[1].split(":")[1].split("#")[0];
+						var houseArear = houseArry[i].split("&")[1].split(":")[1].split("#")[1];
+						var _div = $('<div class="houseNum" houseId="' + houseId + '" houseArear="' + houseArear + '"><h4 style="border:1px solid #20a8ff;color:#20a8ff;">' + houseNum + '</h4><i class="active"></i></div>');
+						$(".houseBoxOne2").append(_div);
+						smallHouseArry.push(houseId);
+					}
+					smallHouseArry.unique3(); //数组去重
+					var houseArear2 = $("#rental_area").val(); //首先等于总面积
+					$(".rental_area1").val(houseArear2);
+					$(".houseBoxOne2 .houseNum").each(function () {
+						$(this).click(function () {
+							if ($(this).find("i").hasClass("active")) {
+								$(this).find("i").removeClass("active");
+								$(this).find("h4").css({
+									"border": "1px solid #e4e4e4",
+									"color": "#333"
+								});
+								houseArear2 -= Number($(this).attr("housearear").split("m²")[0]);
+								$(this).parents(".addRentHouse").find(".rental_area1").val(houseArear2);
+								smallHouseArry.remove($(this).attr("houseid"));
+							} else {
+								var houseid1 = $(this).attr("houseid");
+								for (var z = 0; z < smallHouseArry.length; z++) {
+									if (houseid1 == smallHouseArry[z]) {
+										alert("该房间已选择！");
+										return;
+									}
+								}
+								$(this).find("i").addClass("active");
+								$(this).find("h4").css({
+									"border": "1px solid #20a8ff",
+									"color": "#20a8ff"
+								});
+								houseArear2 += Number($(this).attr("housearear").split("m")[0]);
+								$(this).parents(".addRentHouse").find(".rental_area1").val(houseArear2);
+								smallHouseArry.push($(this).attr("houseid"));
+							}
+						})
+					});
+					check = true;
+				}
+				return check;
+			}
+			/*计算房屋面积*/
+			$('.li_list input').on('ifChanged', function () {
+				var totalarea = 0.0;
+				$("input[name='houseinfo_id']:checkbox").each(function () {
+					if (true == $(this).is(':checked')) {
+						var s = $(this).attr("houseArea");
+						totalarea += parseFloat(s);
+					}
+				});
+				$("#rental_area").val(totalarea);
+				rentInit();
+				$(".rentBox").find('.addRentHouse').each(function (index) {
+					if (index != 0) {
+						$(this).remove();
+					}
+				})
+			});
+
+			var houseArry = []; //最上部已选房源数组
+			var smallHouseArry = []; //小数组里的已选房源数
+			//递增率方式
+			/*添加租赁条款*/
+			var a = 0;
+			$(".addRentClause").click(function () {
+				var aa = $(".addRentHouse").find(".houseNum").find('.active').length;
+				var house = document.getElementsByName("houseinfo_id");
+				var checkHouse = [];
+				for (var i = 0; i < house.length; i++) {
+					if (house[i].checked) {
+						checkHouse.push(house[i]);
+					}
+				}
+				if (aa == checkHouse.length) {
+					alert("房间已选择,不能添加租赁条款!");
+					return;
+				}
+				a++;
+				var _div3 = $('<div class="addRentHouse addRentHouse' + a + '" style="clear:both;">\n' +
+					'<div class="form-group chooseHouse">\n' +
+					'<div class="borderTop"></div>' +
+					'<div class="layui-form-item" style="width:100%;">' +
+					'<label class="layui-form-label">选择房源</label>' +
+					'<div class="layui-input-block">' +
+					'<div class="houseBox houseBoxOne1">' +
+					'</div>' +
+					'</div>' +
+					'<strong style="width:30px;margin:0;margin-right:15px;margin-top:-35px;float:right;" class="deleteRent"><h5>删除</h5></strong><div class="floatDiv" style="width: 500px;">\n' +
+					'</div>' +
+					'</div>\n' +
+					'</div>\n' +
+					'<div class="layui-form-item">' +
+					'<label class="layui-form-label">租金单价</label>' +
+					'<div class="layui-input-block" style="width: 100px;float: left;margin:0;margin-right: 10px;">' +
+					'<input  type="number" name="" lay-verify="" autocomplete="off" class="layui-input rent_price" value="" placeholder="请输入数字" style="width: 100px;">' +
+					'</div>' +
+					'<div class="layui-input-block teshu_y" style="float: left;width:100px;margin: 0;">' +
+					'<input  type="text" name="" lay-verify="" autocomplete="off" class="layui-input priceTypeP" value="' + priceFlag + '" readonly="readonly" style="width: 100px;">' +
+					'</div>' +
+					'</div>' +
+					'<div class="layui-form-item">' +
+					'<label class="layui-form-label">租赁面积</label>' +
+					'<div class="layui-input-block">' +
+					'<input type="text" name="" lay-verify="" autocomplete="off" class="layui-input haveBg rental_area2 rental_areaOnly" value="" readonly="readonly">' +
+					'</div>' +
+					'</div>' +
+					'</div>');
+				$(".rentBox").append(_div3);
+				var a1 = $(".addRentHouse" + a).length;
+				for (var i = 0; i < houseArry.length; i++) {
+					var houseId = houseArry[i].split("&")[0];
+					houseArry[i].split("&")[1].split(":")[0];
+					var houseNum = houseArry[i].split("&")[1].split(":")[1].split("#")[0];
+					var houseArear = houseArry[i].split("&")[1].split(":")[1].split("#")[1];
+					var _div = $('<div class="houseNum" houseId="' + houseId + '" houseArear="' + houseArear + '"><h4>' + houseNum + '</h4></div>');
+					$(".addRentHouse" + a + " .houseBoxOne1").eq(a1 - 1).append(_div);
+				}
+				chooseNum(a1 - 1, a);
+				$(".deleteRent h5").click(function () {
+					$(this).parents(".addRentHouse").remove();
+					$(this).parents(".addRentHouse").find(".houseNum").each(function (index) {
+						if ($(this).parents(".addRentHouse").find(".houseNum").eq(index).find("i").hasClass("active")) {
+							smallHouseArry.remove($(this).parents(".addRentHouse").find(".houseNum").eq(index).attr("houseid"));
+						}
+					})
+				})
+			});
+			/*添加优惠*/
+			var chooseFlag = false; //添加优惠标志，true为优惠
+			$(".addform h5").click(function () {
+				$(this).parents(".addform").prev("div").hide();
+				$(this).parents(".addform").hide();
+				$(".p_btn1").show();
+				chooseFlag = false;
+			});
+			$(".p_btn1").click(function () {
+				$(".addform").show();
+				$("#addOne").show();
+				$(".p_btn1").hide();
+				$("#rentFree_start_time").val($("#compact_start_time").val());
+				$("#discount_start_time").val($("#compact_start_time").val());
+				chooseFlag = true;
+			});
+			/*添加递增率*/
+			$(".p_btn2").click(function () {
+				$("#addOne").show();
+				var _div = $('<div class="div1"><div class="borderTop"></div>' +
+					'<div class="layui-form-item">' +
+					'<label class="layui-form-label" style="margin-top:-10px;">递增时间点</label>' +
+					'<div class="layui-input-block strongTime">' +
+					'<input id="increasing_start_time" type="text" name="increasing_start_time"  lay-verify="date" autocomplete="off" class="layui-input dateOne_y" value="" placeholder="yyyy-MM-dd"><i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>' +
+					'</div>' +
+					'</div>' +
+					'<div class="layui-form-item">' +
+					'<label class="layui-form-label" style="margin-top:-10px;">租金单价递增</label>' +
+					'<div class="layui-input-block strongNum" style="width: 100px;float: left;margin:0;margin-right: 10px;">' +
+					'<input  type="number" name="" lay-verify="" autocomplete="off" class="layui-input" value="" placeholder="请填写递增率" style="width: 100px;">' +
+					'</div>' +
+					'<div class="layui-input-block teshu1_y" style="float: left;width:70px;margin: 0;">' +
+					'<select name="" lay-filter="chooseRateType" class="chooseRateType">' +
+					'<option value="1">元</option>' +
+					'<option value="2">%</option>' +
+					'</select>' +
+					'</div>' +
+					'<strong style="float:right;width: 30px;margin: 0;text-align: right;color:#20a8ff;cursor: pointer;">' +
+					'<h5>删除</h5>' +
+					'</strong>' +
+					'</div></div>');
+				$(".addBox1").append(_div);
+				/*租金单价递增*/
+				form.render();
+				form.on('select(chooseRateType)', function (data) {
+					if (data.value == "1") {
+						chooseRateType = "1";
+						chooseRateTypeValue = "元";
+					}
+					if (data.value == "2") {
+						chooseRateType = "2";
+						chooseRateTypeValue = "%";
+					}
+				});
+				laydate.render({
+					elem: '.dateOne_y'
+				});
+				$(".addBox1 h5").click(function () {
+					$(this).parents(".div1").prev("div").remove();
+					$(this).parents(".div1").remove();
+				});
+			});
+			//选择房源
+			function chooseNum(index, a) {
+				var houseArear1 = 0; //首先等于总面积
+				$(".addRentHouse" + a).find(".rental_area2").eq(index).val(houseArear1);
+				$(".addRentHouse" + a + " .houseBoxOne1").find(".houseNum").each(function () {
+					$(this).click(function () {
+						if ($(this).find("i").hasClass("active")) {
+							$(this).find("i").removeClass("active");
+							$(this).find("h4").css({
+								"border": "1px solid #e4e4e4",
+								"color": "#333"
+							});
+							houseArear1 -= Number($(this).attr("housearear").split("m")[0]);
+							$(this).parents(".addRentHouse").find(".rental_area2").val(houseArear1);
+							smallHouseArry.remove($(this).attr("houseid"));
+						} else {
+							var houseid1 = $(this).attr("houseid");
+							for (var z = 0; z < smallHouseArry.length; z++) {
+								if (houseid1 == smallHouseArry[z]) {
+									alert("该房间已选择！");
+									return;
+								}
+							}
+							$(this).find("i").addClass("active");
+							$(this).find("h4").css({
+								"border": "1px solid #20a8ff",
+								"color": "#20a8ff"
+							});
+							houseArear1 += Number($(this).attr("housearear").split("m²")[0]);
+							$(this).parents(".addRentHouse").find(".rental_area2").val(houseArear1);
+							smallHouseArry.push($(this).attr("houseid"));
+						}
+					})
+				})
+			}
+			/*点击生成租金明细*/
+			$('.moneyDetail').click(function () {
+				//遍历上方单价个数，创建表头
+				var priceArry = []; //单价数组
+				var tableTitle = []; //表头数组
+				var arearArry = []; //面积数组
+				var houseNumArry = []; //房号数组
+				$(".addRentHouse").each(function (index) {
+					var str = "";
+					var str1 = "";
+					//alert($(".rent_price").eq(index).val());
+					priceArry.push($(".rent_price").eq(index).val());
+					arearArry.push($(".rental_areaOnly").eq(index).val());
+					$(".addRentHouse").eq(index).find(".houseNum").each(function () {
+						if ($(this).find("i").hasClass("active")) {
+							str += $(this).find("h4").text() + ",";
+							str1 += $(this).attr("houseid") + ",";
+						}
+					});
+					tableTitle.push(str1);
+					houseNumArry.push(str);
+				});
+				var compact_start_time = $("#compact_start_time").val();
+				var rent_price = $("#rent_price").val();
+				var cash_pledge = $("#cash_pledge").val();
+				var payment_mode = $("#payment_mode").val();
+				var rent_way_type = document.getElementById("rent_way_type").value;
+				var rent_price_type = document.getElementById("rent_price_type").value;
+				var rental_area = $("#rental_area").val();
+				var rent_way_date = $("#rent_way_date").val();
+				var cash = 0;
+				var rentDate = $("#rent_way_date").val(); //收租日
+				//各种判断完成后展开
+				$(".moneyDetail_1").slideDown();
+				//押金
+				if (cashFlag == 1) {
+					cash = Number(cash_pledge);
+				} else {
+					if (priceFlagOne == 1) {
+						cash = (Number(cash_pledge) * Number(rent_price) * Number(rental_area)).toFixed(2);
+					} else {
+						cash = ((Number(rent_price) * 365 / 12).toFixed(2)) * Number(cash_pledge) * Number(rental_area);
+					}
+				}
+				$("#yj").text(Number(cash).toFixed(2) + "元"); //押金显示
+				//1.定义变量
+				var increaseRate = []; //递增率数组
+				var durationTime = []; //区间数组
+				var payDay = []; //付款日数组
+				var bigLastPrice = []; //最终单价数组
+				var originalPrice = []; //原始单价数组
+				var totalBigMoney = []; //最终金额数组
+				var biglastMoney = []; //金额大数组
+				var startTime; //区间开始时间
+				var compactEndTime; //合同结束时间
+				//定义优惠变量
+				var rentfreeStartTime = $("#compact_start_time").val(); //免租开始时间
+				var discountStartTime = $("#discount_start_time").val(); //单价折扣开始时间
+				var discount = $("#discount_num").val(); //单价折扣
+				var reliefamountStartNum = $("#reliefAmount_start_time").val(); //减免金额开始期数
+				var reliefamountPeriodLong = $("#reliefAmount_time").val(); // 减免金额期长
+				var reliefAmount = $("#reliefAmount_money").val(); //减免金额
+				var discountDeadline; //优惠截止日期
+				//1.租金计算方式二
+				//1.定义变量
+				var modetwoStartTime; //区间开始时间
+				var periodConversionTime = new Date($("#compact_periodic_transformation").val() + "-01").format("yyyy-MM-dd"); //周期强制转换开始时间
+				//1.租金计算方式三
+				//1.定义变量
+				//2.将递增率存入数组后排序
+				$(".div1").each(function (index) {
+					increaseRate.push($(".strongTime").eq(index).find("input").val() + "/" + $(".strongNum").eq(index).find("input").val() + "#" + chooseRateTypeValue);
+					increaseRate.sort(); //将时间点和递增率进行组合并排序
+				});
+				console.log("*********************")
+				console.log(increaseRate)
+				console.log("*********************")
+				//3.区间开始时间，合同结束时间赋值
+				startTime = $("#compact_start_time").val();
+				startTime = new Date(startTime).format("yyyy-MM-dd");
+				compactEndTime = $("#compact_end_time").val();
+				compactEndTime = new Date(compactEndTime).format("yyyy-MM-dd");
+				//4.租金计算方式一区间计算
+				//5.租金计算方式二区间计算
+				//根据计算方式计算区间、付款日、单价
+				if (calculation_method_Flag == 1) {
+					durationTime = wayOneSection(Number($("#payment_mode").val()), startTime, compactEndTime);
+					inRateDurationTime(increaseRate, durationTime);
+					bigLastPrice = countPrice(priceArry, durationTime, increaseRate).bigLastPrice; //单价计算
+					originalPrice = countPrice(priceArry, durationTime, increaseRate).originalPrice; //原始单价
+					payDay = payDate(durationTime, rentDate, compact_start_time); //付款日计算
+					totalBigMoney = CalMoney(bigLastPrice, durationTime, arearArry, 1, priceFlagOne)[0];
+					biglastMoney = CalMoney(bigLastPrice, durationTime, arearArry, 1, priceFlagOne)[1];
+				} else if (calculation_method_Flag == 2) {
+					durationTime = waytwoSection(Number($("#payment_mode").val()), startTime, compactEndTime, periodConversionTime);
+					inRateDurationTime(increaseRate, durationTime);
+					bigLastPrice = countPrice(priceArry, durationTime, increaseRate).bigLastPrice; //单价计算
+					originalPrice = countPrice(priceArry, durationTime, increaseRate).originalPrice; //原始单价
+					payDay = payDate(durationTime, rentDate, compact_start_time); //付款日计算
+					totalBigMoney = CalMoney(bigLastPrice, durationTime, arearArry, 2, priceFlagOne)[0];
+					biglastMoney = CalMoney(bigLastPrice, durationTime, arearArry, 2, priceFlagOne)[1];
+				}
+				//优惠计算
+				if (chooseFlag) {
+					if (preferentialFlag == 1) {
+						//免租
+						// var chooseoneflag = 0
+						// var rentfreeDurationTime =[];
+						// var modetwoEndTime;//区间结束时间
+						modetwoStartTime = $("#compact_start_time").val();
+						modetwoStartTime = new Date(modetwoStartTime).format("yyyy-MM-dd");
+						if (calculation_method_Flag == 1) {
+							var chooseoneflag = 0;
+							var rentfreeDurationTime = [];
+							var modetwoEndTime; //区间结束时间
+							for (var i = 0; modetwoStartTime <= compactEndTime; i++) {
+								//计算区间结束时间
+								if (i == 0) {
+									var modetwoNewDateone = DateAdd(Number($("#payment_mode").val()) + Number($("#rentFree_time").val()), modetwoStartTime);
+									modetwoEndTime = minusDate1(modetwoNewDateone.toLocaleDateString(), 1);
+									modetwoEndTime = new Date(modetwoEndTime).format("yyyy-MM-dd");
+								} else {
+									var modetwoNewDate = DateAdd(Number($("#payment_mode").val()), modetwoStartTime);
+									modetwoEndTime = minusDate1(modetwoNewDate.toLocaleDateString(), 1);
+									modetwoEndTime = new Date(modetwoEndTime).format("yyyy-MM-dd");
+								}
+								if (modetwoEndTime > compactEndTime) {
+									modetwoEndTime = compactEndTime;
+								}
+								//向区间数组放入区间
+								rentfreeDurationTime.push(modetwoStartTime + "~" + modetwoEndTime);
+								//计算下次区间开始时间
+								modetwoStartTime = addDate(modetwoEndTime, 1);
+								modetwoStartTime = new Date(modetwoStartTime).format("yyyy-MM-dd");
+							}
+							durationTime = rentfreeDurationTime;
+							inRateDurationTime(increaseRate, durationTime);
+							bigLastPrice = countPrice(priceArry, durationTime, increaseRate).bigLastPrice; //单价计算
+							originalPrice = countPrice(priceArry, durationTime, increaseRate).originalPrice; //原始单价
+							payDay = payDate(durationTime, rentDate, compact_start_time); //付款日计算
+							totalBigMoney = CalMoney(bigLastPrice, durationTime, arearArry, 2, priceFlagOne)[0];
+							biglastMoney = CalMoney(bigLastPrice, durationTime, arearArry, 2, priceFlagOne)[1];
+						} else if (calculation_method_Flag == 2) {
+							var chooseoneflag = 0;
+							var rentfreeDurationTime = [];
+							var modetwoEndTime; //区间结束时间
+							for (var i = 0; modetwoStartTime <= compactEndTime; i++) {
+								//计算区间结束时间
+								if (i == 0) {
+									var modetwoNewDateone = DateAdd(Number($("#payment_mode").val()) + Number($("#rentFree_time").val()), modetwoStartTime);
+									modetwoEndTime = minusDate1(modetwoNewDateone.toLocaleDateString(), 1);
+									modetwoEndTime = new Date(modetwoEndTime).format("yyyy-MM-dd");
+									var month11 = new Date(modetwoEndTime).getMonth() + 1;
+									var year11 = new Date(modetwoEndTime).getFullYear();
+									var lastDay11 = getLastDay(year11, month11);
+									var endTime11 = year11 + "-" + month11 + "-" + lastDay11;
+									endTime11 = new Date(endTime11).format("yyyy-MM-dd");
+									if (modetwoEndTime != endTime11) {
+										modetwoEndTime = endTime11;
+									}
+								} else {
+									var modetwoNewDate = DateAdd(Number($("#payment_mode").val()), modetwoStartTime);
+									modetwoEndTime = minusDate1(modetwoNewDate.toLocaleDateString(), 1);
+									modetwoEndTime = new Date(modetwoEndTime).format("yyyy-MM-dd");
+								}
+								if (modetwoEndTime > compactEndTime) {
+									modetwoEndTime = compactEndTime;
+								}
+								//向区间数组放入区间
+								rentfreeDurationTime.push(modetwoStartTime + "~" + modetwoEndTime);
+								//计算下次区间开始时间
+								modetwoStartTime = addDate(modetwoEndTime, 1);
+								modetwoStartTime = new Date(modetwoStartTime).format("yyyy-MM-dd");
+							}
+							durationTime = rentfreeDurationTime;
+							inRateDurationTime(increaseRate, durationTime);
+							bigLastPrice = countPrice(priceArry, durationTime, increaseRate).bigLastPrice; //单价计算
+							originalPrice = countPrice(priceArry, durationTime, increaseRate).originalPrice; //原始单价
+							payDay = payDate(durationTime, rentDate, compact_start_time); //付款日计算
+							totalBigMoney = CalMoney(bigLastPrice, durationTime, arearArry, 2, priceFlagOne)[0];
+							biglastMoney = CalMoney(bigLastPrice, durationTime, arearArry, 2, priceFlagOne)[1];
+						}
+						var newDate1 = getNextMonth(rentfreeStartTime, Number($("#rentFree_time").val())); //根据免租开始时间和免租时长计算免租截止日期
+						discountDeadline = new Date(newDate1).format("yyyy-MM-dd"); //对免租截止日期进行格式转换
+						for (var j = 0; j < durationTime.length; j++) {
+							var timeEnd0 = durationTime[j].split("~")[1]; //区间结束时间
+							//递增点在区间中间的
+							if (timeEnd0 == discountDeadline) { //每个周期结束时间等于免租截止日期
+								cycleNum = j;
+								for (var y = 0; y < priceArry.length; y++) { //对不同单价对应不同房子周期总金额对应元素置0
+									for (var t = 0; t <= cycleNum; t++) {
+										biglastMoney[y][t] = 0;
+										totalBigMoney[t] = 0;
+									}
+								}
+								break;
+							} else if (compareTime(timeEnd0, discountDeadline)) { //每个周期结束时间大于免租截止日期
+								cycleNum = j;
+								var timeStart0 = durationTime[j].split("~")[0]; //区间开始时间
+								chooseoneflag = 1; //定义每个周期结束时间大于截止日期标志
+								break;
+							}
+						}
+						if (chooseoneflag == 1) {
+							if (cycleNum == 0) { //计算免租结束日期在第一个周期内的biglastMoney和totalBigMoney
+								var sum = 0;
+								for (var y = 0; y < priceArry.length; y++) {
+									sum += Number($("#rentFree_time").val()) * Number(arearArry[y]) * Number(priceArry[y]);
+									biglastMoney[y][cycleNum] = biglastMoney[y][cycleNum] - Number($("#rentFree_time").val()) * Number(arearArry[y]) * Number(priceArry[y]); //计算biglastMoney
+								}
+								totalBigMoney[cycleNum] = totalBigMoney[cycleNum] - sum; //计算免租每个周期金额总和
+							} else { //计算免租结束日期在大于第一个周期内的biglastMoney和totalBigMoney
+								var sum1 = 0;
+								var monthDiff = countMoney(timeStart0, discountDeadline).split("&")[0]; //两日期相差几个月
+								var dateDiff = countMoney(timeStart0, discountDeadline).split("&")[1]; //两日期相差不满月的天数
+								for (var y = 0; y < priceArry.length; y++) {
+									for (var t = 0; t <= cycleNum - 1; t++) {
+										biglastMoney[y][t] = 0;
+										totalBigMoney[t] = 0;
+									}
+									sum1 += ((Number(monthDiff) + 1) * Number(arearArry[y]) * Number(bigLastPrice[y][cycleNum]) + dateDiff * ((Number(bigLastPrice[y][cycleNum]) * 12 / 365).toFixed(2)) * Number(arearArry[y]));
+									biglastMoney[y][cycleNum] -= ((Number(monthDiff) + 1) * Number(arearArry[y]) * Number(bigLastPrice[y][cycleNum]) + dateDiff * ((Number(bigLastPrice[y][cycleNum]) * 12 / 365).toFixed(2)) * Number(arearArry[y]));
+								}
+								totalBigMoney[cycleNum] = totalBigMoney[cycleNum] - sum1; //计算免租截止日期在某一个区间里面的金额总和
+							}
+						}
+					} else if (preferentialFlag == 2) {
+						var newDate1 = getNextMonth(discountStartTime, Number($("#discount_time").val())); //根据单价折扣开始时间和免租时长计算免租截止日期
+						var rateTime1 = new Date(newDate1).format("yyyy-MM-dd"); //对单价折扣截止日期进行格式转换
+						var rataTime2 = new Date(discountStartTime).format("yyyy-MM-dd"); //对单价折扣开始日期进行格式转换
+						var durationTimeaa = discountDurationTime(rateTime1, durationTime);
+						var durationTimeOrigin = [].concat(durationTime);
+						var discountArrayPrice = discountPrice(bigLastPrice, durationTimeaa, durationTimeOrigin, discount, rateTime1, rataTime2); //计算折扣后的单价，并将其赋值给discountArrayPrice
+						durationTime = durationTimeaa;
+						payDay = payDate(durationTime, rentDate, compact_start_time); //付款日计算
+						totalBigMoney = CalMoney(discountArrayPrice, durationTime, arearArry, 1, priceFlagOne)[0];
+						biglastMoney = CalMoney(discountArrayPrice, durationTime, arearArry, 1, priceFlagOne)[1];
+					} else if (preferentialFlag == 3) { //减免金额
+						var StartNum = Number(reliefamountStartNum); //减免金额开始期数
+						var PeriodLong = Number(reliefamountPeriodLong); // 减免金额期长
+						var reliefMoney = Number(reliefAmount); //减免金额
+						for (var i = StartNum - 1; i < ((StartNum - 1) + PeriodLong); i++) {
+							for (var y = 0; y < priceArry.length; y++) {
+								biglastMoney[y][i] = biglastMoney[y][i] - (reliefMoney / priceArry.length);
+							}
+							totalBigMoney[i] = totalBigMoney[i] - reliefMoney;
+						}
+					}
+				}
+				//页面显示
+				$(".moneyDetail_1B").html("");
+				var inputs = `<input type="checkbox" name="" title="已收" lay-skin="primary">`;
+
+				layui.use('form', function () {
+					var form = layui.form;
+
+					for (var i = 0; i < durationTime.length; i++) {
+						var _li = $('<li class="bigLi"><span class="bigLi1">' + durationTime[i] + '</span><span>' + payDay[i] + '</span><span class="last-span"><input type="text" class="editOneMoney" style="border:none;outline:none;background:none;width:100px;" readonly="readonly" value="' + (Number(totalBigMoney[i]).toFixed(2)) + '">' + inputs + '</span></li><ul class="detail_Ul detail_Ul' + i + '"><li class="smallLi"><span>房号</span><span>单价</span><span>金额</span></li></ul>');
+						$(".moneyDetail_1B").append(_li);
+						for (var j = 0; j < priceArry.length; j++) {
+							var _li1 = $('<li><span>' + houseNumArry[j] + '</span><span>' + bigLastPrice[j][i] + priceFlag + '</span><span><input type="text" class="editOneMoney"  style="border:none;outline:none;background:none;width:100px;" readonly="readonly"  value="' + (Number(biglastMoney[j][i]).toFixed(2)) + '"></span></li>');
+							$(".detail_Ul" + i).append(_li1);
+						}
+						//   执行实例
+						form.render();
+					}
+
+				});
+
+
+				/*编辑合计金额  */
+				$("#editMoney").click(function () {
+					$(".editBtn").remove();
+					layer.alert('确定编辑已按规则生成的租金明细？', {
+						closeBtn: 0
+					}, function () {
+						layer.closeAll('dialog');
+						$(".editOneMoney").removeAttr("readonly");
+						$(".bigLi .editOneMoney").focus(function () {
+							$(this).parents(".bigLi").addClass("active");
+							$(this).parents(".bigLi").next(".detail_Ul").slideDown();
+						});
+						$(".editOneMoney").css({
+							"border": "1px solid #e4e4e4",
+							"height": "30px",
+							"line-height": "30px",
+							"padding-left": "10px",
+							"margin-right": "10px",
+
+						});
+						var _span = $('<span style="font-size:14px;cursor:pointer;" id="saveEdit" class="editBtn">确定</span><span style="font-size:14px;cursor:pointer;" id="cancle" class="editBtn">取消</span>')
+						$(".moneyDetail_1B").append(_span);
+						$("#saveEdit").click(function () {
+							totalBigMoney = []; //改变总金额的钱 
+							$(".editOneMoney").attr("readonly", "readonly");
+							$(".editOneMoney").css({
+								"border": "none",
+								"height": "30px",
+								"line-height": "30px",
+								"padding-left": "10px",
+								"margin-right": "10px",
+
+							});
+							$(".editBtn").remove();
+							//改变向后台传递的值
+							for (var i = 0; i < durationTime.length; i++) {
+								totalBigMoney.push(Number($(".bigLi").eq(i).find(".editOneMoney").val()).toFixed(2));
+							}
+
+							for (var j = 0; j < priceArry.length; j++) {
+								for (var i = 0; i < durationTime.length; i++) {
+									biglastMoney[j][i] = Number($(".smallLi").eq(i).parent(".detail_Ul").find("li").eq(j + 1).find(".editOneMoney").val()).toFixed(2)
+								}
+							}
+							document.getElementById("rent_bills_d").value = totalBigMoney; //上面的合计金额
+							document.getElementById("rent_details").value = encapsulationOfRentData(tableTitle, durationTime, payDay, bigLastPrice, biglastMoney, arearArry);
+
+						})
+						$("#cancle").click(function () {
+							$(".editOneMoney").attr("readonly", "readonly");
+							$(".editOneMoney").css({
+								"border": "none",
+								"height": "30px",
+								"line-height": "30px",
+								"padding-left": "10px",
+								"margin-right": "10px",
+
+							});
+							$(".editBtn").remove();
+						})
+					});
+
+				})
+
+				//点击展开
+				$(".moneyDetail_1B .bigLi").each(function () {
+					var _this = $(this);
+					_this.find(".bigLi1").click(function () {
+						if (_this.hasClass("active")) {
+							_this.removeClass("active");
+							_this.next(".detail_Ul").slideUp();
+						} else {
+							_this.addClass("active");
+							_this.next(".detail_Ul").slideDown();
+						}
+					})
+				});
+				//向数据库存值
+				var bigArry = []; //总的大数组
+				bigArry.push(tableTitle);
+				bigArry.push(durationTime);
+				bigArry.push(payDay);
+				bigArry.push(bigLastPrice);
+				bigArry.push(biglastMoney);
+				bigArry.push(arearArry);
+				//向数据库存储房屋明细（根据不同单价）
+				document.getElementById("rent_details").value = encapsulationOfRentData(tableTitle, durationTime, payDay, bigLastPrice, biglastMoney, arearArry);
+				var a = []; //日期区间
+				var b = []; //付款日
+				$(".moneyDetail_1B li").each(function (o) {
+					var time = $(".moneyDetail_1B ").find(".bigLi").eq(o).find("span").eq(0).html(); //日期区间
+					var moneyTime = $(".moneyDetail_1B").find(".bigLi").eq(o).find("span").eq(1).html(); //付款日
+					//var priceOne=($(".moneyDetail_1B").find("li").eq(o).find("span").eq(2).html()).split("元")[0];//单价
+					//var totalMoney=($(".moneyDetail_1B").find("li").eq(o).find("span").eq(3).html()).split("元")[0];//金额
+					a.push(time);
+					b.push(moneyTime);
+				});
+				document.getElementById("houseyj").value = Number(cash).toFixed(2);
+				document.getElementById("rent_bills_a").value = a;
+				document.getElementById("rent_bills_b").value = b;
+				//document.getElementById("rent_bills_c").value = c;
+				document.getElementById("rent_bills_d").value = totalBigMoney; //上面的合计金额
+				//console.info(JSON.stringify(bigArry));
+
+			});
+
+			//封装数据租金数据
+			function encapsulationOfRentData(tableTitle, durationTime, payDay, bigLastPrice, biglastMoney, arearArry) {
+				var obj = new Array(bigLastPrice.length);
+				for (var i = 0; i < obj.length; i++) {
+					obj[i] = new Array(durationTime.length);
+					var house_id = tableTitle[i];
+					var house_area = arearArry[i];
+					for (var j = 0; j < obj[i].length; j++) {
+						obj[i][j] = [];
+						var duration = durationTime[j];
+						var pay = payDay[j];
+						var price = bigLastPrice[i][j];
+						var total = biglastMoney[i][j];
+						obj[i][j].push(house_id);
+						obj[i][j].push(duration);
+						obj[i][j].push(pay);
+						obj[i][j].push(price);
+						obj[i][j].push(total);
+						obj[i][j].push(house_area);
+					}
+				}
+				console.info(JSON.stringify(obj));
+				return JSON.stringify(obj);
+			}
+
+			/**
+			 * 获取金额计算方式的name值
+			 */
+			function calculation_formula_name(calculation_formula) {
+				var name = '';
+				if (calculation_formula == 1) {
+					name = '固定金额';
+				} else if (calculation_formula == 2) {
+					name = '单价*面积';
+				} else if (calculation_formula == 3) {
+					name = '单价*用量';
+				} else if (calculation_formula == 4) {
+					name = '自主充值';
+				} else {
+					name = '按面积分摊';
+				}
+				return name;
+			}
+
+			function getNextMonthTime(date, number) {
+				var arr = date.split('-');
+				var year = arr[0]; //获取当前日期的年份
+				var month = arr[1]; //获取当前日期的月份
+				var day = arr[2]; //获取当前日期的日
+				var year2 = year;
+				var month2 = parseInt(month) + number;
+				if (month2 == 13) {
+					year2 = parseInt(year2) + 1;
+					month2 = 1;
+				}
+				while (month2 > 12) {
+					year2++;
+					month2 -= 12;
+				}
+				var day2 = day;
+				var days2 = new Date(year2, month2, 0);
+				days2 = days2.getDate();
+				if (day2 > days2) {
+					day2 = days2;
+				}
+				if (month2 < 10) {
+					month2 = '0' + month2;
+				}
+				var t2 = year2 + '-' + month2 + '-' + day2;
+				if ((month2 == 02 && day >= 29 && days2 != 29) || ((month2 == 04 || month2 == 06 || month2 == 09 || month2 == 11) && day == 31)) { } else if (month2 == 02 && days2 == 29) {
+					t2 = minusDateLyn(t2, 1)
+				} else {
+					t2 = minusDateLyn(t2, 1)
+				}
+				return t2;
+			}
+
+			function minusDateLyn(date, days) {
+				var d = new Date(date);
+				d.setDate(d.getDate() - days);
+				var m = d.getMonth() + 1;
+				return d.getFullYear() + '-' + m + '-' + d.getDate();
+			}
+
+			$("#submit").click(function () {
+				$("#owner_img").val(str);
+				var house = document.getElementsByName("houseinfo_id");
+				var checkHouse = "";
+				for (var i = 0; i < house.length; i++) {
+					if (house[i].checked == true) {
+						checkHouse += house[i].value + ',';
+						$("#checkHouse").val(checkHouse);
+					}
+				}
+				if (checkHouse == null || checkHouse == '') {
+					alert("请至少选择一个房间!");
+					return;
+				}
+				$("#calculation_method_Flag").val(calculation_method_Flag);
+				$("#submit").attr("disabled", "disabled");
+
+			});
+
+			/**
+			 * 同步更新物业合同的计租，开始，结束时间
+			 */
+			function updatePropertyTime() {
+				$("#property_start_time").val($("#compact_start_time").val());
+				$("#property_end_time").val($("#compact_end_time").val());
+				$("#propertycompact_signing_time").val($("#compact_signing_time").val());
+			}
+		});
+		//   判断是否收收取滞纳金
+		layui.use('form', function () {
+			var form = layui.form;
+			form.on('radio(gather)', function (data) {
+				if ($(".gather").attr("checked")) {
+					$(".gatherdata").hide();
+					$(".gatherdata2").hide();
+
+				} else {
+
+					$(".gatherdata").show();
+					$(".gatherdata2").show();
+
+				}
+			});
+
+		})
+
+
+
+
+
+	</script>
+
+</body>
+
+</html>
