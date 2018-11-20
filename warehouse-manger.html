@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>仓库管理总页面</title>
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+</head>
+
+<body>
+
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+        <ul class="layui-tab-title instr-manger">
+            <li class="layui-this">
+                <a href="warehouse-location.html">仓位管理</a>
+            </li>
+            <li>
+                <a href="goods-stotr.html">物品分类</a>
+            </li>
+            <li>
+                <a href="goods-manger.html">物品管理</a>
+            </li>
+            <li>
+                <a href="supplier-manger.html">供应商管理</a>
+            </li>
+            <li>
+                <a href=" wear-in-manger.html">入库管理</a>
+            </li>
+            <li>
+                <a href="wear-out-manger.html">出库管理</a>
+            </li>
+            <li>
+                <a href="warehouse-forms.html">统计报表</a>
+            </li>
+        </ul>
+        <div class="layui-tab-content">
+            <iframe frameborder="0" width="100%" height="100%" class="x-iframe" name="instr-manger" id="treeFrame"></iframe>
+        </div>
+    </div>
+
+</body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+<script type="text/javascript" src="./js/xadmin.js"></script>
+<script src="js/dy-iframe.js"></script>
+<script>
+      $(".instr-manger li a").attr("target","instr-manger");
+      $(".instr-manger li  a")[0].click();
+</script>
+</html>

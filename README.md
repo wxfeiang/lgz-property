@@ -183,16 +183,25 @@
 
 
 ## 仓库管理  warehouse-manger.html
-### 仓位管理
-### 物品分类
-### 物品管理
-### 供应商管理
-### 报修领料管理
-### 入库管理
-### 出库管理
-### 统计报表
-*  库存明细表
-*　出入库明细表
+### 仓位管理  warehouse-location.html
+### 物品分类 goods-stotr.html
+* 新增分类   goods-store-add.html   (有个选择树形菜单)  [可查看文档](https://fly.layui.com/extend/treeSelect/#doc) 
+### 物品管理 goods-manger.html  
+*  新增物品   goods-more-add.html
+* 点击行  详情  goods-manger-desc.html
+
+### 供应商管理 supplier-manger.html
+*  新增供应商   supplier-add.html
+### 报修领料管理  
+### 入库管理  wear-in-manger.html
+*  点击单号 详情   wear-in-decs.html
+*  新增入库  wearin-add.html
+>  新增  wear-add-select.html
+### 出库管理  wear-out-manger.html
+### 统计报表  warehouse-forms.html
+*  库存明细查询表  inventory-detail.html
+*　出入库明细表   access-detail.html 
+*  领用出库明细表  receive-detail.html 
 
 ##  数据经营统计  data-operation.html
 
