@@ -74,137 +74,178 @@
             font-size: 12px;
             color: #333;
         }
+
+        .select-table tbody>tr th:first-child {
+            width: 20px !important;
+        }
     </style>
 </head>
 
-<body>
+<body class="dy-albox">
 
 
-        <!--  每一个块 -->
-        <div class=" slect-box">
-            <div class="clearfix select-warp-box">
-                <div class="fl seect-imgbox">
-                    <img src="images/1.png" alt="" width="70px; " height="40px" />
+    <!--  每一个块 -->
+    <div class=" slect-box">
+        <div class="clearfix select-warp-box">
+            <div class="fl seect-imgbox">
+                <img src="images/1.png" alt="" width="70px; " height="40px" />
 
-                </div>
-                <ul class="fl">
-                    <li class="font-fist">高新大厦A座</li>
-                    <li class="font-two">兰州市高新大厦A座</li>
-                </ul>
-                <i class="layui-icon layui-icon-right select-right"></i>
             </div>
-
-            <form class="layui-form select-table" action="">
-
-                <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="搜索房间" class="layui-input block-input">
-                <table class="layui-table " lay-skin="line" table="" id="tb_2" cellspacing="0" cellpadding="2" width="100%" border="1" style="margin: 10px 0 20px;">
-
-                    <tbody>
-                        <tr>
-                            <th>
-                                    <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose">
-                            </th>
-                            <th>
-                                楼层
-                            </th>
-                            <th>
-                                房间号
-                            </th>
-                            <th>
-                                面积
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose"> 
-                            </td>
-                            <td>
-                                1层
-                            </td>
-                            <td>101</td>
-                            <td>111 ㎡</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose"> 
-                            </td>
-                            <td>
-                                1层
-                            </td>
-                            <td>101</td>
-                            <td>111 ㎡</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose"> 
-                            </td>
-                            <td>
-                                1层
-                            </td>
-                            <td>101</td>
-                            <td>111 ㎡</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
+            <ul class="fl">
+                <li class="font-fist">高新大厦A座</li>
+                <li class="font-two">兰州市高新大厦A座</li>
+            </ul>
+            <i class="layui-icon layui-icon-right select-right"></i>
         </div>
-        <!--  每一个块 -->
-        <div class=" slect-box">
-            <div class="clearfix select-warp-box">
-                <div class="fl seect-imgbox">
-                    <img src="images/1.jpg" alt="" width="70px; " height="40px" />
 
-                </div>
-                <ul class="fl">
-                    <li class="font-fist">高新大厦A座</li>
-                    <li class="font-two">兰州市高新大厦A座</li>
-                </ul>
-                <i class="layui-icon layui-icon-right select-right"></i>
-            </div>
+        <form class="layui-form select-table" action="">
 
-            <form class="layui-form select-table" action="">
+            <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="搜索房间" class="layui-input block-input">
+            <table class="layui-table " lay-skin="line" table="" id="tb_2" cellspacing="0" cellpadding="2" width="100%" border="1" style="margin: 10px 0 20px;">
 
-                <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="搜索房间" class="layui-input block-input">
-                <table class="layui-table " lay-skin="line" table="" id="tb_1" cellspacing="0" cellpadding="2" width="100%" border="1" style="margin: 10px 0 20px;">
-
-                        <tbody>
-                                <tr>
-                                    <th>
-                                            <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose"> 楼层
-                                    </th>
-                                    <th>
-                                        房间号
-                                    </th>
-                                    <th>
-                                        面积
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose"> 1层
-                                    </td>
-                                    <td>101</td>
-                                    <td>111 ㎡</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose"> 1层
-                                    </td>
-                                    <td>101</td>
-                                    <td>111 ㎡</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose"> 1层
-                                    </td>
-                                    <td>101</td>
-                                    <td>111 ㎡</td>
-                                </tr>
-                            </tbody>
-                </table>
-            </form>
-        </div>
+                <tbody>
+                    <tr>
+                        <th>
+                            <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose">
+                        </th>
+                        <th>
+                            楼层
+                        </th>
+                        <th>
+                            单元
+                        </th>
+                        <th>
+                            房间号
+                        </th>
+                        <th>
+                            面积
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose">
+                        </td>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>101</td>
+                        <td>111 ㎡</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose">
+                        </td>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>101</td>
+                        <td>111 ㎡</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose">
+                        </td>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>101</td>
+                        <td>111 ㎡</td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
     </div>
+    <!--  每一个块 -->
+    <div class=" slect-box">
+        <div class="clearfix select-warp-box">
+            <div class="fl seect-imgbox">
+                <img src="images/1.png" alt="" width="70px; " height="40px" />
+
+            </div>
+            <ul class="fl">
+                <li class="font-fist">高新大厦A座</li>
+                <li class="font-two">兰州市高新大厦A座</li>
+            </ul>
+            <i class="layui-icon layui-icon-right select-right"></i>
+        </div>
+
+        <form class="layui-form select-table" action="">
+
+            <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="搜索房间" class="layui-input block-input">
+            <table class="layui-table " lay-skin="line" table="" id="tb_2" cellspacing="0" cellpadding="2" width="100%" border="1" style="margin: 10px 0 20px;">
+
+                <tbody>
+                    <tr>
+                        <th>
+                            <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose">
+                        </th>
+                        <th>
+                            楼层
+                        </th>
+                        <th>
+                            单元
+                        </th>
+                        <th>
+                            房间号
+                        </th>
+                        <th>
+                            面积
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose">
+                        </td>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>101</td>
+                        <td>111 ㎡</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose">
+                        </td>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>101</td>
+                        <td>111 ㎡</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="like1[write]" lay-skin="primary" lay-filter="allChoose">
+                        </td>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>101</td>
+                        <td>111 ㎡</td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+
 </body>
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="lib/layui/layui.js"></script>
@@ -239,18 +280,18 @@
     $(".select-right").each(function () {
         var onOff = true;
         $(this).click(function () {
-           // $(".select-table").slideToggle("slow")
-            if (onOff) { 
+            // $(".select-table").slideToggle("slow")
+            if (onOff) {
 
-              $(this).addClass("route-right"); 
-              $(this).parent().siblings(".select-table").slideToggle("slow")
+                $(this).addClass("route-right");
+                $(this).parent().siblings(".select-table").slideToggle("slow")
                 onOff = false;
             } else {
 
                 $(this).removeClass("route-right");
                 //$(".select-table").slideToggle("slow");
                 $(this).parent().siblings(".select-table").slideToggle("slow")
-               onOff = true;
+                onOff = true;
             }
 
         })
