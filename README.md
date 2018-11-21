@@ -271,7 +271,7 @@
 ## 房客管理 house-tenants-margent.html
 * 添加房客  house-tenants-add.html
 ## 租赁合同 
-*  添加合同  house-lease-contract.html
+*  添加合同  
 * 续租
 * 退租
 * 详情
@@ -282,11 +282,17 @@
 ##  收付款
 
 ## 经营数据 统计    house-data-operation.html
-### 个人收费统计   house-rerson-data.html
-### 收费台账   pay-bills.html
-### 项目收费统计
-### 楼宇收费统计 
-### 房间收费统计  
+### 基础数据统计  
+### 维修统计
+### 车位费用统计
+### 收益统计
+### 财务统计    financial_statistics.html
+* 个人收费统计   house-rerson-data.html
+* 收费台账   pay-bills.html
+* 项目收费统计
+* 楼宇收费统计 
+* 房间收费统计   
+
 
 
 
