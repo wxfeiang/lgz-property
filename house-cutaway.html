@@ -13,13 +13,16 @@
 	<link rel="stylesheet" href="css/houseView.css" />
 	<style>
 		.houseBigBox {
-			
+
 			padding: 10px 0 0 0;
 		}
-		.wrapper-content{
+
+		.wrapper-content {
 			height: calc(82vh - 100px);
 			overflow-y: auto;
 		}
+
+		
 	</style>
 </head>
 
@@ -64,7 +67,7 @@
 	<div class="wrapper wrapper-content">
 		<!--房屋展示  -->
 		<div class="houseBigBox">
-				<!-- 没一层房间 -->
+			<!-- 没一层房间 -->
 			<div class="houseBox">
 				<div class="leftFloor">
 					<p>11层</p>
@@ -98,7 +101,7 @@
 					</li>
 				</ul>
 			</div>
-				<!-- 没一层房间 -->
+			<!-- 没一层房间 -->
 			<div class="houseBox">
 				<div class="leftFloor">
 					<p>11层</p>
@@ -132,7 +135,7 @@
 					</li>
 				</ul>
 			</div>
-				<!-- 没一层房间 -->
+			<!-- 没一层房间 -->
 			<div class="houseBox">
 				<div class="leftFloor">
 					<p>13层</p>
@@ -154,8 +157,101 @@
 						<span>1065.25m²/1101室</span>
 						<span>2018-10-12到期</span>
 					</li>
+					<li class="vacancy_li" houseArear="500">
+						<p>1065.25m²/1102室</p>
+						<span>空置</span>
+						<div class="clearfix">
+							<p class="dybtn-p fl edit-house">
+								<img src="images/edit.png" alt="" />
+								<i class="edit">编辑</i>
+							</p>
+							<p class="dybtn-p fl delte-house">
+								<img src="images/del.png" alt="" />
+								<i class="del">删除</i>
+							</p>
+
+						</div>
+					</li>
+					<li class="vacancy_li" houseArear="500">
+						<p>1065.25m²/1102室</p>
+						<span>空置</span>
+						<div class="clearfix">
+							<p class="dybtn-p fl edit-house">
+								<img src="images/edit.png" alt="" />
+								<i class="edit">编辑</i>
+							</p>
+							<p class="dybtn-p fl delte-house">
+								<img src="images/del.png" alt="" />
+								<i class="del">删除</i>
+							</p>
+
+						</div>
+					</li>
+					<li class="vacancy_li" houseArear="500">
+						<p>1065.25m²/1102室</p>
+						<span>空置</span>
+						<div class="clearfix">
+							<p class="dybtn-p fl edit-house">
+								<img src="images/edit.png" alt="" />
+								<i class="edit">编辑</i>
+							</p>
+							<p class="dybtn-p fl delte-house">
+								<img src="images/del.png" alt="" />
+								<i class="del">删除</i>
+							</p>
+
+						</div>
+					</li>
+					<li class="expire_li " houseArear="500">
+						<p>1065.25m²/1102室</p>
+						<span>空置</span>
+						<div class="clearfix">
+							<p class="dybtn-p fl edit-house">
+								<img src="images/edit.png" alt="" />
+								<i class="edit">编辑</i>
+							</p>
+							<p class="dybtn-p fl delte-house">
+								<img src="images/del.png" alt="" />
+								<i class="del">删除</i>
+							</p>
+
+						</div>
+					</li>
+					<li class="expire_li " houseArear="100">
+						<p>1065.25m²/1102室</p>
+						<span>空置</span>
+						<div class="clearfix">
+							<p class="dybtn-p fl edit-house">
+								<img src="images/edit.png" alt="" />
+								<i class="edit">编辑</i>
+							</p>
+							<p class="dybtn-p fl delte-house">
+								<img src="images/del.png" alt="" />
+								<i class="del">删除</i>
+							</p>
+
+						</div>
+					</li>
+					<li class="expire_li " houseArear="20">
+						<p>1065.25m²/1102室</p>
+						<span>空置</span>
+						<div class="clearfix">
+							<p class="dybtn-p fl edit-house">
+								<img src="images/edit.png" alt="" />
+								<i class="edit">编辑</i>
+							</p>
+							<p class="dybtn-p fl delte-house">
+								<img src="images/del.png" alt="" />
+								<i class="del">删除</i>
+							</p>
+
+						</div>
+					</li>
+				
 				</ul>
 			</div>
+				<!-- 没一层房间 -->
+				
 		</div>
 		<!-- <div class="rightBoxBg">
 			<div class="rightBoxDiv">
@@ -181,17 +277,19 @@
 		$(function () {
 			/*求顶部左侧宽度*/
 			var windowWidth = document.body.clientWidth - 60;
-			var leftWidth = $(".leftBox").width();
-			var ulWidth1 = windowWidth - leftWidth
+
+			var ulWidth1 = windowWidth;
 			/*求每个房间的宽度*/
 			var ulWidth = $(".houseBox").eq(0).find("ul").width();//一层的宽度
 			$(".houseBox").each(function (i) {
+
 				var li_length = $(".houseBox").eq(i).find("li").length;//每层房间个数
 				var houseAllArear = 0;//每一层房间的总面积
 				$(".houseBox").eq(i).find("li").each(function (j) {
 					var houseArear = $(".houseBox").eq(i).find("li").eq(j).attr("houseArear")
-					houseAllArear += parseInt(houseArear);
+					houseAllArear += parseInt(houseArear); 
 				})
+
 				var li_width2 = 0;//记录除了最后一个房间外的其余房间的总宽度
 				$(".houseBox").eq(i).find("li").each(function (j) {
 					var li_width1 = 0;//记录最终每个房间所占的宽度
@@ -200,7 +298,7 @@
 						$(this).hide();
 					}
 					if (j != li_length - 1) {
-						li_width1 = (houseArear / houseAllArear) * ulWidth - 7;
+						li_width1 = (houseArear / houseAllArear) * ulWidth - 5;
 						li_width2 += li_width1;
 					} else if (j == li_length - 1) {
 						li_width1 = ulWidth - li_width2 - 21;
@@ -278,23 +376,23 @@
 			});
 		})
 		//  点批量添加
-		$(".batch-house").click(function(){
+		$(".batch-house").click(function () {
 			top.layer.open({
-					type: 2,
-					title: ['批量添加房间'],
-					shadeClose: false, //点击遮罩关闭层
-					area: ['770px', '600px'],
-					content: 'batch-house.html',
-					// end: function () {
-					// 	location.reload(); //点击后刷新父页面
-					// },
-					btn: ['保存', '取消'],
-					no: function (index, layero) {
+				type: 2,
+				title: ['批量添加房间'],
+				shadeClose: false, //点击遮罩关闭层
+				area: ['770px', '600px'],
+				content: 'batch-house.html',
+				// end: function () {
+				// 	location.reload(); //点击后刷新父页面
+				// },
+				btn: ['保存', '取消'],
+				no: function (index, layero) {
 
-					},
-					yes: function (index, layero) { }
+				},
+				yes: function (index, layero) { }
 
-				});
+			});
 
 		})
 

@@ -153,6 +153,10 @@
 	color: #1890ff;
 }
 
+.layui-tab-brief>.layui-tab-title li a:hover {
+    color: #1890ff ;
+}
+
 .layui-tab {
 	margin: 5px 0;
 }

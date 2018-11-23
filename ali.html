@@ -28,6 +28,9 @@
         li:nth-child(odd){
             float: right;
         }
+        .time h2{
+            font: 50px/50px "myfont";
+        }
     </style>
 </head>
 <body>
@@ -40,6 +43,36 @@
         <li class=""></li>
         <li class=""></li>
     </ul>
+    <!-- 定时器 数组递增 -->
+    <button id="btn">点击</button>
+    <div class="time">
+        <h2 id="h2"></h2>
+    </div>
 </div>
 </body>
+<script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function(){
+   
+        alltime();
+    }
+    function alltime(){
+        clearTimeout(timer);
+        var allnum = 80;
+        var num = -1;
+        var timer =  setInterval(function(){
+           
+            document.getElementById("h2").innerHTML= num++ +1;
+ 
+            if(num == allnum){
+                clearTimeout(timer);
+                
+            }
+           
+        },50)
+       
+    }
+   
+
+</script>
 </html>

@@ -118,11 +118,13 @@
 	left: 30px;
 	bottom: 10px;
 }
-.houseBigBox .houseBox ul{
+.houseBigBox .houseBox ul {
 	float: left;
 	position: relative;
 	width: 100%;
 	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
 }
 .houseBigBox .houseBox .leftFloor p{
 	font-size: 20px;

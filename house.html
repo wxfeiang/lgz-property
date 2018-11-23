@@ -104,7 +104,7 @@
         <!-- 隐藏得关闭按钮 -->
         <!-- <i class="layui-icon layui-icon-close" style="visibility: hidden;"></i> -->
         <input type="hidden" class="layui-icon layui-icon-close"> 
-        <iframe src="rightRoom.html"></iframe>
+        <iframe src="rightRoom.html" id="rightRoom"></iframe>
     </div>
 </div>
 <script src="js/jquery-3.3.1.min.js"></script>
@@ -135,17 +135,10 @@
         })
 
     })
-    // function changeFrameHeight() {
-    //     var ifm = document.getElementById("iframepage");
-    //     ifm.height = document.documentElement.clientHeight;
-
-    // }
-
-    // window.onresize = function () {
-    //     changeFrameHeight();
-
-    // }
-
+    $(".rightBoxBg").click(function(){   
+       $(this).animate({ right: '-100%' });
+       $(".rightBoxDiv").animate({ right: '-1000px' }); 
+    })
 </script>
 
 
