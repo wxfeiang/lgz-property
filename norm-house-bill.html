@@ -12,8 +12,7 @@
     <style>
         .layui-input-block {
             margin-left: 0px;
-
-
+            /* width: 120px; */
         }
 
         .myUl_y .pBox_y {
@@ -35,6 +34,8 @@
             outline: none;
             background: none;
         }
+
+       
     </style>
 </head>
 
@@ -64,9 +65,9 @@
                         <tbody>
                             <tr>
                                 <td>A座</td>
-                                <td>
+                                <td class="td-120">
 
-                                    <div class="layui-input-block">
+                                    <div class="layui-input-inline">
                                         <select name="" lay-filter="" disabled="disabled" class="noem-disabled">
                                             <option value="0" selected>电费一</option>
                                             <option value="1">水费一</option>
@@ -78,34 +79,17 @@
                                     单价*面积
                                 </td>
                                 <td>
-                                    <div class="layui-input-block">
-                                        <input type="number" name="title" required="" lay-verify="required" class="layui-input show-input" value="555" readonly="readonly">
-                                    </div>
+                                    555
                                 </td>
                                 <td>
-                                    <div class="layui-input-block">
-                                        <select name="" lay-filter="" disabled="disabled" class="noem-disabled">
-                                            <option value="0">一月一付</option>
-                                            <option value="1">两月一付</option>
-                                            <option value="2">三月一付</option>
-                                            <option value="3">四月一付</option>
-                                            <option value="4">五月一付</option>
-                                            <option value="5">六月一付</option>
-                                            <option value="6">七月一付</option>
-                                            <option value="7">八月一付</option>
-                                            <option value="8">九月一付</option>
-                                            <option value="9">十月一付</option>
-                                            <option value="10">十一月一付</option>
-                                            <option value="11">十二月一付</option>
-                                        </select>
-                                    </div>
+                                    九月一付
                                 </td>
                             </tr>
                             <tr>
                                 <td>A座</td>
-                                <td>
+                                <td class="td-120">
 
-                                    <div class="layui-input-block">
+                                    <div class="layui-input-inline">
                                         <select name="" lay-filter="" disabled="disabled" class="noem-disabled">
                                             <option value="0" selected>电费一</option>
                                             <option value="1">水费一</option>
@@ -117,34 +101,17 @@
                                     单价*面积
                                 </td>
                                 <td>
-                                    <div class="layui-input-block">
-                                        <input type="number" name="title" required="" lay-verify="required" class="layui-input show-input" value="555" readonly="readonly">
-                                    </div>
+                                    555
                                 </td>
                                 <td>
-                                    <div class="layui-input-block">
-                                        <select name="" lay-filter="" disabled="disabled" class="noem-disabled">
-                                            <option value="0">一月一付</option>
-                                            <option value="1">两月一付</option>
-                                            <option value="2">三月一付</option>
-                                            <option value="3">四月一付</option>
-                                            <option value="4">五月一付</option>
-                                            <option value="5">六月一付</option>
-                                            <option value="6">七月一付</option>
-                                            <option value="7">八月一付</option>
-                                            <option value="8">九月一付</option>
-                                            <option value="9">十月一付</option>
-                                            <option value="10">十一月一付</option>
-                                            <option value="11">十二月一付</option>
-                                        </select>
-                                    </div>
+                                    九月一付
                                 </td>
                             </tr>
                             <tr>
                                 <td>A座</td>
-                                <td>
+                                <td class="td-120">
 
-                                    <div class="layui-input-block">
+                                    <div class="layui-input-inline">
                                         <select name="" lay-filter="" disabled="disabled" class="noem-disabled">
                                             <option value="0" selected>电费一</option>
                                             <option value="1">水费一</option>
@@ -156,27 +123,10 @@
                                     单价*面积
                                 </td>
                                 <td>
-                                    <div class="layui-input-block">
-                                        <input type="number" name="title" required="" lay-verify="required" class="layui-input show-input" value="555" readonly="readonly">
-                                    </div>
+                                    555
                                 </td>
                                 <td>
-                                    <div class="layui-input-block">
-                                        <select name="" lay-filter="" disabled="disabled" class="noem-disabled">
-                                            <option value="0">一月一付</option>
-                                            <option value="1">两月一付</option>
-                                            <option value="2">三月一付</option>
-                                            <option value="3">四月一付</option>
-                                            <option value="4">五月一付</option>
-                                            <option value="5">六月一付</option>
-                                            <option value="6">七月一付</option>
-                                            <option value="7">八月一付</option>
-                                            <option value="8">九月一付</option>
-                                            <option value="9">十月一付</option>
-                                            <option value="10">十一月一付</option>
-                                            <option value="11">十二月一付</option>
-                                        </select>
-                                    </div>
+                                    九月一付
                                 </td>
                             </tr>
                         </tbody>
@@ -221,12 +171,12 @@
                         form.render();
                         top.layer.close(index); //如果设定了yes回调，需进行手工关闭
                     }
-                    ,btn2: function(index, layero){
-                 
-                    
-                   
-                      }
-                  });
+                    , btn2: function (index, layero) {
+
+
+
+                    }
+                });
                 $(this).html("修改");
                 onff = true;
             }

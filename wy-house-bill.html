@@ -21,6 +21,7 @@
                     <span class="remind">提醒</span>
                     <span class="batch-pay">批量收款</span>
                     <span class="creadit">减免</span>
+                    <span class="initial"> 添加期初账单</span>
                     <!-- 记得删掉 -->
                     <span class="bat-pay">表格内部收款</span>
                     <span class="billdec1">行详情</span>
@@ -219,6 +220,28 @@ $(".batch-pay").click(function () {
             content: 'wy-house-dection.html'
         });
     })
+
+    //  添加期初账单 initial
+    $(".initial").click(function(){
+        top.layer.open({
+            type: 2,
+            title: ['添加期初账单'],
+            shadeClose: false, //点击遮罩关闭层
+            area: ['700px', '450px'],
+            content: 'wy-initial.html',
+            // end: function () {
+            // 	location.reload(); //点击后刷新父页面
+            // },
+            btn: ['保存', '取消'],
+            no: function (index, layero) {
+
+            },
+            yes: function (index, layero) { }
+
+        });
+    })
+   
+
     //  点击预缴 wy-house-prepay.html
     $(".prepay").click(function () {
         top.layer.open({

@@ -190,6 +190,9 @@
 	font-weight: bold;
 	color: rgba(0, 0, 0, 0.847058823529412);
 }
+.td-120 {
+	width: 120px !important;
+}
 
 /* .layui-table td,
 .layui-table th,

@@ -6,11 +6,12 @@
   height: 100px;
   background: #fff;
   padding: 30px  20px 20px;
+  overflow: hidden;
 }
 
 .g-top-msg .msg-left-box {
-  width: 410px;
-  margin-right: 5%;
+  width: 500px;
+  position: fixed;
 }
 
 .g-top-msg .msg-left-box .msg-left-imgbox {
@@ -21,10 +22,12 @@
 }
 
 .g-top-msg .msg-left-box .msg-left-dicon {
-  max-width: 230px;
+  max-width: 300px;
 }
 
 .g-top-msg .msg-left-box h3 {
+  height: 50px;
+  overflow: hidden;
   font: 30px/50px "myfont";
   margin-bottom: 10px;
 }
@@ -39,10 +42,16 @@
   cursor: pointer;
 }
 
+.g-top-msg .msg-right-box {
+  margin-left: 500px;
+  width: 65%;
+  overflow: hidden;
+}
+
 .g-top-msg .msg-right-box li {
   position: relative;
-  min-width: 150px;
-  padding: 10px  30px 0;
+  min-width: 10%;
+  padding: 10px  4% 0;
 }
 
 .g-top-msg .msg-right-box li .msg-hose-title {
@@ -82,33 +91,18 @@
 @media screen and (max-width: 1366px) {
   .g-top-msg .msg-left-box {
     width: 410px;
-    margin-right: 5%;
   }
-  .g-top-msg .msg-left-box .msg-left-imgbox {
-    width: 160px;
-    height: 100px;
-    margin-right: 24px;
-    background: #ccc;
+  .g-top-msg .msg-left-dicon {
+    overflow: hidden;
   }
-  .g-top-msg .msg-left-box .msg-left-dicon {
-    max-width: 230px;
-  }
-  .g-top-msg .msg-left-box h3 {
-    font: 30px/50px "myfont";
+  .g-top-msg .msg-left-dicon h3 {
+    font: 20px/50px "myfont";
     margin-bottom: 10px;
   }
-  .g-top-msg .msg-left-box p {
-    font: 16px/40px "myfont";
+  .g-top-msg .msg-left-dicon p {
+    font: 14px/50px "myfont";
   }
-  .g-top-msg .msg-left-box p span {
-    font-size: 14px;
-    color: #1890ff;
-    cursor: pointer;
-  }
-  .g-top-msg .msg-right-box li {
-    position: relative;
-    max-width: 200px;
-    min-width: 50px;
-    padding: 10px  30px 0;
+  .g-top-msg .msg-right-box {
+    margin-left: 410px;
   }
 }

@@ -82,7 +82,7 @@
 >   开票
 >   打印
 >   点击行详情   rent-records-dection.html 
-*  缴费记录明细  rent-payment-decion.html
+*  缴费记录明细   
 
 
 
@@ -247,6 +247,7 @@
     收款   batc-pay.html
 *  提醒  提示信息框
 *  点击行显示 详情  wy-house-dection.html
+*  添加期初账单   wy-initial.html
 
 *  预缴  wy-house-prepay.html 
 *  充值水电 wy-house-prepay2.html
@@ -265,7 +266,7 @@
 *  开票
 *  点击行显示详情    price-house-updec.html
 ####  收费标准  norm-house-bill.html
-*   点击开启单元格编辑    ( 逻辑没有写)
+*   点击开启单元格编辑    
 ## 业主管理  house-owner-magent.html
 * 添加业主   house-owner-add.html
 ## 房客管理 house-tenants-margent.html

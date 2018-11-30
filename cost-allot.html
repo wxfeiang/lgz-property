@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,51 +7,13 @@
     <title>收费标准分配</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+
     <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="./css/xadmin.css">
     <link rel="stylesheet" href="css/rest.css">
     <link rel="stylesheet" href="lib/layui/css/layui.css">
-    <link rel="stylesheet" href="lib/eleTree/eleTree.css" media="all">
     <link rel="stylesheet" href="css/public.css">
-    <style>
-        .eleTree-checkbox-checked i {
-            border-color: #1890ff;
-            background-color: #03A9F4;
-            color: #fff;
-        }
 
-        .eleTree {
-            width: 100% !important;
-            height: auto !important;
-            margin: 20px auto;
-
-            border: none;
-            background: #fff;
-
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .layui-icon-tips {
-            
-            border-radius: 50%;
-            cursor: pointer;
-            color: #03A9F4;
-        }
-
-        .help-show {
-
-            border-radius: 4px;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            -ms-border-radius: 4px;
-            -o-border-radius: 4px;
-
-            font-size: 12px;
-
-        }
-    </style>
 
 </head>
 
@@ -68,10 +31,9 @@
             </div>
 
         </div>
-        <!-- 中间 -->
-        <div class="tab-mycenter fl">
+        <div class="tab-right fr">
             <!-- 表格区域 -->
-            <div class="table-min-smial ">
+            <div class="table-min-smial">
                 <div class="table-box">
                     <!-- 工具条 -->
                     <div class="demoTable">
@@ -79,25 +41,16 @@
                         <div class="layui-inline">
                             <input class="layui-input" name="bloc_name" id="bloc_name" autocomplete="off"> </div>
                         <button class="dy-btn" lay-event="sousuo" data-type="reload">搜索</button>
-                        <button class="dy-btn allot" lay-event="delete">批量分配</button>
+                        <button class="dy-btn newadd" lay-event="addbloc">标准分配</button>
+
+                      
+
                     </div>
                     <!-- 表格 -->
                     <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
                 </div>
             </div>
         </div>
-        <!--  右边 -->
-        <div class="tab-right2 fr">
-            <h3 class="dy-tree-h3">项目房间数
-                <i class="layui-icon layui-icon-tips "></i>
-            </h3>
-            <!--  树形结构 -->
-            <div class="dy-treebox">
-                <div class="eleTree ele1" lay-filter="data1"></div>
-            </div>
-
-        </div>
-
     </div>
 
     <script type="text/html" id="barDemo">
@@ -105,26 +58,18 @@
         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
         <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
       </script>
-    <!--  问号划过显示 区域 -->
-    <div class="help-show" id="help-show" style="display: none;">
-        <p class="help-show-item">1、请选择所有待收费的标准同时分配给房屋，每次分配的标准信息会将之前的标准覆盖</p>
-        <p class="help-show-item">2、批量分配标准时，选择具体房屋，该操作会将当前选择的费用标准信息分配给选择对应的所有房屋。</p>
-        <p class="help-show-item">3、当只选择一个房屋时，可查看房屋已分配的标准。</p>
-    </div>
-
 </body>
 
 
 
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="lib/layui/layui.js"></script>
-<script type="text/javascript" src="./js/xadmin.js"></script>
+
 
 <script>
-   
-    //一般直接写在一个js文件中
-    layui.use(['layer', 'form', 'laypage', 'table'], function () {
-      
+
+ //一般直接写在一个js文件中
+ layui.use(['layer', 'form', 'laypage', 'table'], function () {
         var layer = layui.layer,
             form = layui.form;
         var form = layui.form;
@@ -136,10 +81,14 @@
             , url: '/demo/table/user/'
             , cols: [[
                 { checkbox: true, fixed: true }
-                , { field: 'aaa', title: '楼宇' }
-                , { field: 'id', title: '房间号', sort: true,}
-                , { field: 'aav', title: '收费标准', sort: true,}
-                , { field: 'username', title: '入住情况', }
+                , { field: 'id', title: '楼宇', sort: true, fixed: true }
+                , { field: 'username', title: '单元', }
+                , { field: 'sex', title: '楼层', sort: true }
+                , { field: 'sign', title: '房间号' }
+                , { field: 'sign2', title: '业主' }
+                , { field: 'sign4', title: '收费标准' }
+                , { field: 'signl', title: '入住情况' }
+            
             ]]
             , id: 'testReload'
             , page: true
@@ -170,7 +119,71 @@
         });
     });
 
-      // 树形结构  具体多少节点是情况而定
+
+
+
+    //   详情编辑页面   点击编辑页面
+    $(".msgedit").each(function () {
+        $(this).click(function () {
+            top.layer.open({
+                type: 2,
+                closeBtn: 0,
+                title: false,
+                shadeClose: false, //点击遮罩关闭层
+                area: ['100%', '100%'],
+                content: 'property-edit.html',
+                // end: function () {
+                // 	location.reload(); //点击后刷新父页面
+                // },
+                // btn: ['提交', '取消'],
+                // no: function (index, layero) {
+
+                // },
+                // yes: function (index, layero) {
+
+                // }
+
+            });
+        })
+    })
+    // 点击新增按钮
+    $('.newadd').on('click', function () {
+        top.layer.open({
+            type: 2,
+            title: ['批量分配'],
+            shadeClose: false, //点击遮罩关闭层
+            area: ['800px', '600px'],
+            content: 'cost-allot-add.html',
+            // end: function () {
+            // 	location.reload(); //点击后刷新父页面
+            // },
+            btn: ['保存', '取消'],
+            no: function (index, layero) {
+
+            },
+            yes: function (index, layero) { }
+
+        });
+    })
+
+    //  点击删除
+
+    $(".delete").each(function () {
+        $(this).click(function () {
+            top.layer.confirm(' 删除以后无法恢复,确定要继续吗？', {
+                title: '提示信息',
+                area: '520px',
+                btn: ['确定删除', '取消'],
+
+            });
+
+        })
+
+    })
+
+
+
+    // 树形结构  具体多少节点是情况而定
     //  文档地址
 
     layui.use('tree', function () {
@@ -180,27 +193,24 @@
             elem: '#demo' //传入元素选择器
                 ,
             nodes: [{
-                name: '高新大厦',
+                name: '高新大厦A座',
                 children: [{
-                    name: 'A座',
+                    name: '1楼',
                    
                     children: [{
-                        name: '1楼',
+                        name: '水表2',
                        
                     }]
                 }]
             },
             {
-                name: '高新大厦 ',
+                name: '高新大厦By座 ',
                 children: [{
-                    name: 'A座',
+                    name: '2楼',
                   
                     children: [{
-                        name: '城关区',
-                        children: [{
-                        name: '1楼',
-                       
-                    }]
+                        name: '水表3',
+                        
                     }]
                 }]
             },
@@ -212,188 +222,6 @@
         });
     });
 
-    //  点击批量分配按钮
-
-
-    $(".allot").click(function () {
-        top.layer.confirm('确认分配标准到房间上吗？', {
-            title: '提示信息',
-            area: '520px',
-            btn: ['确认', '取消'],
-
-        });
-
-    })
-    //  鼠标划过  问号帮助显示 内容   
-
-    $(".layui-icon-tips ").hover(function () {
-        stips =
-            `
-            <div class="help-show" id="help-show"">
-                    <p>1、请选择所有待收费的标准同时分配给房屋，每次分配的标准信息会将之前的标准覆盖</p>
-                    <p>2、批量分配标准时，选择具体房屋，该操作会将当前选择的费用标准信息分配给选择对应的所有房屋。</p>
-                    <p>3、当只选择一个房屋时，可查看房屋已分配的标准。</p>
-             </div>
-		 		
-				
-		 		`;
-        help_show = layer.tips(
-            stips,
-            this, {
-                time: 0,
-                tips: [3, '#6d6d6d'],
-                area: ['300px', 'atuo'],
-                zIndex: 999
-            }
-        );
-    }, function () {
-        layer.close(help_show);
-    });
-
-</script>
-<script>
-    //    右边选择 树  可自行提出
-    layui.config({
-        base: "lib/layui/lay/mymodules/"
-    }).use(['jquery', 'eleTree'], function () {
-        var $ = layui.jquery;
-        var eleTree = layui.eleTree;
-
-        var data = [
-            {
-                "label": "电费",
-                "spread": true,
-                "children": [
-                    {
-                        "label": "代收电费",
-                        "spread": true,
-                        //"disabled": true,  //如果想要选中则把这行删除
-                        // "children": [
-                        //     {
-                        //         "label": "城关区",
-                        //         "children": [
-                        //             {
-                        //                 "label": "高新区",
-                        //                 "checked": true
-                        //             },
-                        //             {
-                        //                 "label": "bbbb1"
-                        //             }
-                        //         ]
-                        //     },
-                        //     {
-                        //         "label": "bbb1",
-                        //         "spread": true,
-                        //         "children": [
-                        //             {
-                        //                 "label": "aaaa1",
-                        //                 "checked": true
-                        //             }
-                        //         ]
-                        //     },
-                        //     {
-                        //         "label": "ccc1"
-                        //     }
-                        // ]
-                    },
-                    {
-                        "label": "停车场带电费",
-
-                    },
-
-                ]
-            },
-            {
-                "label": "暖气费",
-                "children": [
-                    {
-                        "label": "商铺",
-
-                        "checked": true
-                    },
-                    {
-                        "label": "办公楼",
-                        "checked": true
-                    }
-                ]
-            },
-            {
-                "label": "水费",
-                "children": [
-                    {
-                        "label": "代收水费",
-
-                        "checked": true
-                    },
-                    {
-                        "label": "水费分摊",
-                        "checked": true
-                    }
-                ]
-            },
-            {
-                "label": "停车费",
-            },
-            {
-                "label": "物业费",
-                "children": [
-                    {
-                        "label": "(商铺)物业费",
-
-                        "checked": true
-                    },
-                    {
-                        "label": "办公楼物业费",
-                        "checked": true
-                    },
-                    {
-                        "label": "商铺物业费",
-                        "checked": true
-                    }
-                ]
-            },
-            {
-                "label": "一次性其他费用",
-            },
-
-        ]
-
-        eleTree.render({
-            elem: '.ele1',
-            // url: "/tree",
-            // type: "post",
-            data: data,
-            showCheckbox: true,
-            contextmenuList: ["copy", "add", "edit", "remove"],
-            drag: true,
-            accordion: true
-        });
-
-
-        eleTree.on("add(data1)", function (data) {
-            console.log(data);
-            // 若后台修改，则重新获取后台数据，然后重载
-            // eleTree.reload(".ele1", {where: {data: JSON.stringify(data.data)}})
-        })
-        eleTree.on("edit(data1)", function (data) {
-            console.log(data);
-        })
-        eleTree.on("remove(data1)", function (data) {
-            console.log(data);
-        })
-        eleTree.on("toggleSlide(data1)", function (data) {
-            console.log(data);
-        })
-        eleTree.on("checkbox(data1)", function (data) {
-            console.log(data);
-        })
-
-
-        // $(".layui-btn").on("click",function() {
-        //     console.log(eleTree.checkedData(".ele2"));
-        // })
-
-    });
 </script>
 
 </html>

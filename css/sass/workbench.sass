@@ -9,17 +9,23 @@ $right-p: 16px/34px "myfont"
     height: 100px
     background: #fff
     padding:  30px  20px 20px
+    overflow: hidden
     .msg-left-box
-        width: 410px
-        margin-right: 5%
+        width: 500px
+        position: fixed
+        
+      
         .msg-left-imgbox
             width: 160px
             height: 100px
             margin-right: 24px
             background: #ccc
         .msg-left-dicon 
-            max-width: 230px
+            max-width: 300px
+  
         h3
+            height: 50px
+            overflow: hidden
             font: 30px/50px "myfont"
             margin-bottom: 10px
         p
@@ -29,10 +35,14 @@ $right-p: 16px/34px "myfont"
                 color: #1890ff
                 cursor: pointer
     .msg-right-box
+        margin-left: 500px
+
+        width: 65%
+        overflow: hidden
         li   
             position: relative 
-            min-width: 150px
-            padding: 10px  30px 0
+            min-width: 10%
+            padding: 10px  4% 0
             .msg-hose-title
                 font: $right-p
                 color: #666
@@ -59,33 +69,20 @@ $right-p: 16px/34px "myfont"
             content: ''
             height: 40px
             border-left: none
-// 顶部信息  适配 1366
+//顶部信息  适配 1366
 @media screen and (max-width: 1366px) 
     .g-top-msg 
         .msg-left-box
             width: 410px
-            margin-right: 5%
-            .msg-left-imgbox
-                width: 160px
-                height: 100px
-                margin-right: 24px
-                background: #ccc
-            .msg-left-dicon 
-                max-width: 230px
+        .msg-left-dicon 
+            overflow: hidden
             h3
-                font: 30px/50px "myfont"
+                font: 20px/50px "myfont"
                 margin-bottom: 10px
             p
-                font: 16px/40px "myfont"
-                span
-                    font-size: 14px
-                    color: #1890ff
-                    cursor: pointer
+                font: 14px/50px "myfont"
+           
         .msg-right-box
-            li   
-                position: relative 
-                max-width: 200px
-                min-width: 50px
-                padding: 10px  30px 0
-               
+            margin-left: 410px
+            
         
