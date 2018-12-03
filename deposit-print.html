@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>押金票据打印页面</title>
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/print.css">
+    <style>
+    </style>
+
+</head>
+
+<body>
+
+    <div class="print-layout">
+        <span id="btn" class="my189">
+            打印
+        </span>
+        <h3>押金收据</h3>
+        <div class="clearfix des-box">
+            <p class="fl">
+                <span>2017</span>年
+                <span>17</span>月
+                <span>17</span>日
+            </p>
+            <p class="fr">
+                <strong>NO: 00001</strong>
+            </p>
+        </div>
+        <table border="1" class="des-layout">
+
+            <tbody>
+                <tr>
+                    <td class="des-td1">客户名称</td>
+                    <td class="des-td2">里二狗</td>
+                    <td class="des-td1">客户编号</td>
+                    <td>00001</td>
+
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div class="clearfix ">
+                            <div class="des-title fl">
+                                摘&nbsp;&nbsp;&nbsp;&nbsp;要:
+                            </div>
+                            <div class="desbox fl">
+                                <span>兹收到客户交来押金款兹收到客户交来押金款兹收到客户交来押金款兹收到客户交来押金款兹收到客户交来押金款</span>
+                            </div>
+
+                        </div>
+                        <div class="des-twoline">
+                            (大写)
+                            <span>壹</span>仟
+                            <span></span>佰
+                            <span></span>拾
+                            <span></span>元
+                            <span></span>角
+                            <span></span>分 (
+                            <span>¥100000000</span>)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="foot-p">
+                        <p>
+                            <span></span>请妥善保管好此收据,凭此收据退还押金,影印件或涂改无效,遗失收据不予退还押金。</p>
+                        <p>
+                            <span></span>请妥善保管好此收据,凭此收据退还押金,影印件或涂改无效,遗失收据不予退还押金。</p>
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+        <ul class="clearfix foot-dec">
+            <li class="fl">单位盖章:
+                <input type="text" placeholder="">
+            </li>
+
+            <li class="fr">开票人:
+                <input type="text" placeholder="">
+            </li>
+        </ul>
+
+    </div>
+
+
+
+
+</body>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+<script>
+    var btn = document.getElementById("btn");
+
+    btn.onclick = function () {
+        btn.style.display = 'none';
+        print();
+        setTimeout(function () {
+            btn.style.display = 'block';
+        }, 20);
+    }
+</script>
+
+</html>

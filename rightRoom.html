@@ -42,6 +42,7 @@
 		<button class="dy-btn" lay-event="addfangke" data-type="reload" id="addTenant">添加房客</button>
 		<button class="dy-btn" lay-event="addyezhu" data-type="reload" id="addOwners">添加业主</button>
 		<button class="dy-btn add-meter" lay-event="chaobiao" data-type="reload">抄表</button>
+		<button class="dy-btn " lay-event="ruzhu" data-type="reload" id="again">重新计费</button>
 		<button class="dy-btn blue" lay-event="ruzhu" data-type="reload" id="check-in">入住</button>
 	</div>
 	<ul class="houseAnalysis_y">
@@ -101,8 +102,12 @@
 			var ifm = document.getElementById("mainiframe");
 			ifm.height = document.documentElement.clientHeight - 230;
 		}
-		window.onresize = function () { changeFrameHeight(); }
-		$(function () { changeFrameHeight(); });
+		window.onresize = function () {
+			changeFrameHeight();
+		}
+		$(function () {
+			changeFrameHeight();
+		});
 
 		$(".workbench a").attr("target", "workbench");
 		$(".workbench a")[0].click();
@@ -115,10 +120,36 @@
 			});
 		// 点击左上角 关闭弹框s
 		$(".layui-icon-close").click(function () {
-			parent.$(".rightBoxBg").animate({ right: '-100%' });
-			parent.$(".rightBoxDiv").animate({ right: '-1000px' });
+			parent.$(".rightBoxBg").animate({
+				right: '-100%'
+			});
+			parent.$(".rightBoxDiv").animate({
+				right: '-1000px'
+			});
 
 		})
+		// 点击重新计费 billing-again.html
+		$("#again").click(function () {
+			parent.layer.open({
+				type: 2,
+				title: '重新计费',
+				shadeClose: false, //点击遮罩关闭层
+				area: ['700px', '600px'],
+				content: 'billing-again.html',
+				end: function () {
+					location.reload(); //点击后刷新父页面
+				},
+				btn: ['保存', '取消'],
+				no: function (index, layero) {
+
+				},
+				yes: function (index, layero) {
+
+				}
+			});
+
+		})
+
 
 		// 点击添加入住
 		$("#check-in").click(function () {
@@ -216,7 +247,7 @@
 				no: function (index, layero) {
 
 				},
-				yes: function (index, layero) { }
+				yes: function (index, layero) {}
 
 			});
 		})
@@ -235,7 +266,7 @@
 				no: function (index, layero) {
 
 				},
-				yes: function (index, layero) { }
+				yes: function (index, layero) {}
 
 			});
 		})
@@ -252,7 +283,6 @@
 		//  点击业主的详情
 		//  点击业主的变更
 		//  点击业主的修改
-
 	</script>
 </body>
 

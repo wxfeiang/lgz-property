@@ -70,3 +70,73 @@
   border: none;
   background: none;
 }
+
+.des-box p {
+  font: 20px/40px "myfont";
+}
+
+.des-box p span {
+  font: 20px/30px "myfont";
+  padding: 0 10px;
+}
+
+.des-box p strong {
+  color: red;
+  font: bold 20px/30px "myfont";
+}
+
+.des-layout tbody tr td {
+  font: 16px/32px "myfont";
+}
+
+.des-layout tbody tr .des-title {
+  font-size: 18px;
+  width: 120px;
+  text-align: center;
+}
+
+.des-layout tbody tr .desbox {
+  width: 610px;
+  text-align: left;
+}
+
+.des-layout tbody tr .desbox span {
+  font: 16px/32px "myfont";
+  padding: 0 0 5px 0;
+  border-bottom: 1px solid #000;
+}
+
+.des-layout tbody tr .td-p {
+  font: 16px/32px "myfont";
+  padding: 0 0 5px 0;
+  border-bottom: 1px solid #000;
+}
+
+.des-layout tbody tr .des-twoline {
+  padding: 0 0 0 100px;
+  font-size: 18px;
+  text-align: justify;
+  padding-top: 15px;
+}
+
+.des-layout tbody tr .des-twoline span {
+  margin: 0 20px;
+}
+
+.des-layout tbody tr .foot-p p {
+  text-align: left;
+  font: 16px/18px "myfont";
+}
+
+.des-layout tbody tr .foot-p span {
+  display: inline-block;
+  margin: 0 5px 0 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #000;
+}
+
+.des-layout tbody .des-td1 {
+  width: 120px;
+}

@@ -6,6 +6,7 @@
 ## 批量导入 bulk-import.html   
 ## 附件页面  accessory.html  
 ##  打印   票据打印    print.html
+##  押金打印  deposit-print.html
 ##  车量管理   打印  car-print.html
 ## 临时性缴费的  打印  temporary-print.html
 ## 楼宇管理   buding-magent.html
@@ -217,6 +218,8 @@
 *  空置房间  的 编辑按钮   house-cutaway-add.htmll
 ###   右侧划出房间  rightRoom.html
 *      入住页面    house-checkin.html
+*       重新计费   billing-again.html
+
 >        点击选择 期初明细    house-checkin-select.html
 *      抄表       house-meter-add.html
 *     添加业主     rightAddoccupancy.html   

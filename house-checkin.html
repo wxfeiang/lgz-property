@@ -13,13 +13,14 @@
     <link rel="stylesheet" href="css/dy-layui-tabin.css">
     <title>房屋入住</title>
     <style>
-       .ruzhu {
+        .ruzhu {
             width: 440px !important;
         }
+
         .layui-icon-tips {
             position: absolute;
             top: 30px;
-            right: 60px;
+            left: 60px;
             cursor: pointer;
             color: #1890ff;
         }
@@ -37,7 +38,7 @@
                     <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请选择入住时间" class="layui-input" id="data1">
                     <i class="layui-icon layui-icon-date" style="position: absolute; right:10px;top: 10px;"></i>
                 </div>
-                <i class="layui-icon layui-icon-tips  " ></i>
+                <i class="layui-icon layui-icon-tips  "></i>
             </div>
 
 
@@ -79,6 +80,7 @@
                             <th>计算方式</th>
                             <th>收费价格</th>
                             <th>付款周期</th>
+                            <th>账单生成时间</th>
 
 
                         </tr>
@@ -89,6 +91,10 @@
                             <td>单价*用量</td>
                             <td>8461561</td>
                             <td>12月一付</td>
+                            <td class="td-120">
+                                <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="时间" class="layui-input datainput" id="data3">
+                                <i class="layui-icon layui-icon-date" style="position: absolute; right:18px;top: 16px;"></i>
+                            </td>
 
                         </tr>
                     </tbody>
@@ -96,8 +102,8 @@
             </div>
 
             <!-- 这是一条华丽的分割线 hr  -->
-            <hr style=" margin: 20px auto;width: 98%;color:#ccc; ">
-            <p>期初明细 &nbsp; &nbsp; &nbsp;
+            <!-- <hr style=" margin: 20px auto;width: 98%;color:#ccc; "> -->
+            <!--   <p>期初明细 &nbsp; &nbsp; &nbsp;
                 <span class="my189 addselt">+选择</span>
             </p>
             <div class="layui-form-item">
@@ -128,7 +134,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
 
 
 
@@ -152,7 +158,7 @@
             return false;
         });
         //  判断是否企业类型
-       
+
     });
 
     layui.use('laydate', function () {
@@ -163,9 +169,13 @@
             elem: '#data1', //指定元素
             theme: '#1890ff',
         });
+        laydate.render({
+            elem: '#data3', //指定元素
+            theme: '#1890ff',
+        });
     });
-    
-   
+
+
     //  点击选择
     $('.addselt').on('click', function () {
         top.layer.open({
@@ -182,7 +192,7 @@
             no: function (index, layero) {
 
             },
-            yes: function (index, layero) { }
+            yes: function (index, layero) {}
 
         });
     })
@@ -192,7 +202,7 @@
             $(this).parent().parent().remove();
         })
     })
-     //  鼠标划过  问号帮助显示 内容   
+    //  鼠标划过  问号帮助显示 内容   
 
     $(".layui-icon-tips ").hover(function () {
         stips =
@@ -200,9 +210,7 @@
             <div class="help-show" id="help-show"">
                     内容提示信息
              </div>
-		 		
-				
-		 		`;
+		 	`;
         help_show = layer.tips(
             stips,
             this, {
