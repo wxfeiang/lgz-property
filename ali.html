@@ -1,78 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="ce.styl">
     <title>并列多个大框</title>
     <style>
-        .warp{
+        .warp {
             width: 70%;
             margin: 50px auto;
             overflow: hidden;
 
         }
-        .box{
+
+        .box {
             width: 100%;
-            background:aquamarine;
+            background: aquamarine;
         }
-        li{
+
+        li {
             float: left;
             background: #ccc;
-            margin-bottom:20px;
-        
+            margin-bottom: 20px;
+
             width: 45%;
             height: 40px;
         }
-        li:nth-child(odd){
+
+        li:nth-child(odd) {
             float: right;
         }
-        .time h2{
+
+        .time h2 {
             font: 50px/50px "myfont";
         }
     </style>
 </head>
-<body>
- <div class="warp">
 
- 
-    <ul class="clearfix  box">
-        <li class=""></li>
-        <li class=""></li>
-        <li class=""></li>
-        <li class=""></li>
-    </ul>
-    <!-- 定时器 数组递增 -->
-    <button id="btn">点击</button>
-    <div class="time">
-        <h2 id="h2"></h2>
+<body>
+    <div class="warp">
+
+
+        <ul class="clearfix  box">
+            <li class=""></li>
+            <li class=""></li>
+            <li class=""></li>
+            <li class=""></li>
+        </ul>
+        <!-- 定时器 数组递增 -->
+        <button id="btn">点击</button>
+        <div class="time">
+            <h2 id="h2"></h2>
+        </div>
     </div>
-</div>
 </body>
 <script>
     var btn = document.getElementById("btn");
-    btn.onclick = function(){
-   
+    btn.onclick = function () {
+
         alltime();
     }
-    function alltime(){
+
+    function alltime() {
         clearTimeout(timer);
         var allnum = 80;
         var num = -1;
-        var timer =  setInterval(function(){
-           
-            document.getElementById("h2").innerHTML= num++ +1;
- 
-            if(num == allnum){
-                clearTimeout(timer);
-                
-            }
-           
-        },50)
-       
-    }
-   
+        var timer = setInterval(function () {
 
+            document.getElementById("h2").innerHTML = num++ + 1;
+
+            if (num == allnum) {
+                clearTimeout(timer);
+
+            }
+
+        }, 50)
+
+    }
 </script>
+
 </html>

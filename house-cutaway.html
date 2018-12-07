@@ -21,8 +21,6 @@
 			height: calc(82vh - 100px);
 			overflow-y: auto;
 		}
-
-		
 	</style>
 </head>
 
@@ -247,11 +245,11 @@
 
 						</div>
 					</li>
-				
+
 				</ul>
 			</div>
-				<!-- 没一层房间 -->
-				
+			<!-- 没一层房间 -->
+
 		</div>
 		<!-- <div class="rightBoxBg">
 			<div class="rightBoxDiv">
@@ -280,19 +278,19 @@
 
 			var ulWidth1 = windowWidth;
 			/*求每个房间的宽度*/
-			var ulWidth = $(".houseBox").eq(0).find("ul").width();//一层的宽度
+			var ulWidth = $(".houseBox").eq(0).find("ul").width(); //一层的宽度
 			$(".houseBox").each(function (i) {
 
-				var li_length = $(".houseBox").eq(i).find("li").length;//每层房间个数
-				var houseAllArear = 0;//每一层房间的总面积
+				var li_length = $(".houseBox").eq(i).find("li").length; //每层房间个数
+				var houseAllArear = 0; //每一层房间的总面积
 				$(".houseBox").eq(i).find("li").each(function (j) {
 					var houseArear = $(".houseBox").eq(i).find("li").eq(j).attr("houseArear")
-					houseAllArear += parseInt(houseArear); 
+					houseAllArear += parseInt(houseArear);
 				})
 
-				var li_width2 = 0;//记录除了最后一个房间外的其余房间的总宽度
+				var li_width2 = 0; //记录除了最后一个房间外的其余房间的总宽度
 				$(".houseBox").eq(i).find("li").each(function (j) {
-					var li_width1 = 0;//记录最终每个房间所占的宽度
+					var li_width1 = 0; //记录最终每个房间所占的宽度
 					var houseArear = $(".houseBox").eq(i).find("li").eq(j).attr("houseArear")
 					if (houseArear == 0) {
 						$(this).hide();
@@ -310,8 +308,12 @@
 		/*点击房间显示右边详情*/
 		$(".houseBigBox li").each(function () {
 			$(this).click(function (event) {
-				parent.$(".rightBoxBg").animate({ right: '0' });
-				parent.$(".rightBoxDiv").animate({ right: '0' });
+				parent.$(".rightBoxBg").animate({
+					right: '0'
+				});
+				parent.$(".rightBoxDiv").animate({
+					right: '0'
+				});
 
 
 			});
@@ -332,7 +334,7 @@
 				no: function (index, layero) {
 
 				},
-				yes: function (index, layero) { }
+				yes: function (index, layero) {}
 
 			});
 		})
@@ -355,7 +357,7 @@
 					no: function (index, layero) {
 
 					},
-					yes: function (index, layero) { }
+					yes: function (index, layero) {}
 
 				});
 			});
@@ -390,7 +392,7 @@
 				no: function (index, layero) {
 
 				},
-				yes: function (index, layero) { }
+				yes: function (index, layero) {}
 
 			});
 

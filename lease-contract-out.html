@@ -504,7 +504,7 @@
     <div class="btnBox_y">
         <input type="button" class="layui-btn zulinHasValue" lay-submit="" lay-filter="demo1" value="下一步" />
         <input type="button" class="layui-btn layui-btn-primary" lay-submit="" lay-filter="demo1" value="取消" />
-    </div> 
+    </div>
 
 </body>
 
@@ -523,14 +523,14 @@
 
     layui.use('laydate', function () {
         var laydate = layui.laydate;
-        for(var i=1;i<15;i++){
-        //执行一个laydate实例
-        laydate.render({
-            elem: '#data'+i, //指定元素
-            theme: '#1890ff',
-        });
+        for (var i = 1; i < 15; i++) {
+            //执行一个laydate实例
+            laydate.render({
+                elem: '#data' + i, //指定元素
+                theme: '#1890ff',
+            });
         }
-      
+
     });
 
     var num1 = 1;
@@ -586,21 +586,18 @@
             deletes();
             //执行一个laydate实例
             laydate.render({
-                elem: '#data-one' + num1,  //指定元素
+                elem: '#data-one' + num1, //指定元素
                 theme: '#1890ff',
             });
             //执行一个laydate实例
             laydate.render({
-                elem: '#data-two' + num1,  //指定元素
+                elem: '#data-two' + num1, //指定元素
                 theme: '#1890ff',
             });
-
             num1++;
             num2++;
         });
 
-
-        //  新添加的时间框 带解决
     });
     // 点击第五个框  添加按钮 lay-pay
 
@@ -651,12 +648,12 @@
             deletes();
             //执行一个laydate实例
             laydate.render({
-                elem: '#data-one' + num1,  //指定元素
+                elem: '#data-one' + num1, //指定元素
                 theme: '#1890ff',
             });
             //执行一个laydate实例
             laydate.render({
-                elem: '#data-two' + num1,  //指定元素
+                elem: '#data-two' + num1, //指定元素
                 theme: '#1890ff',
             });
 
@@ -673,11 +670,6 @@
                 $(this).parent().parent().parent().remove();
             })
         })
-    }
-    // 新增时间 
-
-    function datanum() {
-
     }
 </script>
 
