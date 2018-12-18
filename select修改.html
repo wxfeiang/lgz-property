@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>select 修改</title>
+    <link rel="stylesheet" href="./css/font.css">
+
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <style>
+        .layui-icon-down {
+            position: absolute;
+            right: 10px;
+            top: 35%;
+            margin-top: -10px;
+            cursor: pointer;
+            border-width: 6px;
+            border-top-color: transparent;
+            border-top-style: solid;
+            transition: all .3s;
+            -webkit-transition: all .3s;
+        }
+
+        .layui-form-select .layui-edge {
+            display: none;
+        }
+
+        .layui-edge {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layui-input-inline layui-form my-inline-block">
+        <div class="layui-inline">
+            <select name="interest" lay-filter="aihao">
+                <option value="">全部</option>
+                <option value="0">A全部</option>
+                <option value="1">B全部</option>
+
+            </select>
+            <i class="layui-icon layui-icon-down"></i>
+        </div>
+    </div>
+
+</body>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="lib/layui/layui.js"></script>
+<script>
+    layui.use(['form'], function () {
+        var layer = layui.layer,
+            form = layui.form;
+        var form = layui.form;
+        var table = layui.table;
+
+        //方法级渲染
+
+    });
+</script>
+
+</html>
