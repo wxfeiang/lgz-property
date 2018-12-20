@@ -25,7 +25,7 @@
                 表格内部按钮 测试
                 <button class="dy-btn dection" lay-event="addbloc">详情</button>
                 <button class="dy-btn newadd" lay-event="addbloc">处理</button>
-                <button class="dy-btn newadd" lay-event="addbloc">打印</button>
+                <button class="dy-btn print" lay-event="addbloc">打印</button>
                 <button class="dy-btn delete" lay-event="delete">附件</button>
             </div>
             <!-- 表格 -->
@@ -36,7 +36,7 @@
         <a class="layui-btn layui-btn-xs" lay-event="edit">派工</a>
         <a class="layui-btn layui-btn-xs" lay-event="edit">打印</a>
         <a class="layui-btn  layui-btn-xs" lay-event="del">附件</a>
-      </script>
+    </script>
 </body>
 
 
@@ -54,47 +54,83 @@
 
         //方法级渲染
         table.render({
-            elem: '#LAY_table_user'
-            , url: '/demo/table/user/'
-            , cols: [[
-            { checkbox: true, fixed: true }
-                , { field: 'id', title: '报修编号',  fixed: true }
-                , { field: 'sex', title: '业主/房客', }
-                , { field: 'username', title: '楼宇', }
-                , { field: 'sex', title: '房号', sort: true }
-                , { field: 'city', title: '电话', }
-                , { field: 'sign', title: '报修项目' }
-                , { field: 'sign', title: '故障描述' }
-                , { field: 'sign', title: '预约维修时间' }
-                , { field: 'sign', title: '报修时间' }
-                , { field: 'sign', title: '状态' }
-                , { field: 'sign', title: '照片' }
-                , { field: 'sign', title: '维修人' }
-                , { field: 'sign', title: '住户确认' }
-                , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
-            ]]
-            , id: 'testReload'
-            , page: true
-            , height: 315
+            elem: '#LAY_table_user',
+            url: '/demo/table/user/',
+            cols: [
+                [{
+                    checkbox: true,
+                    fixed: true
+                }, {
+                    field: 'id',
+                    title: '报修编号',
+                    fixed: true
+                }, {
+                    field: 'sex',
+                    title: '业主/房客',
+                }, {
+                    field: 'username',
+                    title: '楼宇',
+                }, {
+                    field: 'sex',
+                    title: '房号',
+                    sort: true
+                }, {
+                    field: 'city',
+                    title: '电话',
+                }, {
+                    field: 'sign',
+                    title: '报修项目'
+                }, {
+                    field: 'sign',
+                    title: '故障描述'
+                }, {
+                    field: 'sign',
+                    title: '预约维修时间'
+                }, {
+                    field: 'sign',
+                    title: '报修时间'
+                }, {
+                    field: 'sign',
+                    title: '状态'
+                }, {
+                    field: 'sign',
+                    title: '照片'
+                }, {
+                    field: 'sign',
+                    title: '维修人'
+                }, {
+                    field: 'sign',
+                    title: '住户确认'
+                }, {
+                    fixed: 'right',
+                    title: '操作',
+                    toolbar: '#barDemo',
+                    width: 150
+                }]
+            ],
+            id: 'testReload',
+            page: true,
+            height: 315
         });
 
-        var $ = layui.$, active = {
-            reload: function () {
-                var demoReload = $('#demoReload');
+        var $ = layui.$,
+            active = {
+                reload: function () {
+                    var demoReload = $('#demoReload');
 
-                //执行重载
-                table.reload('testReload', {
-                    page: {
-                        curr: 1 //重新从第 1 页开始
-                    }
-                    , where: {
-                        key: {
-                            id: demoReload.val()
+                    //执行重载
+                    table.reload('testReload', {
+                        page: {
+                            curr: 1 //重新从第 1 页开始
+                        },
+                        where: {
+                            key: {
+                                id: demoReload.val()
+                            }
                         }
-                    }
-                });
-            }
-        };
+                    });
+                }
+            };
 
         $('.demoTable .layui-btn').on('click', function () {
             var type = $(this).data('type');
@@ -148,7 +184,22 @@
             no: function (index, layero) {
 
             },
-            yes: function (index, layero) { }
+            yes: function (index, layero) {}
+
+        });
+    })
+    //  点击打印按钮 print
+    $('.print').on('click', function () {
+        top.layer.open({
+            type: 2,
+            title: ['打印'],
+            shadeClose: false, //点击遮罩关闭层
+            area: ['1000px', '600px'],
+            content: 'disp-dection.html',
+            // end: function () {
+            // 	location.reload(); //点击后刷新父页面
+            // },
+
 
         });
     })
@@ -188,7 +239,6 @@
             form.render('checkbox');
         });
     });
-
 </script>
 
 </html>

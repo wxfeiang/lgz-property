@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WebUploader演示</title>
+    <link rel="stylesheet" href="css/rest.css">
+    <!--  图片上传 -->
+    <link rel="stylesheet" type="text/css" href="lib/upload/css/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="lib/upload/css/style.css" />
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+
+    <style type="text/css">
+        .uploader {
+            border: 1px solid #ccc;
+            height: 200px;
+            margin: 15px;
+        }
+
+        .picker {
+            display: inline-block;
+            line-height: 1.428571429;
+            vertical-align: middle;
+            margin: 0 12px 0 0;
+        }
+
+        .picker .webuploader-pick {
+            padding: 6px 12px;
+            display: block;
+        }
+
+        .btn-wrap {
+            border-bottom: 1px solid #ccc;
+            padding: 5px;
+            overflow: hidden;
+        }
+
+        .btn-wrap .shangchuaninfo {
+            margin-top: 12px;
+        }
+
+        .uploader-list {
+            overflow: hidden;
+            padding-top: 10px;
+        }
+
+        .uploader-list>div {
+            position: relative;
+            float: left;
+            margin-right: 15px;
+        }
+
+        span.state {
+            margin-left: 15px;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .del {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            color: red;
+            height: 0;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .del span {
+            width: 30px;
+            float: right;
+            background: url(icons.png) no-repeat right 5px bottom;
+            text-indent: -9999px;
+        }
+
+        .del span:hover {
+            background: url(icons.png) no-repeat right 5px top 3px;
+        }
+
+        .uploaderSuccess {
+            top: 60px;
+            position: absolute;
+            width: 100%;
+            height: 40px;
+            background: url(./success.png) right top no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="">
+        <div id="uploader" class="uploader">
+            <div class="btn-wrap">
+                <div class="shangchuaninfo1 pull-left">信息</div>
+                <div class="btn pull-right">
+                    <div id="picker" class="picker">选择文件</div>
+                    <button id="ctlBtn" class="btn btn-primary">开始上传</button>
+                </div>
+            </div>
+            <div id="thelist" class="uploader-list">
+            </div>
+        </div>
+        <div id="uploader-demo" class="uploader">
+            <div class="btn-wrap">
+                <div class="shangchuaninfo2 pull-left">信息</div>
+                <div class="btn pull-right">
+                    <div id="filePicker" class="picker">选择图片</div>
+                    <button id="ctlPicBtn" class="btn btn-primary">开始上传</button>
+                </div>
+            </div>
+            <div id="fileList" class="uploader-list"></div>
+        </div>
+    </div>
+    <script src="js/jquery-1.7.2.min.js"></script>
+
+    <!-- 百度图片上传 -->
+    <script src="lib/upload/js/webuploader.js"></script>
+
+</body>
+<script>
+    jQuery(function () {
+        function uploader(picker, list, btn, shangchuaninfo) {
+            var $ = jQuery,
+                $list = $("#" + list),
+                $btn = $("#" + btn),
+                //优化retina,在retina下这个值是2
+                ratio = window.devicePixelRatio || 1,
+                //缩略图大小
+                thumbnailWidth = 100 * ratio,
+                thumbnailHeight = 100 * ratio,
+                state = "pending",
+                shangchuaninfo = $("." + shangchuaninfo),
+                fileCounter = 0,
+                uploader;
+            //初始化Web Uploader
+            uploader = WebUploader.create({
+                //不压缩image
+                resize: false,
+                //文件接收的服务器
+                server: "../../server/fileupload.php",
+                //选择文件的按钮
+                //pick: "#picker"
+                pick: "#" + picker,
+                accept: {
+                    title: "Images",
+                    extensions: "gif,jpg,jpeg,bmp,png",
+                    mimeTypes: "image/*"
+                }
+            })
+            //当有文件添加进来的时候
+            uploader.on("fileQueued", function (file) {
+                fileCounter++;
+                alert(fileCounter)
+                var $li = $(
+                    '<div id="' + file.id + '" class="file-item">' +
+                    '<img src="" alt="" />' +
+                    '<div class="text-center fileName">' + file.name + '</div>' +
+                    '<div class="del"><span>删除</span></div>' +
+                    //'<span class="uploaderSuccess"></span>'+
+                    '</div>'
+                );
+                var delwrap = $li.find(".del")
+                $li.on("mouseenter", function () {
+                    delwrap.stop().animate({
+                        height: 25
+                    })
+                })
+                $li.on("mouseleave", function () {
+                    delwrap.stop().animate({
+                        height: 0
+                    })
+                })
+                var delbtn = delwrap.find("span")
+                delbtn.on("click", function () {
+                    alert("hi")
+                    uploader.removeFile(file);
+
+                })
+
+                var $img = $li.find("img");
+                $list.append($li);
+                //创建缩略图
+                uploader.makeThumb(file, function (error, src) {
+                    if (error) {
+                        $img.replaceWith("<span>不能预览</span>");
+                        return
+                    }
+                    $img.attr("src", src);
+                }, thumbnailWidth, thumbnailHeight)
+                showfileNum()
+
+            });
+            console.log(uploader.getFiles().length);
+
+            function showfileNum() {
+                shangchuaninfo.text("共选择" + fileCounter + "个文件")
+            }
+
+            function removeFile(file) {
+                var $li = $('#' + file.id);
+                $li.off().find('.del span').off().end().remove();
+            }
+            uploader.on("fileDequeued", function (file) {
+                fileCounter--;
+                alert(fileCounter)
+                showfileNum()
+                removeFile(file);
+            })
+
+            //文件上传过程中创建进度条实时显示
+            uploader.on("uploadProgress", function (file, percentage) {
+                var $li = $("#" + file.id);
+                var $percent = $li.find(".progress .progress-bar");
+                //避免重复创建
+                if (!$percent.length) {
+                    $percent = $('<div class="progress progress-striped active">' +
+                        '<div class="progress-bar" role="progressbar" style="width:0%">' +
+                        '</div>' +
+                        '</div>').appendTo($li).find(".progress-bar");
+                }
+                //$li.find('span.state').text('上传中...')
+                $percent.css('width', percentage * 100 + '%')
+            });
+            uploader.on("uploadSuccess", function (file) {
+                $('#' + file.id).append('<span class="uploaderSuccess"></span>')
+                //$('#' + file.id).find('span.state').text("已上传")
+                //$('#' + file.id).find('span.state').addClass('green')
+            })
+            uploader.on("uploadError", function (file) {
+                $('#' + file.id).find(".fileName").append(
+                    ' <img src="error-c-o.png" alt="" style="width:20px;"/>')
+
+                //failnum.text(uploader.getStats().uploadFailNum)
+                //$('#' + file.id).find('span.state').text("上传出错")
+                //$('#' + file.id).find('span.state').addClass("red")
+            })
+            uploader.on("uploadComplete", function (file) {
+                $('#' + file.id).find('.progress').fadeOut();
+            })
+            uploader.on("all", function (type) {
+                if (type === 'startUpload') {
+                    state = 'uploading';
+                } else if (type === 'stopUpload') {
+                    state = 'paused'
+                } else if (type === 'uploadFinished') {
+                    state = 'done'
+                }
+                if (type === 'uploading') {
+                    $btn.text('暂停上传')
+                } else {
+                    $btn.text('开始上传')
+                }
+
+            })
+            $btn.on('click', function () {
+                if (state === 'uploading') {
+                    uploader.stop();
+                } else {
+                    uploader.upload();
+                    state = "done"
+                    //alert("click")
+                }
+            });
+            $(".retry").on("click", function () {
+
+                uploader.retry();
+                alert(uploader.retry().length)
+            })
+        }
+        uploader("picker", "thelist", "ctlBtn", "shangchuaninfo1");
+        uploader("filePicker", "fileList", "ctlPicBtn", "shangchuaninfo2");
+
+    })
+</script>
+
+</html>

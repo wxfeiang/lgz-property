@@ -167,6 +167,10 @@
 >     选择材料页面   select-materials.html       
 >     详情   workorder-dection.html
 *   统计分析     teport-analysis.html  (暂时没有)
+*   维修派工单   dispacorder.html
+*  维修报修单   disprepairs.html  
+*  业主维修处理情况表  disp-dection.html
+*   打印选择    print-select.html
 
 ### 巡更管理   prompter-manger.html
 *  没有
@@ -280,7 +284,7 @@
 * 退租
 * 详情
 * 作废
-* 打印  (暂时没有 )
+* 打印  
 
 ##  仪表管理 
 ##  收付款

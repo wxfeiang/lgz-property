@@ -1,0 +1,60 @@
+@page {
+  size: auto;
+  /* auto is the initial value */
+  margin: 0;
+  /* this affects the margin in the printer settings */
+}
+
+.layout {
+  margin: 0 auto;
+  padding: 50px 0 0 0;
+  width: 596px;
+  height: 842px;
+}
+
+.layout h3 {
+  text-align: center;
+  font: 24px/60px "Microsoft YaHei";
+}
+
+.layout table {
+  width: 100%;
+}
+
+.layout table tr td {
+  padding: 0 5px;
+  line-height: 40px;
+  font-size: 16px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.layout table tr .tab40 {
+  font-size: 16px;
+}
+
+.layout table tr .tab120 {
+  height: 120px;
+}
+
+.layout table tr .tabcont {
+  font: 16px/32px "Microsoft YaHei";
+}
+
+.layout button {
+  padding: 10px 20px;
+  color: #1890ff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.layout .foot span {
+  display: inline-block;
+  font: 16px/40px "Microsoft YaHei";
+  width: 30%;
+}
+
+#btn {
+  color: #1890ff;
+  cursor: pointer;
+}

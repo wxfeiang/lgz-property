@@ -99,9 +99,13 @@
 }
 
 .my-inline-block {
-	margin: 10px;
+	/*margin: 10px;*/
 	/* width: 175px; */
-	margin: 10px 45px 10px 10px;
+	margin: 10px 30px 10px 10px;
+}
+
+.dy-myselect {
+	width: 181px;
 }
 
 /* layui 文件上传修改 */
@@ -153,6 +157,14 @@
 	border-bottom: 2px solid #1890ff;
 }
 
+.layui-tab-brief>.layui-tab-title li {
+	padding: 0;
+}
+
+.layui-tab-brief>.layui-tab-title li a {
+	padding: 0 20px;
+}
+
 .layui-tab-brief>.layui-tab-title .layui-this {
 	color: #1890ff;
 }
@@ -166,7 +178,7 @@
 }
 
 .layui-tab {
-	margin: 0;
+	margin: 0px 0;
 }
 
 .layui-tab-content {
@@ -175,7 +187,7 @@
 
 .tab-warpbox {
 	margin-top: 150px;
-	/* padding: 0 20px; */
+	/*padding: 0 20px;*/
 	/* background: url("../images/fff.jpg") ; */
 }
 
@@ -262,10 +274,15 @@
 }
 
 .demoTable {
-	margin: 10px 0 20px;
+	margin: 0;
 }
 
 /*滚动条样式修改*/
+
+.ab-layer {
+	height: 500px;
+	overflow-y: auto;
+}
 
 .dy-scrol {
 	padding-right: 3px;
@@ -508,11 +525,16 @@ table>tbody>tr>td {
 }
 
 .table-min {
-	margin: 20px 20px 0;
+	margin: 10px 20px 0;
 	/* height: calc(100% - 200px);
 		overflow-y: auto; */
 	padding: 1px 0 0;
 	background: #fff;
+	border: 1px solid #e4e4e4;
+}
+
+.table-mintwo {
+	margin: 10px 20px 0;
 	border: 1px solid #e4e4e4;
 }
 
@@ -585,7 +607,6 @@ table>tbody>tr>td {
 	padding-left: 20px;
 	font: 14px/40px "myfont";
 	background: #e6e6e6;
-	border: 1px solid #e6e6e6;
 }
 
 .dy-tree span {
@@ -611,7 +632,7 @@ table>tbody>tr>td {
 
 .dy-treebox {
 	padding: 0 10px 10px;
-	height: 81vh;
+	height: 76vh;
 	overflow-y: auto;
 	overflow-x: hidden;
 	background: #fff;
@@ -726,11 +747,11 @@ table>tbody>tr>td {
 }
 
 .my-green {
-	color: rgba(51, 204, 0, 0.647058823529412);
+	color: rgba(51, 204, 0, 0.647058823529412) !important;
 }
 
 .my--red {
-	color: rgba(255, 51, 0, 0.647058823529412);
+	color: rgba(255, 51, 0, 0.647058823529412) !important;
 }
 
 .dy-warp-tab {
@@ -820,7 +841,7 @@ table>tbody>tr>td {
 	height: 50px;
 	line-height: 50px;
 	overflow: hidden;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #e4e4e4;
 	padding: 0 20px;
 }
 
@@ -946,12 +967,12 @@ table>tbody>tr>td {
 
 .floatTwo_y .layui-form-item {
 	float: left;
-	width: 300px;
+	width: 380px;
 	clear: none;
 }
 
 .floatTwo_y .layui-form-item .layui-input-block .layui-input {
-	width: 210px;
+	width: 275px;
 }
 
 .floatTwo_y .layui-form-item .layui-input-block .layui-input.haveBg {
@@ -977,8 +998,13 @@ table>tbody>tr>td {
 	margin: 0 10px;
 }
 
+.overDiv_y {
+	height: auto;
+	display: none;
+}
+
 .floatTwo_y .overDiv_y ul {
-	max-height: 130px;
+	max-height: 135px;
 	overflow-y: auto;
 }
 
@@ -1044,9 +1070,11 @@ table>tbody>tr>td {
 	cursor: pointer;
 }
 
-.topHouseOne_y i.active:before {
-	content: "\e602";
-}
+/*.topHouseOne_y i.active:before {*/
+
+/*content: "\e61a";*/
+
+/*}*/
 
 .topHouseOne_y .topMiaoshu p {
 	font-size: 14px;
@@ -1086,6 +1114,7 @@ table>tbody>tr>td {
 
 .btnBox_y {
 	position: fixed;
+	left: 0;
 	bottom: 0;
 	width: 100%;
 	height: 30px;
@@ -1108,5 +1137,15 @@ table>tbody>tr>td {
 }
 
 .btnBox_y .layui-btn-primary:hover {
-	border: 1px solid #1E9FFF;
+	border: 1px solid #ccc;
+}
+
+.font-fist {
+	font-family: myfont;
+}
+
+.font-two {
+	font-size: 12px;
+	color: #333;
+	font-family: myfont;
 }

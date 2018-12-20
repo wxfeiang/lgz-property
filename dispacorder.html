@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>维修派工单</title>
+    <link rel="stylesheet" href="css/rest.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/dorder.css">
+
+</head>
+
+<body>
+    <div class="layout">
+        <span id="btn">
+            打印
+        </span>
+
+
+        <h3>维修派工单</h3>
+
+        <table border="1">
+
+            <tr>
+
+                <td style="width:130px;">业主姓名</td>
+                <td style="width:90px">二狗子</td>
+                <td style="width:120px">业主房号</td>
+                <td style="width:90px">23156651</td>
+                <td style="width:120px">业主电话</td>
+                <td style="width:120px">18309469751</td>
+            </tr>
+            <tr>
+                <td>
+                    维修项目
+                </td>
+                <td colspan="5" class="tab120">
+                    这里是维修维修的内容
+                </td>
+            </tr>
+            <tr>
+                <td>预约时间</td>
+                <td colspan="2" class="tab40">2017-17-17 12.12</td>
+                <td>派工人</td>
+                <td colspan="2">里二狗</td>
+            </tr>
+            <tr>
+                <td>派出时间</td>
+                <td colspan="2" class="tab40">2019-19-19 12.12</td>
+                <td>派出人员</td>
+                <td colspan="2">二狗子</td>
+            </tr>
+        </table>
+    </div>
+
+
+</body>
+<script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+        btn.style.display = 'none';
+        print();
+        setTimeout(function () {
+            btn.style.display = 'block';
+        }, 20);
+    }
+</script>
+
+</html>
