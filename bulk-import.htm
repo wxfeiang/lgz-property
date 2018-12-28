@@ -15,21 +15,40 @@
 
     <title>批量导入</title>
     <style>
-        .drang-shouw{
+        .drang-shouw {
             position: absolute;
             top: 140px;
             left: 132px;
 
 
         }
-        .layui-icon{
+
+        .layui-icon {
             position: absolute;
             top: 70px;
             left: 223px;
             color: #1890ff !important;
 
         }
-    
+
+        .show2 {
+            display: none;
+            box-sizing: border-box;
+            padding: 88px 0 0 0;
+            width: 480px;
+            text-align: center;
+            height: 280px;
+            border: 1px dashed #ccc;
+
+        }
+
+        .show2 .filesname {
+            font: 18px/36px "myfont";
+        }
+
+        .show2 .dy-btn {
+            margin: 5px auto;
+        }
     </style>
 </head>
 
@@ -37,16 +56,24 @@
     <p class="bulk-title">
         上传文件,将智能识别业主信息并导入
         <span class="dy-btn">模板下载</span>
+        <span class="dy-btn you" id="you">右侧划出</span>
     </p>
     <div class="upload-warpbox">
         <!-- <div class="layui-upload-drag" id="test10">
                 <i class="layui-icon"></i>
                 <p>点击上传，或将文件拖拽到此处</p>
-            </div> -->
+            </div>  -->
         <div class="layui-upload-drag" id="test10">
-            <i class="layui-icon"></i>
-            <p class="drang-shouw"> 点击上传或<br> 将文件拖拽至此区域 支持xls、xlsx格式
+            <i class="layui-icon layui-icon-upload"></i>
+            <p class="drang-shouw"> 点击上传或
+                <br> 将文件拖拽至此区域 支持xls、xlsx格式
             </p>
+        </div>
+
+        <div class="show2">
+            <p class="filesname">某某文件</p>
+            <a class="dy-btn">重新上传</a>
+
         </div>
 
 
@@ -64,26 +91,42 @@
 <script src="lib/upload/js/upload.js"></script> -->
 
 <script>
-
     layui.use('upload', function () {
-        var $ = layui.jquery
-            , upload = layui.upload;
+        var $ = layui.jquery,
+            upload = layui.upload;
         //拖拽上传
         upload.render({
-            elem: '#test10'
-            , url: '/upload/'
-            , done: function (res) {
+            elem: '#test10',
+            url: '/upload/',
+            done: function (res) {
+
                 console.log(res)
+                $("#test10").hide();
+                $(".show2").show();
             }
         });
     })
 
     //
+    $(".you").click(function () {
+        top.layer.open({
+            type: 2,
+            shadeClose: true, //点击遮罩关闭层
+            title: '居右弹窗',
+            content: 'property-edit.html',
+            offset: 'r',
+            area: ["500px", "100%"],
+            anim: 2
+        });
+        // top.layui.admin.popupRight({
+        //     id: '#you',
+        //     success: function () {
+        //         $('#' + this.id).html('<div style="padding: 20px;">放入内容</div>');
+        //         //admin.view(this.id).render('system/xxx')
+        //     }
+        // });
 
-
-
-
-
+    });
 </script>
 
 </html>

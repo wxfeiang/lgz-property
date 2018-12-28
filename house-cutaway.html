@@ -74,11 +74,11 @@
 				<ul>
 					<li class="normal_li" houseArear="100">
 						<p>甘肃商贸有限公司甘肃商贸有限公司</p>
-						<span>1065.25m²/1101室</span>
+						<span>1065.25m²/1108室</span>
 						<span>2018-10-12到期</span>
 					</li>
 					<li class="vacancy_li" houseArear="500">
-						<p>1065.25m²/1102室</p>
+						<span>1065.25m²/1102室</span>
 						<span>空置</span>
 						<div class="clearfix">
 							<p class="dybtn-p fl edit-house">
@@ -94,7 +94,7 @@
 					</li>
 					<li class="rent_li" houseArear="400">
 						<p>甘肃商贸有限公司甘肃商贸有限公司</p>
-						<span>1065.25m²/1101室</span>
+						<span>1065.25m²/A室</span>
 						<span>2018-10-12到期</span>
 					</li>
 				</ul>
@@ -112,7 +112,7 @@
 						<span>2018-10-12到期</span>
 					</li>
 					<li class="vacancy_li" houseArear="500">
-						<p>1065.25m²/1102室</p>
+						<span>1065.25m²/1102室</span>
 						<span>空置</span>
 						<div class="clearfix">
 							<p class="dybtn-p fl edit-house">
@@ -134,7 +134,7 @@
 				</ul>
 			</div>
 			<!-- 没一层房间 -->
-			<div class="houseBox">
+			<!-- <div class="houseBox">
 				<div class="leftFloor">
 					<p>13层</p>
 					<span>150m²</span>
@@ -247,7 +247,7 @@
 					</li>
 
 				</ul>
-			</div>
+			</div> -->
 			<!-- 没一层房间 -->
 
 		</div>
@@ -305,6 +305,31 @@
 				})
 			})
 		})
+		//  输入框检索 \
+		// 查询所有的 房间号
+		// var seachArry = [];
+
+		var seachArry = $(".houseBox>ul>li");
+
+
+		$("#bloc_name").keyup(function () {
+			var seach_val = $("#bloc_name").val(); // 检索的val
+			seachArry.each(function (i) {
+				var ss = $(this).find("span").eq(0).html();
+				console.log(ss.split("/").splice(1).join().split("室").splice(0, 1).join());
+
+			})
+
+
+		})
+
+
+
+
+
+
+
+
 		/*点击房间显示右边详情*/
 		$(".houseBigBox li").each(function () {
 			$(this).click(function (event) {

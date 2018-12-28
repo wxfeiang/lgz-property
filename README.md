@@ -30,7 +30,7 @@
 *    详情       lease-contract-dection.html  
 *   批量导出  
 *   续租        lease-contract-on.html  (没有写)
-*   退租       lease-contract-out.html       (动态生成的 日期调用问题)
+*   退租       lease-contract-out.html       
 *   编辑     
 *   作废    和删除一样 ()
 *   打印

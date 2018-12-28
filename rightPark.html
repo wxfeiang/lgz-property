@@ -6,10 +6,12 @@
 	<title>右侧划出车辆页面</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
+	<link rel="stylesheet" href="./css/font.css">
 	<link rel="stylesheet" href="lib/layui/css/layui.css" />
 	<link rel="stylesheet" href="css/rest.css">
 	<link rel="stylesheet" href="css/public.css" />
 	<link rel="stylesheet" href="css/houseView.css" />
+	<link rel="stylesheet" href="css/iconfont.css">
 	<script src="js/jquery-1.7.2.min.js"></script>
 	<script src="lib/layui/layui.js"></script>
 	<style type="text/css">
@@ -17,6 +19,24 @@
 		body {
 			height: 100%;
 			overflow: hidden;
+		}
+
+		.null {
+			margin-top: 100px;
+			text-align: center;
+
+		}
+
+		.null .icon {
+			display: block;
+			font-size: 160px;
+			line-height: 160px;
+			color: rgba(102, 102, 102, 0.847058823529412);
+		}
+
+		.null .icon-decion {
+			margin-bottom: 26px;
+			font: 18px/24px "myfont";
 		}
 	</style>
 </head>
@@ -29,9 +49,9 @@
 		<button class="dy-btn  charge" lay-event="hebinhouse" data-type="reload">收费</button>
 	</div>
 	<div class="" style="padding-top: 10px;">
-		<!--  列表详细内容展示区域 -->
+
 		<p class="decion-tit">车辆详情</p>
-		<ul class="clearfix decion-box" >
+		<ul class="clearfix decion-box">
 			<li class="fl">
 				<span>项目:</span> 兰州高新区</li>
 			<li class="fl">
@@ -55,9 +75,16 @@
 				<span>租金:</span> 1000元</li>
 		</ul>
 		<div class="warp-show-list">
-			<!-- 表格 -->
+
 			<table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
 
+		</div>
+	</div>
+	<div class="null">
+		<div class="icon iconfont layui-dy-kongshuju-copy"></div>
+		<div class="icon-decion">该车位下还没有车辆</div>
+		<div>
+			<span class="dy-btn blue carport-car">立即添加</span>
 		</div>
 	</div>
 
@@ -79,41 +106,66 @@
 
 			//方法级渲染
 			table.render({
-				elem: '#LAY_table_user'
-				, url: '/demo/table/user/'
-				, cols: [[
+				elem: '#LAY_table_user',
+				url: '/demo/table/user/',
+				cols: [
+					[
 
-					, { field: 'id', title: '计费周期', sort: true, fixed: true }
-					, { field: 'username', title: '应收金额', }
-					, { field: 'sex', title: '优惠金额', sort: true }
-					, { field: 'city', title: '实收金额', }
-					, { field: 'sign', title: '支付方式' }
-					, { field: 'sign', title: '收费日期' }
-					, { field: 'sign', title: '操作员' }
-					, { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
-				]]
-				, id: 'testReload'
-				, page: true
-				, height: 315
+						, {
+							field: 'id',
+							title: '计费周期',
+							sort: true,
+							fixed: true
+						}, {
+							field: 'username',
+							title: '应收金额',
+						}, {
+							field: 'sex',
+							title: '优惠金额',
+							sort: true
+						}, {
+							field: 'city',
+							title: '实收金额',
+						}, {
+							field: 'sign',
+							title: '支付方式'
+						}, {
+							field: 'sign',
+							title: '收费日期'
+						}, {
+							field: 'sign',
+							title: '操作员'
+						}, {
+							fixed: 'right',
+							title: '操作',
+							toolbar: '#barDemo',
+							width: 150
+						}
+					]
+				],
+				id: 'testReload',
+				page: true,
+				height: 315
 			});
 
-			var $ = layui.$, active = {
-				reload: function () {
-					var demoReload = $('#demoReload');
+			var $ = layui.$,
+				active = {
+					reload: function () {
+						var demoReload = $('#demoReload');
 
-					//执行重载
-					table.reload('testReload', {
-						page: {
-							curr: 1 //重新从第 1 页开始
-						}
-						, where: {
-							key: {
-								id: demoReload.val()
+						//执行重载
+						table.reload('testReload', {
+							page: {
+								curr: 1 //重新从第 1 页开始
+							},
+							where: {
+								key: {
+									id: demoReload.val()
+								}
 							}
-						}
-					});
-				}
-			};
+						});
+					}
+				};
 
 			$('.demoTable .layui-btn').on('click', function () {
 				var type = $(this).data('type');
@@ -137,27 +189,41 @@
 				no: function (index, layero) {
 
 				},
-				yes: function (index, layero) { }
+				yes: function (index, layero) {}
 
 			});
 		})
 		// 点击删除
 
-        $(".delete").click(function () {
-            top.layer.confirm('信息删除后无法恢复,确定要继续吗？', {
-                title : '提示信息',
-                area: '520px',
-                btn: ['确定删除','取消'] ,
-                
-            });
+		$(".delete").click(function () {
+			top.layer.confirm('信息删除后无法恢复,确定要继续吗？', {
+				title: '提示信息',
+				area: '520px',
+				btn: ['确定删除', '取消'],
 
-        })
+			});
 
-   
+		})
+		// 点击立即添加
+		//  点击添加车辆
+		$('.carport-car').on('click', function () {
+			top.layer.open({
+				type: 2,
+				title: ['添加车辆'],
+				shadeClose: false, //点击遮罩关闭层
+				area: ['700px', '600px'],
+				content: 'carport-car.html',
+				// end: function () {
+				// 	location.reload(); //点击后刷新父页面
+				// },
+				btn: ['保存', '取消'],
+				no: function (index, layero) {
 
+				},
+				yes: function (index, layero) {}
 
-
-
+			});
+		})
 	</script>
 </body>
 

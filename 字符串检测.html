@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //字符串方法indexOf
+        var list = "adgfb"
+        var len = list.length;
+        var arr = [];
+        for (var i = 0; i < len; i++) {
+            //如果字符串中不包含目标字符会返回-1
+            if (list[i].indexOf(keyWord) >= 0) {
+                arr.push(list[i]);
+            }
+            return arr;
+        }
+    </script>
+</body>
+
+</html>

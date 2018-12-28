@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/rest.css">
+    <!--  图片上传 -->
+    <link rel="stylesheet" type="text/css" href="lib/upload/css/webuploader.css" />
+    <link rel="stylesheet" type="text/css" href="lib/upload/css/style.css" />
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/public.css">
+    <title>layui 图片放大显示 </title>
+    <style>
+        img {
+            width: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="layer-photos-demo" class="layer-photos-demo">
+        <img layer-src="http://pic.58pic.com/58pic/13/80/78/35V58PICrWD_1024.jpg" src="http://pic.58pic.com/58pic/13/80/78/35V58PICrWD_1024.jpg">
+        <img layer-src="http://pic33.photophoto.cn/20141022/0019032438899352_b.jpg" src="http://pic33.photophoto.cn/20141022/0019032438899352_b.jpg">
+    </div>
+
+</body>
+
+<script src="js/jquery-1.7.2.min.js "></script>
+<script src="lib/layui/layui.js "></script>
+
+
+
+<script>
+    //一般直接写在一个js文件中
+    layui.use(['layer', 'form', 'laypage', 'table'], function () {
+        var layer = layui.layer;
+        //调用示例
+        top.layer.photos({
+            photos: '#layer-photos-demo',
+            anim: 0 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+        });
+
+    });
+</script>
+
+</html>
